@@ -59,11 +59,11 @@ body:has(.vcd-stu) .sh {
 body:has(.vcd-stu) .sh::before {
   content: "";
   position: absolute;
-  right: -110px;
+  left: -120px;
   top: 58%;
   width: 360px;
   height: 175%;
-  transform: translateY(-50%) rotate(-10deg);
+  transform: translateY(-50%) rotate(10deg);
   background: url("../../cggs-crest-white.png") center / contain no-repeat;
   opacity: .12;
   pointer-events: none;
