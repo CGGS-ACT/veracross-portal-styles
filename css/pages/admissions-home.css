@@ -346,7 +346,8 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
 
 /* ---- Two columns under My application (900px and wider) ----
    Left: How to apply, with its photo joined underneath.
-   Right: photo joined on top of Enrolments news, then Talk to us. */
+   Right: photo joined on top of Enrolments news.
+   Talk to us runs across both columns underneath. */
 @media (min-width:900px) {
   .ae-grid:has(.vcd-adm) {
     display: grid !important;
@@ -385,12 +386,12 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
 
   .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.newsmark) {
     grid-column: 7 / 13;
-    grid-row: 5 / 6
+    grid-row: 5 / 7
   }
 
   .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.talkmark) {
-    grid-column: 7 / 13;
-    grid-row: 6 / 7
+    grid-column: 1 / 13;
+    grid-row: 7 / 8
   }
 }
 
@@ -422,9 +423,60 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   min-height: 220px
 }
 
-.ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark) {
+/* The news card stretches to the bottom of the How to apply photo */
+.ae-grid:has(.vcd-adm)>.portal-screen-block:has(.newsmark) :is(.screen-component, .component-rich-text, .text) {
   height: 100%;
+  box-sizing: border-box
+}
+
+/* News photos: <li><img src="..."><em>tag</em><b>title</b>text</li> */
+.ae-grid:has(.vcd-adm) .text.text:has(> .newsmark)>ul>li:has(> img) {
+  position: relative;
+  padding-left: 128px;
+  min-height: 80px
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .newsmark)>ul>li>img {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 112px !important;
+  height: 80px !important;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 0 !important
+}
+
+@media (max-width:520px) {
+  .ae-grid:has(.vcd-adm) .text.text:has(> .newsmark)>ul>li:has(> img) {
+    padding-left: 92px
+  }
+
+  .ae-grid:has(.vcd-adm) .text.text:has(> .newsmark)>ul>li>img {
+    width: 80px !important;
+    height: 64px !important
+  }
+}
+
+/* Talk to us: one thin strip across the page */
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark) {
   display: flex;
-  flex-direction: column;
-  justify-content: center
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 28px;
+  row-gap: 6px;
+  padding: 16px 28px !important
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark)>br {
+  display: none
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark)>strong:first-child {
+  margin: 0 !important;
+  font-size: 24px
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark)>a:first-of-type {
+  margin-left: auto
 }
