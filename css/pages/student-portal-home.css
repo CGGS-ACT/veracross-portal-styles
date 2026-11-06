@@ -79,8 +79,9 @@ body:has(.vcd-stu) .sh h1 {
 /* ---- white cards (bold first line = heading) ---- */
 body:has(.vcd-stu) .text.text:has(> strong:first-child) {
   background: #fff !important;
-  border-radius: 13px;
-  border-top: 5px solid #0d5257;
+  border-radius: 13px !important;
+  border: 0 !important;
+  border-top: 5px solid #0d5257 !important;
   padding: 24px 28px !important;
   box-sizing: border-box;
 }
@@ -92,7 +93,7 @@ body:has(.vcd-stu) .text.text:has(> strong:first-child) > strong:first-child {
   color: #0d5257;
 }
 
-body:has(.vcd-stu) .text.text:has(> .duemark) {
+body:has(.vcd-stu) .text.text.text:has(> .duemark) {
   border-top-color: #c23b63 !important;
 }
 
@@ -286,7 +287,7 @@ body:has(.vcd-stu) .text > ul.qt a[href*="directory"]::before {
 }
 
 /* ---- need help band ---- */
-body:has(.vcd-stu) .text.text:has(> .helpmark) {
+body:has(.vcd-stu) .text.text.text:has(> .helpmark) {
   background: #b6cbcd !important;
   border-top: 0 !important;
   display: grid;
