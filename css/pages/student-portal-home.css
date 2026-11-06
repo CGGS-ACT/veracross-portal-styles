@@ -1,0 +1,433 @@
+/*
+ * CGGS Veracross portal styles: pages/student-portal-home.css
+ * Student Portal home page (marker: .vcd-stu).
+ * Edit here, release a new version, then use CGGS Portal Tools > Update styles.
+ */
+
+/* ---- page frame ---- */
+body:has(.vcd-stu) .app-container {
+  background: transparent !important;
+}
+
+body:has(.vcd-stu) .screen-toolbar {
+  display: none !important;
+}
+
+body:has(.vcd-stu) .portal-screen-block .screen-component,
+body:has(.vcd-stu) .component-rich-text {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+body:has(.vcd-stu) .portal-screen-block {
+  margin-bottom: 20px;
+}
+
+body:has(.vcd-stu) .component-rich-text .text {
+  font-family: Roboto, Arial, sans-serif;
+  color: #414042;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 0 !important;
+}
+
+body:has(.vcd-stu) .vcd-note {
+  display: none;
+}
+
+body:has(.vcd-stu) .crumb {
+  font: 13px Roboto, sans-serif;
+  color: #7a7a7a;
+  margin: 4px 0 14px;
+}
+
+/* ---- welcome banner (title only, crest watermark) ---- */
+body:has(.vcd-stu) .sh {
+  position: relative;
+  overflow: hidden;
+  background: #0d5257;
+  border-radius: 13px;
+  min-height: 230px;
+  padding: 36px 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+}
+
+body:has(.vcd-stu) .sh::before {
+  content: "";
+  position: absolute;
+  right: -110px;
+  top: 58%;
+  width: 360px;
+  height: 175%;
+  transform: translateY(-50%) rotate(-10deg);
+  background: url("../../cggs-crest-white.png") center / contain no-repeat;
+  opacity: .12;
+  pointer-events: none;
+}
+
+body:has(.vcd-stu) .sh h1 {
+  position: relative;
+  margin: 0;
+  font: 700 52px/1.05 'Playfair Display', Georgia, serif;
+  color: #fff;
+}
+
+/* ---- white cards (bold first line = heading) ---- */
+body:has(.vcd-stu) .text.text:has(> strong:first-child) {
+  background: #fff !important;
+  border-radius: 13px;
+  border-top: 5px solid #0d5257;
+  padding: 24px 28px !important;
+  box-sizing: border-box;
+}
+
+body:has(.vcd-stu) .text.text:has(> strong:first-child) > strong:first-child {
+  display: block;
+  margin: 0 0 12px;
+  font: 700 24px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+}
+
+body:has(.vcd-stu) .text.text:has(> .duemark) {
+  border-top-color: #c23b63 !important;
+}
+
+body:has(.vcd-stu) .text ul.lk {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body:has(.vcd-stu) .text ul.lk > li {
+  list-style: none;
+  margin: 0;
+  border-bottom: 1px solid #ebe8e4;
+}
+
+body:has(.vcd-stu) .text ul.lk > li:last-child {
+  border-bottom: 0;
+}
+
+body:has(.vcd-stu) .text ul.lk a {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 0;
+  color: #414042 !important;
+  text-decoration: none !important;
+}
+
+body:has(.vcd-stu) .text ul.lk a::after {
+  content: "\203A";
+  color: #0d5257;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ---- section headings above native components ---- */
+body:has(.vcd-stu) .text > .sechd {
+  display: block;
+  font: 700 24px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin: 6px 0 -6px;
+}
+
+/* ---- native components as white cards ---- */
+body:has(.vcd-stu) .component-class-list-student,
+body:has(.vcd-stu) .component-my-events-student {
+  background: #fff;
+  border-radius: 13px;
+  padding: 18px 22px;
+  box-sizing: border-box;
+}
+
+body:has(.vcd-stu) .portal-screen-block:has(.component-class-list-student:empty),
+body:has(.vcd-stu) .portal-screen-block:has(.sechd):has(+ .portal-screen-block .component-class-list-student:empty) {
+  display: none !important;
+}
+
+body:has(.vcd-stu) .component-my-events-student .days {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+body:has(.vcd-stu) .component-my-events-student .day {
+  min-height: 110px !important;
+  border: 1px solid #ebe8e4 !important;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+body:has(.vcd-stu) .component-my-events-student .day-header {
+  background: #f2f1f0 !important;
+  color: #0d5257;
+  font: 500 12px Roboto, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border: 0 !important;
+}
+
+body:has(.vcd-stu) .component-my-events-student .day.today .day-header {
+  background: #0d5257 !important;
+  color: #fff;
+}
+
+/* ---- messages card ---- */
+body:has(.vcd-stu) .portal-screen-block:has(.component-unread-messages-count) {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
+
+body:has(.vcd-stu) .portal-screen-block:has(.component-unread-messages-count) .screen-component {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+body:has(.vcd-stu) .component-unread-messages-count {
+  flex: 1 1 auto;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  background: #fff;
+  border-radius: 13px;
+  border-top: 5px solid #c23b63;
+  padding: 24px 28px;
+  min-height: 230px;
+  box-sizing: border-box;
+  text-decoration: none !important;
+}
+
+body:has(.vcd-stu) .component-unread-messages-count .mail-icon i {
+  font-size: 34px;
+  color: #c23b63;
+}
+
+body:has(.vcd-stu) .component-unread-messages-count .notification-text {
+  font: 700 24px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+}
+
+/* ---- quick tiles (icon from the link) ---- */
+body:has(.vcd-stu) .text > ul.qt {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body:has(.vcd-stu) .text > ul.qt > li {
+  list-style: none;
+  margin: 0;
+  display: flex;
+}
+
+body:has(.vcd-stu) .text > ul.qt a {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 13px;
+  padding: 18px 12px;
+  font: 700 17px 'Playfair Display', Georgia, serif;
+  color: #0d5257 !important;
+  text-decoration: none !important;
+}
+
+body:has(.vcd-stu) .text > ul.qt a:hover {
+  background: #dbe6e7;
+}
+
+body:has(.vcd-stu) .text > ul.qt a::before {
+  content: "";
+  width: 28px;
+  height: 28px;
+  background: #0d5257;
+  -webkit-mask: var(--ic) center / contain no-repeat;
+  mask: var(--ic) center / contain no-repeat;
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E");
+}
+
+body:has(.vcd-stu) .text > ul.qt a[href*="schoolbox"]::before,
+body:has(.vcd-stu) .text > ul.qt a[href*="sboxprd"]::before {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h5v16H4zM10 4h5v16h-5zM16 5l4-1 2 15-4 1z'/%3E%3C/svg%3E");
+}
+
+body:has(.vcd-stu) .text > ul.qt a[href*="overview"]::before {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V10M10 20V4M16 20v-7M22 20H2'/%3E%3C/svg%3E");
+}
+
+body:has(.vcd-stu) .text > ul.qt a[href*="calendar"]::before {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18v15H3zM3 10h18M8 3v4M16 3v4'/%3E%3C/svg%3E");
+}
+
+body:has(.vcd-stu) .text > ul.qt a[href*="schedule"]::before {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z'/%3E%3C/svg%3E");
+}
+
+body:has(.vcd-stu) .text > ul.qt a[href*="messages"]::before {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 5h18v14H3zM3 6l9 7 9-7'/%3E%3C/svg%3E");
+}
+
+body:has(.vcd-stu) .text > ul.qt a[href*="directory"]::before {
+  --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c1-4 4-6 8-6s7 2 8 6'/%3E%3C/svg%3E");
+}
+
+/* ---- need help band ---- */
+body:has(.vcd-stu) .text.text:has(> .helpmark) {
+  background: #b6cbcd !important;
+  border-top: 0 !important;
+  display: grid;
+  grid-template-columns: 200px repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+body:has(.vcd-stu) .text .helpmark,
+body:has(.vcd-stu) .text .duemark {
+  display: none;
+}
+
+body:has(.vcd-stu) .text.text:has(> .helpmark) > strong:first-child {
+  align-self: center;
+  margin: 0;
+}
+
+body:has(.vcd-stu) .text.text:has(> .helpmark) > ul {
+  display: contents;
+}
+
+body:has(.vcd-stu) .text.text:has(> .helpmark) > ul > li {
+  list-style: none;
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 13px;
+  margin: 0;
+}
+
+body:has(.vcd-stu) .text.text:has(> .helpmark) > ul > li > :is(b, strong) {
+  display: block;
+  color: #0d5257;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+
+/* ---- "This week" heading on the events card ---- */
+body:has(.vcd-stu) .component-my-events-student::before {
+  content: "This week";
+  display: block;
+  margin: 4px 0 14px;
+  font: 700 24px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+}
+
+body:has(.vcd-stu) .component-my-events-student {
+  border-top: 5px solid #0d5257;
+  padding: 20px 24px;
+}
+
+/* ---- pop-out window for Veracross links (same as the Parent home) ---- */
+#vcdpop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(13, 82, 87, .45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 3vw
+}
+
+#vcdpop .vcdp-box {
+  background: #e6e3e0;
+  border-radius: 13px;
+  overflow: hidden;
+  width: min(1100px, 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .25)
+}
+
+#vcdpop .vcdp-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #0d5257;
+  color: #fff;
+  padding: 12px 18px
+}
+
+#vcdpop .vcdp-bar b {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  flex: 1;
+  color: #fff
+}
+
+#vcdpop .vcdp-new {
+  color: #fff !important;
+  font-size: 14px;
+  text-decoration: underline
+}
+
+#vcdpop .vcdp-x {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px
+}
+
+#vcdpop iframe {
+  opacity: 0;
+  transition: opacity .15s;
+  flex: 1;
+  border: 0;
+  width: 100%;
+  background: #e6e3e0
+}
+
+.vcd-popjs {
+  display: none !important
+}
+
+#vcdpop .vcdp-new {
+  display: none !important
+}
+
+/* ---- phones ---- */
+@media (max-width: 760px) {
+  body:has(.vcd-stu) .sh h1 {
+    font-size: 36px;
+  }
+
+  body:has(.vcd-stu) .text > ul.qt {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body:has(.vcd-stu) .component-my-events-student .days {
+    grid-template-columns: 1fr;
+  }
+
+  body:has(.vcd-stu) .text.text:has(> .helpmark) {
+    grid-template-columns: 1fr;
+  }
+}
