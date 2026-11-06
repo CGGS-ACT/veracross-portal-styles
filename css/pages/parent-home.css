@@ -1,0 +1,697 @@
+/*
+ * CGGS Veracross portal styles: pages/parent-home.css
+ * Parent Portal home page.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- s38 ---- */
+
+.ae-grid:has(.vcd-par) .component-rich-text .text .hero>.t {
+  flex: 0 0 44% !important;
+  max-width: 44% !important;
+  padding-right: 20px !important
+}
+
+.ae-grid:has(.vcd-par) .component-rich-text .text .hero>div.p {
+  position: relative;
+  flex: 1 1 auto !important;
+  background-size: cover !important;
+  background-position: 15% 35% !important
+}
+
+.ae-grid:has(.vcd-par) .component-rich-text .text div.p::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #0D5257 0, rgba(13, 82, 87, .5) 25px, rgba(13, 82, 87, 0) 70px);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1
+}
+
+@media (max-width:760px) {
+  .ae-grid:has(.vcd-par) .component-rich-text .text .hero>.t {
+    flex: 1 1 auto !important;
+    max-width: none !important
+  }
+}
+
+/* ---- s39 ---- */
+
+.nw {
+  white-space: nowrap
+}
+
+/* ---- s40 ---- */
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul>li>a:hover {
+  background: #dbe6e7 !important;
+  color: #0d5257 !important;
+  font-weight: 700 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul>li>a:hover::after {
+  transform: translateX(3px)
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul>li>a::after {
+  transition: transform .15s
+}
+
+/* ---- s41 ---- */
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a.vcd-ss::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 9l10-5 10 5-10 5-10-5z'/%3E%3Cpath d='M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5'/%3E%3Cpath d='M22 9v6'/%3E%3C/svg%3E") !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a.vcd-js::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3z'/%3E%3Cpath d='M21 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z'/%3E%3C/svg%3E") !important
+}
+
+/* ---- s42 ---- */
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a {
+  justify-content: flex-start !important
+}
+
+/* ---- s43 ---- */
+
+body:has(.vcd-par) .app-container {
+  background: transparent !important
+}
+
+body:has(.vcd-par) .screen-toolbar {
+  display: none !important
+}
+
+.vcd-par .vcd-note {
+  display: none
+}
+
+.vcd-par .hero {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 13px;
+  overflow: hidden;
+  background: #0d5257;
+  min-height: 220px
+}
+
+.vcd-par .hero .t {
+  flex: 1 1 380px;
+  padding: 38px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  box-sizing: border-box
+}
+
+.vcd-par .hero .h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 46px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: #fff
+}
+
+.vcd-par .hero .s {
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff
+}
+
+.vcd-par .hero .p {
+  flex: 1 1 320px;
+  min-height: 220px;
+  background: url("https://media.digistormhosting.com.au/cggs-au-act-853-website/content/images/hero-02.jpg") center/cover
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  border: 0 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 13px;
+  padding: 16px 10px;
+  min-height: 104px;
+  height: 100%;
+  box-sizing: border-box;
+  color: #0d5257 !important;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none !important;
+  line-height: 1.25
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a:hover {
+  background: #dbe6e7
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a::before {
+  content: "";
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #e3ecec url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6'/%3E%3C/svg%3E") center/20px no-repeat;
+  flex: none
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="edstart"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='6' width='18' height='12' rx='2'/%3E%3Cpath d='M3 10h18M7 15h3'/%3E%3C/svg%3E")
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="flexischools"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 3-3 7h3v11'/%3E%3C/svg%3E")
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="valoursport"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 3l-5 3 2 5 3-1v11h8V10l3 1 2-5-5-3a4 4 0 0 1-8 0z'/%3E%3C/svg%3E")
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="clipboard"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z'/%3E%3C/svg%3E")
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="transport"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='3' width='16' height='15' rx='2'/%3E%3Cpath d='M4 11h16M8 21v-3M16 21v-3'/%3E%3C/svg%3E")
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="id=1009"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='7' width='16' height='13' rx='2'/%3E%3Cpath d='M9 7V4h6v3M12 10v7M8.5 13.5h7'/%3E%3C/svg%3E")
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="atlassian"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17h.01'/%3E%3C/svg%3E")
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-par, .vcd-news)):has(+ .portal-screen-block :is(.component-my-children-parent, .component-my-events-parent)) {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-par, .vcd-news)):has(+ .portal-screen-block :is(.component-my-children-parent, .component-my-events-parent)) .component-rich-text .text {
+  background: #fff !important;
+  border-radius: 13px 13px 0 0 !important;
+  margin: 0 !important;
+  padding: 22px 24px 10px !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-par, .vcd-news)):has(+ .portal-screen-block :is(.component-my-children-parent, .component-my-events-parent)) .component-rich-text .text,
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-par, .vcd-news)):has(+ .portal-screen-block :is(.component-my-children-parent, .component-my-events-parent)) .component-rich-text .text * {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #0d5257 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(:is(.component-my-children-parent, .component-my-events-parent)) {
+  padding-top: 0 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(:is(.component-my-children-parent, .component-my-events-parent)) :is(.component-my-children-parent, .component-my-events-parent) {
+  background: #fff !important;
+  border: 0 !important;
+  border-radius: 0 0 13px 13px !important;
+  padding: 0 24px 24px !important
+}
+
+.component-my-events-parent .days {
+  border-radius: 8px !important;
+  overflow: hidden !important
+}
+
+.component-my-events-parent .day {
+  border-radius: 0 !important;
+  border-color: #e6e3e0 !important
+}
+
+.component-my-events-parent .day-header {
+  background: #f2f1f0 !important;
+  color: #414042 !important;
+  font-weight: 700 !important
+}
+
+.component-my-events-parent .day.today .day-header,
+.component-my-events-parent .today .day-header {
+  background: #ecbcc5 !important
+}
+
+.vcd-news {
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+.vcd-news .nh {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px
+}
+
+.vcd-news .nh .t {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0d5257
+}
+
+.vcd-news .nh a {
+  font-size: 13px;
+  color: #0d5257
+}
+
+.vcd-news .vcd-f {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px
+}
+
+.vcd-news .vcd-f button {
+  font: 400 13px Roboto, Arial, sans-serif;
+  padding: 7px 12px;
+  border: 1px solid #6e979a;
+  border-radius: 4px;
+  color: #0d5257;
+  background: #fff;
+  cursor: pointer
+}
+
+.vcd-news .vcd-f button.on {
+  background: #0d5257;
+  color: #fff;
+  border-color: #0d5257
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text ul {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 12px;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  border: 0 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a {
+  display: grid !important;
+  grid-template-columns: 58px 1fr 18px;
+  column-gap: 14px;
+  row-gap: 4px;
+  align-items: center;
+  background: #fff;
+  border-radius: 13px;
+  padding: 14px 16px;
+  text-decoration: none !important;
+  color: #0d5257 !important;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a:hover {
+  background: #f7f9f9
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a strong {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  height: 58px;
+  border-radius: 4px;
+  background: #b6cbcd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  padding: 0 6px;
+  box-sizing: border-box
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li:first-child a strong {
+  background: #ecbcc5
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a em,
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a i {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  font-style: normal;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: #f2f1f0;
+  padding: 3px 8px;
+  border-radius: 4px
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a::after {
+  content: "";
+  grid-column: 3;
+  grid-row: 1 / 3;
+  width: 16px;
+  height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text {
+  background: #fff !important;
+  border-radius: 13px !important;
+  border-top: 5px solid #0d5257 !important;
+  padding: 20px 22px 10px !important;
+  overflow: hidden
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>strong {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: #0d5257;
+  margin-bottom: 6px
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul>li {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul>li>a {
+  display: flex !important;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eceae7;
+  color: #414042 !important;
+  text-decoration: none !important;
+  font-size: 14px
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul>li:last-child>a {
+  border-bottom: 0
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul>li>a:hover {
+  color: #0d5257 !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text>ul>li>a::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  flex: none;
+  align-self: center;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat
+}
+
+.vcd-news .vcd-note {
+  display: none
+}
+
+body:has(.vcd-par) .component-my-children-parent {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 12px
+}
+
+body:has(.vcd-par) .component-my-children-parent .child {
+  display: grid !important;
+  grid-template-columns: 56px 1fr auto;
+  column-gap: 14px;
+  row-gap: 8px;
+  align-items: center;
+  position: relative !important;
+  background: #fff;
+  border: 1px solid #eceae7 !important;
+  border-radius: 13px;
+  padding: 16px !important;
+  margin: 0 !important;
+  min-height: 0 !important
+}
+
+body:has(.vcd-par) .component-my-children-parent .child-tooltip {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  align-self: start;
+  position: static !important;
+  display: block;
+  margin: 0 !important
+}
+
+body:has(.vcd-par) .component-my-children-parent .vx-child-photo {
+  position: static !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  border: 0 !important;
+  margin: 0 !important;
+  object-fit: cover;
+  display: block;
+  background: #b6cbcd
+}
+
+body:has(.vcd-par) .component-my-children-parent .vx-child-name {
+  grid-column: 2;
+  grid-row: 1;
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #0d5257 !important;
+  line-height: 1.2
+}
+
+body:has(.vcd-par) .component-my-children-parent .vx-page-tabs {
+  grid-column: 3;
+  grid-row: 1;
+  position: static !important;
+  display: flex !important;
+  flex-direction: row-reverse;
+  gap: 4px;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  float: none !important
+}
+
+body:has(.vcd-par) .component-my-children-parent .vx-page-tabs::after {
+  display: none !important
+}
+
+body:has(.vcd-par) .component-my-children-parent .vx-page-tabs__tab {
+  float: none !important;
+  margin: 0 !important;
+  padding: 3px 8px !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  color: #5d5c5f !important;
+  font-size: 12px !important;
+  cursor: pointer
+}
+
+body:has(.vcd-par) .component-my-children-parent .vx-page-tabs__tab--active {
+  background: #f2f1f0 !important;
+  color: #0d5257 !important
+}
+
+body:has(.vcd-par) .component-my-children-parent .sections {
+  grid-column: 2 / 4;
+  grid-row: 2;
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px
+}
+
+body:has(.vcd-par) .component-my-children-parent .section {
+  margin: 0 !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-par) .component-my-children-parent .child-link-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 !important
+}
+
+body:has(.vcd-par) .component-my-children-parent .child-link {
+  display: inline-flex !important;
+  width: auto !important;
+  flex: none !important;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  background: #f2f1f0;
+  text-decoration: none !important;
+  font-size: 12px !important;
+  margin: 0 !important;
+  color: #0d5257 !important
+}
+
+body:has(.vcd-par) .component-my-children-parent .child-link:hover {
+  background: #dbe6e7
+}
+
+body:has(.vcd-par) .component-my-children-parent .child-link i {
+  font-size: 12px
+}
+
+body:has(.vcd-par) .component-my-children-parent .vx-subtitle {
+  display: inline;
+  font-size: 11px !important;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #5d5c5f !important;
+  margin-right: 6px
+}
+
+body:has(.vcd-par) .component-my-children-parent .location-description {
+  font-size: 13px;
+  color: #5d5c5f
+}
+
+/* ---- s44 ---- */
+
+#vcdpop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(13, 82, 87, .45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 3vw
+}
+
+#vcdpop .vcdp-box {
+  background: #e6e3e0;
+  border-radius: 13px;
+  overflow: hidden;
+  width: min(1100px, 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .25)
+}
+
+#vcdpop .vcdp-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #0d5257;
+  color: #fff;
+  padding: 12px 18px
+}
+
+#vcdpop .vcdp-bar b {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  flex: 1;
+  color: #fff
+}
+
+#vcdpop .vcdp-new {
+  color: #fff !important;
+  font-size: 14px;
+  text-decoration: underline
+}
+
+#vcdpop .vcdp-x {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px
+}
+
+#vcdpop iframe {
+  opacity: 0;
+  transition: opacity .15s;
+  flex: 1;
+  border: 0;
+  width: 100%;
+  background: #e6e3e0
+}
+
+.vcd-popjs {
+  display: none !important
+}
+
+#vcdpop .vcdp-new {
+  display: none !important
+}
+
+/* ---- s45 ---- */
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="profile"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10' cy='8' r='4'/%3E%3Cpath d='M3 20c0-3.3 3.1-6 7-6 1.2 0 2.3.2 3.3.7'/%3E%3Cpath d='M18.5 13.5l2 2L15 21h-2v-2z'/%3E%3C/svg%3E") !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="logistics_request"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='5' width='17' height='15' rx='2.5'/%3E%3Cpath d='M8 3v4M16 3v4M3.5 10h17M10 13.5l4 4M14 13.5l-4 4'/%3E%3C/svg%3E") !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="grades"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5h16v11H9l-5 4z'/%3E%3Cpath d='M8 9h8M8 12.5h5'/%3E%3C/svg%3E") !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="senior-school-information"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h9l4 4v14H6z'/%3E%3Cpath d='M15 3v4h4'/%3E%3Cpath d='M12.5 11.5v5.5M12.5 8.6v.01'/%3E%3C/svg%3E") !important
+}
+
+.ae-grid:has(.vcd-par)>.portal-screen-block:has(.component-rich-text .text > ul):not(:has(strong)) .component-rich-text .text>ul>li>a[href*="elc-junior-school"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h9l4 4v14H6z'/%3E%3Cpath d='M15 3v4h4'/%3E%3Cpath d='M12.5 11.5v5.5M12.5 8.6v.01'/%3E%3C/svg%3E") !important
+}

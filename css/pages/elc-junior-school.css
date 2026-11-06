@@ -1,0 +1,580 @@
+/*
+ * CGGS Veracross portal styles: pages/elc-junior-school.css
+ * Parent ELC & Junior School Information page.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- s55 ---- */
+
+body:has(.vcd-jsi) .app-container {
+  background: transparent !important
+}
+
+body:has(.vcd-jsi) .screen-toolbar {
+  display: none !important
+}
+
+body:has(.vcd-jsi) .portal-screen-block .screen-component,
+body:has(.vcd-jsi) .component-rich-text {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-jsi) .component-rich-text .text {
+  padding: 0 !important;
+  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #414042
+}
+
+body:has(.vcd-jsi) .portal-screen-block {
+  margin-bottom: 20px
+}
+
+.vcd-note {
+  display: none
+}
+
+.jsi a,
+.jsi a:visited {
+  color: #0D5257
+}
+
+.jsi .pf {
+  font-family: 'Playfair Display', Georgia, serif
+}
+
+.jsi .crumb {
+  font-size: 13px;
+  color: #5d5c5f;
+  margin: 4px 0 16px
+}
+
+.jsi .crumb a {
+  color: #5d5c5f
+}
+
+.jsi .hd {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px
+}
+
+.jsi .hd h1 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40px;
+  line-height: 1.05;
+  color: #0D5257;
+  font-weight: 700
+}
+
+.jsi .hd .sub {
+  font-size: 16px;
+  color: #5d5c5f;
+  margin-top: 6px
+}
+
+.jsi .hd .ph {
+  width: 260px;
+  height: 120px;
+  border-radius: 13px;
+  background: url(https://media.digistormhosting.com.au/cggs-au-act-853-website/content/images/Early_Learning_07.jpg) center 35%/cover;
+  flex: none
+}
+
+.jsi .panel {
+  background: #fff;
+  border-radius: 13px;
+  padding: 24px 28px;
+  border-top: 5px solid #0D5257;
+  margin-bottom: 20px
+}
+
+.jsi .panel h2 {
+  margin: 0 0 14px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  color: #0D5257;
+  font-weight: 700
+}
+
+.jsi .tl {
+  display: flex
+}
+
+.jsi .step {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  padding-top: 22px
+}
+
+.jsi .step::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #b6cbcd
+}
+
+.jsi .step::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #0D5257;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px #0D5257
+}
+
+.jsi .step.pink::after {
+  background: #ecbcc5;
+  box-shadow: 0 0 0 1px #c98a97
+}
+
+.jsi .step b {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  color: #0D5257
+}
+
+.jsi .step span {
+  font-size: 13px;
+  line-height: 1.5;
+  padding-right: 14px
+}
+
+.jsi .away {
+  background: #ecbcc5;
+  border-radius: 13px;
+  padding: 22px 26px;
+  border-top: 5px solid #9e3a50;
+  margin-bottom: 20px
+}
+
+.jsi .away .t {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px
+}
+
+.jsi .away h2 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  color: #7a2638;
+  font-weight: 700
+}
+
+.jsi .away .ways {
+  display: flex;
+  gap: 12px
+}
+
+.jsi .btn {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none !important;
+  color: #0D5257 !important;
+  font-size: 13px;
+  cursor: pointer
+}
+
+.jsi .btn b {
+  color: #0D5257;
+  font-size: 16px
+}
+
+.jsi .btn:hover {
+  background: #dbe6e7
+}
+
+.jsi .app {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(13, 82, 87, .45);
+  align-items: center;
+  justify-content: center;
+  padding: 20px
+}
+
+.jsi .app.on {
+  display: flex
+}
+
+.jsi .app .box {
+  background: #fff;
+  border-radius: 13px;
+  width: 420px;
+  max-width: 100%;
+  border-top: 5px solid #0D5257;
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+.jsi .app .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.jsi .app h2 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  color: #0D5257
+}
+
+.jsi .app .x {
+  font-size: 28px;
+  line-height: 1;
+  text-decoration: none !important;
+  cursor: pointer
+}
+
+.jsi .app .store {
+  background: #0D5257;
+  color: #fff !important;
+  flex: none
+}
+
+.jsi .app .store b {
+  color: #fff
+}
+
+.jsi .app .store:hover {
+  background: #414042
+}
+
+.jsi .tr {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #eceae7;
+  font-size: 14px;
+  line-height: 1.5
+}
+
+.jsi .tr:last-child {
+  border-bottom: 0
+}
+
+.jsi .tr b {
+  color: #0D5257;
+  font-size: 15px
+}
+
+.jsi .go {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 4px;
+  border: 1px solid #0D5257;
+  text-decoration: none !important;
+  font-size: 13px;
+  white-space: nowrap
+}
+
+.jsi .go:hover {
+  background: #dbe6e7
+}
+
+body:has(.vcd-jsi) .text:has(> ul.chips)>strong {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: #0D5257;
+  margin: 0 0 10px
+}
+
+body:has(.vcd-jsi) .text>ul.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsi) .text>ul.chips li {
+  margin: 0;
+  display: block;
+  list-style: none
+}
+
+body:has(.vcd-jsi) .text>ul.chips a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 4px;
+  background: #fff;
+  color: #0D5257;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid #d6d3cf
+}
+
+body:has(.vcd-jsi) .text>ul.chips a::after {
+  content: "\00a0\203A"
+}
+
+body:has(.vcd-jsi) .text>ul.chips a:hover {
+  background: #dbe6e7;
+  border-color: #0D5257;
+  font-weight: 700
+}
+
+@media (max-width:760px) {
+
+  .jsi .tl,
+  .jsi .away .ways {
+    flex-direction: column;
+    gap: 12px
+  }
+
+  .jsi .tr {
+    grid-template-columns: 1fr
+  }
+
+  .jsi .hd .ph {
+    display: none
+  }
+}
+
+/* ---- s56 ---- */
+
+body:has(.vcd-jsi) .ae-grid>.portal-screen-block:has(.vcd-jsi)+.portal-screen-block:has(.component-photo-link) {
+  align-self: flex-end
+}
+
+body:has(.vcd-jsi) .portal-screen-block:has(.component-photo-link) .screen-component {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-jsi) .component-photo-link,
+body:has(.vcd-jsi) .component-photo-link .photo-thumbnail {
+  border-radius: 13px;
+  overflow: hidden
+}
+
+body:has(.vcd-jsi) .component-photo-link .photo-overlay {
+  display: none !important
+}
+
+body:has(.vcd-jsi) .jsi .hd {
+  margin-bottom: 0
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark),
+body:has(.vcd-jsi) .text.text:has(> .trmark) {
+  background: #fff !important;
+  border-radius: 13px !important;
+  padding: 24px 28px !important;
+  border-top: 5px solid #0D5257 !important
+}
+
+body:has(.vcd-jsi) .text.text:has(> .awaymark) {
+  background: #ecbcc5 !important;
+  border-radius: 13px !important;
+  padding: 22px 26px !important;
+  border-top: 5px solid #9e3a50 !important
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark)>strong,
+body:has(.vcd-jsi) .text.text:has(> .trmark)>strong,
+body:has(.vcd-jsi) .text.text:has(> .awaymark)>strong {
+  display: block;
+  margin: 0 0 14px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0D5257
+}
+
+body:has(.vcd-jsi) .text.text:has(> .awaymark)>strong {
+  color: #7a2638
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark)>ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark)>ul>li {
+  flex: 1 1 0;
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 22px 14px 0 0;
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.5
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark)>ul>li::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #b6cbcd
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark)>ul>li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #0D5257;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px #0D5257
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark)>ul>li:has(em, i)::after {
+  background: #ecbcc5;
+  box-shadow: 0 0 0 1px #c98a97
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark)>ul>li :is(em, i) {
+  font-style: normal
+}
+
+body:has(.vcd-jsi) .text.text:has(> .tlmark)>ul>li> :is(b, strong) {
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0D5257
+}
+
+body:has(.vcd-jsi) .text.text:has(> .awaymark)>ul {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsi) .text.text:has(> .awaymark)>ul>li {
+  flex: 1 1 0;
+  display: flex;
+  margin: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsi) .text.text:has(> .awaymark)>ul>li>a {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none !important;
+  color: #0D5257 !important;
+  font-size: 13px
+}
+
+body:has(.vcd-jsi) .text.text:has(> .awaymark)>ul>li>a :is(b, strong) {
+  font-size: 16px;
+  color: #0D5257
+}
+
+body:has(.vcd-jsi) .text.text:has(> .awaymark)>ul>li>a:hover {
+  background: #dbe6e7
+}
+
+body:has(.vcd-jsi) .text.text:has(> .trmark)>ul {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsi) .text.text:has(> .trmark)>ul>li {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid #eceae7;
+  font-size: 14px;
+  line-height: 1.5;
+  list-style: none
+}
+
+body:has(.vcd-jsi) .text.text:has(> .trmark)>ul>li:last-child {
+  border-bottom: 0
+}
+
+body:has(.vcd-jsi) .text.text:has(> .trmark)>ul>li> :is(b, strong) {
+  font-size: 15px;
+  color: #0D5257
+}
+
+body:has(.vcd-jsi) .text.text:has(> .trmark)>ul>li>a {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 4px;
+  border: 1px solid #0D5257;
+  color: #0D5257;
+  text-decoration: none !important;
+  font-size: 13px;
+  white-space: nowrap
+}
+
+body:has(.vcd-jsi) .text.text:has(> .trmark)>ul>li>a:hover {
+  background: #dbe6e7
+}
+
+@media (max-width:760px) {
+
+  body:has(.vcd-jsi) .text.text:has(> .tlmark)>ul,
+  body:has(.vcd-jsi) .text.text:has(> .awaymark)>ul {
+    flex-direction: column
+  }
+
+  body:has(.vcd-jsi) .text.text:has(> .trmark)>ul>li {
+    grid-template-columns: 1fr;
+    gap: 6px
+  }
+
+  body:has(.vcd-jsi) .portal-screen-block:has(.component-photo-link) {
+    display: none !important
+  }
+}
+
+body:has(.vcd-jsi) .text.text:has(> .awaymark)>ul>li>a> :is(b, strong) {
+  display: block
+}

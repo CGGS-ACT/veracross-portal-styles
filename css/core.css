@@ -1,0 +1,91 @@
+/*
+ * CGGS Veracross portal styles: core.css
+ * Core: equal-height cards, locked design blocks, breadcrumb and menu fix. Every page.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- eqh ---- */
+
+.ae-grid>.portal-screen-block:has(> .screen-component > .component-rich-text > .text) {
+  display: flex !important;
+  flex-direction: column !important
+}
+
+.ae-grid>.portal-screen-block:has(> .screen-component > .component-rich-text > .text)>.screen-component {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important
+}
+
+.ae-grid>.portal-screen-block>.screen-component>.component-rich-text:has(> .text) {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important
+}
+
+.ae-grid>.portal-screen-block>.screen-component>.component-rich-text>.text {
+  flex: 1 1 auto !important;
+  box-sizing: border-box
+}
+
+/* ---- s1 ---- */
+
+html,
+body {
+  overflow-x: clip
+}
+
+.vx-hover-menu__hover-links-container {
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  text-align: center
+}
+
+.vx-hover-menu__hover-links {
+  text-align: left;
+  vertical-align: top
+}
+
+/* ---- s2 ---- */
+
+.admin-interface .portal-screen-block:has(.vcd-note, .vcd-par) {
+  pointer-events: none !important;
+  position: relative
+}
+
+.admin-interface .portal-screen-block:has(.vcd-note, .vcd-par) .component-overlay {
+  display: none !important
+}
+
+.admin-interface .portal-screen-block:has(.vcd-note, .vcd-par)::after {
+  content: 'LOCKED - designed block, ask Sam to change it';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 300;
+  background: #414042;
+  color: #fff;
+  font: 600 12px/1 sans-serif;
+  padding: 7px 10px;
+  border-radius: 4px
+}
+
+/* ---- s27 ---- */
+
+.js .crumb,
+.pl .crumb {
+  font-size: 13px !important;
+  color: #5d5c5f !important;
+  margin: 4px 0 16px !important;
+  font-weight: 400 !important
+}
+
+.js .crumb a,
+.pl .crumb a {
+  color: #5d5c5f !important;
+  text-decoration: underline !important
+}

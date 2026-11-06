@@ -1,0 +1,336 @@
+/*
+ * CGGS Veracross portal styles: pages/senior-school-information.css
+ * Parent Senior School Information page.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- s58 ---- */
+
+.jsh .away {
+  background: #ecbcc5;
+  border-radius: 13px;
+  padding: 22px 26px;
+  border-top: 5px solid #9e3a50;
+  margin-top: 20px
+}
+
+.jsh .away .t {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px;
+  flex-wrap: wrap
+}
+
+.jsh .away h2 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  color: #7a2638;
+  font-weight: 700
+}
+
+.jsh .ways {
+  display: flex;
+  gap: 12px
+}
+
+.jsh .btn {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none !important;
+  color: #0D5257 !important;
+  font-size: 13px;
+  cursor: pointer
+}
+
+.jsh .btn b {
+  color: #0D5257;
+  font-size: 16px
+}
+
+.jsh .btn:hover {
+  background: #dbe6e7
+}
+
+.jsh .app {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(13, 82, 87, .45);
+  align-items: center;
+  justify-content: center;
+  padding: 20px
+}
+
+.jsh .app.on {
+  display: flex
+}
+
+.jsh .app .box {
+  background: #fff;
+  border-radius: 13px;
+  width: 420px;
+  max-width: 100%;
+  border-top: 5px solid #0D5257;
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+.jsh .app .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.jsh .app h2 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  color: #0D5257
+}
+
+.jsh .app .x {
+  font-size: 28px;
+  line-height: 1;
+  text-decoration: none !important;
+  cursor: pointer
+}
+
+.jsh .app .store {
+  background: #0D5257;
+  color: #fff !important;
+  flex: none
+}
+
+.jsh .app .store b {
+  color: #fff
+}
+
+.jsh .app .store:hover {
+  background: #414042
+}
+
+body:has(.vcd-jsh) .text ul.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsh) .text ul.chips>li {
+  list-style: none;
+  display: block;
+  margin: 0
+}
+
+body:has(.vcd-jsh) .text ul.chips a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 4px;
+  background: #f2f1f0;
+  color: #0D5257;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid #e6e3e0
+}
+
+body:has(.vcd-jsh) .text ul.chips a::after {
+  content: "\00a0\203A"
+}
+
+body:has(.vcd-jsh) .text ul.chips a:hover {
+  background: #dbe6e7;
+  border-color: #0D5257;
+  font-weight: 700
+}
+
+body:has(.vcd-jsh) .text ul.rows {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsh) .text ul.rows>li {
+  list-style: none;
+  padding: 12px 0;
+  border-bottom: 1px solid #eceae7;
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0
+}
+
+body:has(.vcd-jsh) .text ul.rows>li:last-child {
+  border-bottom: 0
+}
+
+body:has(.vcd-jsh) .text ul.rows>li>strong {
+  display: block;
+  color: #0D5257;
+  font-size: 15px
+}
+
+@media (max-width:760px) {
+  .jsh .ways {
+    flex-direction: column
+  }
+}
+
+/* ---- s59 ---- */
+
+body:has(.vcd-jsh) .ae-grid>.portal-screen-block:has(.vcd-ssi2) {
+  position: relative;
+  z-index: 3
+}
+
+body:has(.vcd-jsh) .ae-grid>.portal-screen-block:has(.vcd-ssi2) :is(.screen-component, .component-rich-text, .text, .jsh) {
+  position: static !important;
+  overflow: visible !important
+}
+
+body:has(.vcd-jsh) .jsh .hero2 {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: calc(100% + 404px);
+  transform: translateY(-100%);
+  pointer-events: none;
+  border-radius: 0 0 13px 13px;
+  overflow: hidden
+}
+
+body:has(.vcd-jsh) .jsh .hero2 .in {
+  padding: 34px 44px;
+  background: linear-gradient(0deg, rgba(13, 82, 87, .92), rgba(13, 82, 87, .5) 70%, rgba(13, 82, 87, 0));
+  color: #fff
+}
+
+body:has(.vcd-jsh) .jsh .hero2 h1 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 50px;
+  line-height: 1.05;
+  color: #fff;
+  font-weight: 700
+}
+
+body:has(.vcd-jsh) .jsh .hero2 .yr {
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #dbe6e7
+}
+
+body:has(.vcd-jsh) .portal-screen-block:has(.component-photo-link) .screen-component {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-jsh) .component-photo-link,
+body:has(.vcd-jsh) .component-photo-link .photo-thumbnail {
+  border-radius: 13px;
+  overflow: hidden
+}
+
+body:has(.vcd-jsh) .component-photo-link .photo-overlay {
+  display: none !important
+}
+
+body:has(.vcd-jsh) .ae-grid>.portal-screen-block:has(.vcd-ssi2)+.portal-screen-block:has(.component-photo-link) .photo-thumbnail {
+  background-position: center 40% !important
+}
+
+body:has(.vcd-jsh) .text.text:has(> .awaymark) {
+  background: #ecbcc5 !important;
+  border-top: 5px solid #9e3a50 !important;
+  padding: 22px 26px !important
+}
+
+body:has(.vcd-jsh) .text.text:has(> .awaymark)>strong:first-child {
+  color: #7a2638 !important
+}
+
+body:has(.vcd-jsh) .text.text:has(> .awaymark)>ul {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsh) .text.text:has(> .awaymark)>ul>li {
+  flex: 1 1 0;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsh) .text.text:has(> .awaymark)>ul>li>a {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none !important;
+  color: #0D5257 !important;
+  font-size: 13px;
+  line-height: 1.5
+}
+
+body:has(.vcd-jsh) .text.text:has(> .awaymark)>ul>li>a> :is(b, strong) {
+  display: block;
+  font-size: 16px;
+  color: #0D5257
+}
+
+body:has(.vcd-jsh) .text.text:has(> .awaymark)>ul>li>a:hover {
+  background: #dbe6e7
+}
+
+@media (min-width:641px) {
+  body:has(.vcd-jsh) .ae-grid>.item-sm-6:has(.component-photo-link)+.portal-screen-block+.portal-screen-block+.portal-screen-block:has(.component-photo-link) {
+    margin-left: 50%;
+    margin-top: -228px
+  }
+
+  body:has(.vcd-jsh) .ae-grid>.item-sm-6:has(.component-photo-link)+.portal-screen-block+.portal-screen-block+.portal-screen-block+.portal-screen-block:has(.component-photo-link) {
+    margin-top: -228px
+  }
+}
+
+@media (max-width:640px) {
+  body:has(.vcd-jsh) .ae-grid>.item-sm-6:has(.component-photo-link) .photo-thumbnail {
+    height: 240px !important
+  }
+}
+
+@media (max-width:820px) {
+  body:has(.vcd-jsh) .jsh .hero2 h1 {
+    font-size: 36px
+  }
+
+  body:has(.vcd-jsh) .jsh .hero2 .in {
+    padding: 24px 26px
+  }
+}
+
+@media (max-width:760px) {
+  body:has(.vcd-jsh) .text.text:has(> .awaymark)>ul {
+    flex-direction: column
+  }
+}

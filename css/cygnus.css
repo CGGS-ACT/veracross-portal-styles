@@ -1,0 +1,332 @@
+/*
+ * CGGS Veracross portal styles: cygnus.css
+ * Cygnus pillar pages.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- s46 ---- */
+
+body:has(.vcd-cyg) .app-container {
+  background: transparent !important
+}
+
+body:has(.vcd-cyg) .screen-toolbar {
+  display: none !important
+}
+
+body:has(.vcd-cyg) .portal-screen-block .screen-component,
+body:has(.vcd-cyg) .component-rich-text {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-cyg) .portal-screen-block {
+  margin-bottom: 20px
+}
+
+body:has(.vcd-cyg) .component-rich-text .text {
+  font-family: Roboto, Arial, sans-serif;
+  color: #414042;
+  font-size: 15px;
+  line-height: 1.65
+}
+
+body:has(.vcd-cyg) .vcd-note {
+  display: none
+}
+
+body:has(.vcd-cyg) .crumb {
+  font: 13px Roboto, sans-serif;
+  color: #7a7a7a;
+  margin: 4px 0 2px
+}
+
+body:has(.vcd-cyg) .crumb a {
+  color: #0D5257 !important
+}
+
+body:has(.vcd-cyg) .ch {
+  background: #0d5257;
+  border-radius: 13px;
+  min-height: 300px;
+  height: 100%;
+  padding: 36px 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden
+}
+
+body:has(.vcd-cyg) .ch::before {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .12)
+}
+
+body:has(.vcd-cyg) .ch .ey {
+  font: 500 12px Roboto, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #b6cbcd;
+  margin-bottom: 12px
+}
+
+body:has(.vcd-cyg) .ch h1 {
+  margin: 0;
+  font: 700 52px/1.05 'Playfair Display', Georgia, serif;
+  color: #fff
+}
+
+body:has(.vcd-cyg) .ch h1 em {
+  font-style: italic
+}
+
+body:has(.vcd-cyg) .portal-screen-block:has(.component-photo-link) .photo-overlay {
+  display: none !important
+}
+
+body:has(.vcd-cyg) .portal-screen-block:has(.component-photo-link) .component-photo-link {
+  border-radius: 13px;
+  overflow: hidden;
+  margin: 0 !important;
+  height: 100%
+}
+
+body:has(.vcd-cyg) .portal-screen-block:has(.component-photo-link) .photo-thumbnail {
+  height: 100% !important;
+  min-height: 300px;
+  border-radius: 13px !important;
+  background-size: cover !important;
+  background-position: center !important
+}
+
+body:has(.vcd-cyg) .portal-screen-block:has(.component-photo-link) .screen-component {
+  height: 100%
+}
+
+body:has(.vcd-cyg) .text>ul.pills:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-cyg) .text>ul.pills li {
+  list-style: none;
+  margin: 0
+}
+
+body:has(.vcd-cyg) .text>ul.pills a {
+  display: inline-block;
+  background: #fff;
+  border: 1.5px solid #d6d2cd;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font: 500 13.5px Roboto, sans-serif;
+  color: #0D5257 !important;
+  text-decoration: none
+}
+
+body:has(.vcd-cyg) .text>ul.pills a:hover {
+  border-color: #0D5257
+}
+
+body:has(.vcd-cyg) .text>ul.pills a.on {
+  background: #0D5257;
+  border-color: #0D5257;
+  color: #fff !important
+}
+
+body:has(.vcd-cyg) .text:has(> strong:first-child),
+body:has(.vcd-cyg) .text:has(> .yr) {
+  background: #fff !important;
+  border-radius: 13px !important;
+  border-top: 5px solid #0D5257 !important;
+  padding: 24px 28px !important
+}
+
+body:has(.vcd-cyg) .text:has(> strong:first-child)>strong:first-child,
+body:has(.vcd-cyg) .text:has(> .yr)>strong {
+  display: block;
+  font: 700 22px/1.25 'Playfair Display', Georgia, serif;
+  color: #0D5257;
+  margin: 0 0 10px
+}
+
+body:has(.vcd-cyg) .text .pp {
+  display: block;
+  margin: 0 0 10px
+}
+
+body:has(.vcd-cyg) .text b.lbl {
+  display: block;
+  font: 500 11.5px Roboto, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #6e979a;
+  margin: 14px 0 4px
+}
+
+body:has(.vcd-cyg) .text ul.dots {
+  margin: 0 0 6px;
+  padding-left: 18px
+}
+
+body:has(.vcd-cyg) .text ul.dots li {
+  margin: 0 0 3px;
+  color: #0D5257
+}
+
+body:has(.vcd-cyg) .text ul.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+body:has(.vcd-cyg) .text ul.rows li {
+  list-style: none;
+  margin: 0;
+  border-bottom: 1px solid #ebe8e4;
+  padding: 10px 0;
+  font-size: 14.5px
+}
+
+body:has(.vcd-cyg) .text ul.rows li:last-child {
+  border-bottom: 0
+}
+
+body:has(.vcd-cyg) .text ul.lk {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+body:has(.vcd-cyg) .text ul.lk li {
+  list-style: none;
+  margin: 0;
+  border-bottom: 1px solid #ebe8e4
+}
+
+body:has(.vcd-cyg) .text ul.lk li:last-child {
+  border-bottom: 0
+}
+
+body:has(.vcd-cyg) .text ul.lk li a {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  color: #414042 !important;
+  text-decoration: none;
+  font-size: 14.5px
+}
+
+body:has(.vcd-cyg) .text ul.lk li a::after {
+  content: "\203A";
+  color: #0D5257;
+  font-size: 18px
+}
+
+body:has(.vcd-cyg) .text ul.lk li a:hover {
+  color: #0D5257 !important
+}
+
+body:has(.vcd-cyg) .text.text:has(> .quotemark) {
+  background: #dfe9e9 !important;
+  border-top: 0 !important;
+  padding: 34px 40px !important;
+  border-radius: 13px !important
+}
+
+body:has(.vcd-cyg) .text.text:has(> .quotemark)>i {
+  display: block;
+  font: 700 italic 23px/1.45 'Playfair Display', Georgia, serif;
+  color: #0D5257
+}
+
+body:has(.vcd-cyg) .text>.yr {
+  display: inline-block;
+  background: #0D5257;
+  color: #fff;
+  border-radius: 4px;
+  padding: 3px 9px;
+  font: 500 12px Roboto, sans-serif;
+  margin-bottom: 10px
+}
+
+body:has(.vcd-cyg) .text ul.trips {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+body:has(.vcd-cyg) .text ul.trips li {
+  list-style: none;
+  margin: 0;
+  border-bottom: 1px solid #ebe8e4;
+  padding: 11px 0;
+  font-size: 14px;
+  line-height: 1.5
+}
+
+body:has(.vcd-cyg) .text ul.trips li:last-child {
+  border-bottom: 0
+}
+
+body:has(.vcd-cyg) .text ul.trips li b {
+  color: #0D5257;
+  font-weight: 700
+}
+
+body:has(.vcd-cyg) .text ul.trips li i {
+  font-style: normal;
+  display: inline-block;
+  background: #f0eeeb;
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 12px;
+  margin-left: 6px;
+  color: #414042
+}
+
+body:has(.vcd-cyg) .text ul.trips li span {
+  display: block;
+  color: #5d5c5f;
+  font-size: 13.5px
+}
+
+@media (max-width:640px) {
+  body:has(.vcd-cyg) .ch h1 {
+    font-size: 38px
+  }
+
+  body:has(.vcd-cyg) .ch {
+    padding: 28px 26px;
+    min-height: 220px
+  }
+}
+
+body:has(.vcd-cyg) .text ul.dots.cols2 {
+  columns: 2;
+  column-gap: 40px
+}
+
+body:has(.vcd-cyg) .text ul.dots.cols2 li {
+  break-inside: avoid
+}
+
+@media (max-width:640px) {
+  body:has(.vcd-cyg) .text ul.dots.cols2 {
+    columns: 1
+  }
+}

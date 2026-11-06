@@ -1,0 +1,593 @@
+/*
+ * CGGS Veracross portal styles: pages/staff-home.css
+ * Staff Portal home page.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- s12 ---- */
+
+.vcd-note {
+  display: none
+}
+
+.portal-screen-block .component-rich-text .text {
+  font-size: 15px;
+  color: #414042
+}
+
+.portal-screen-block .component-rich-text .text ul {
+  list-style: none !important;
+  margin: 0;
+  padding: 0
+}
+
+.portal-screen-block .component-rich-text .text li {
+  list-style: none !important;
+  margin: 0 !important
+}
+
+.vcd-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #0d5257;
+  line-height: 1.15;
+  margin: 4px 0 18px
+}
+
+.vcd-nh {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px
+}
+
+.vcd-nh svg {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  fill: none;
+  stroke: #0d5257;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+.vcd-nh span {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0d5257
+}
+
+.vcd-f {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px
+}
+
+.vcd-f button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 14px;
+  min-height: 40px;
+  border-radius: 4px;
+  border: 1px solid #6e979a;
+  background: #fff;
+  color: #0d5257;
+  cursor: pointer
+}
+
+.vcd-f button.on {
+  background: #0d5257;
+  color: #fff;
+  border-color: #0d5257
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a {
+  display: grid;
+  grid-template-columns: 64px 1fr 18px;
+  column-gap: 16px;
+  row-gap: 4px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #d6d3cf;
+  border-radius: 13px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: #0d5257;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  transition: border-color .15s, background .15s
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a:hover {
+  border-color: #0d5257;
+  background: #f7f9f9
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a strong {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  height: 64px;
+  border-radius: 4px;
+  background: #b6cbcd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  padding: 0 6px;
+  box-sizing: border-box
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li:first-child a strong {
+  background: #ecbcc5
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a em,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a i {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  font-style: normal;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: #f2f1f0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text li > a > strong) .component-rich-text .text li a::after {
+  content: "";
+  grid-column: 3;
+  grid-row: 1 / 3;
+  width: 16px;
+  height: 16px;
+  background: #0d5257;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):not(:has(ul)) {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0d5257;
+  line-height: 1.15;
+  margin: 6px 0 10px
+}
+
+.component-my-events-faculty {
+  background: #fff;
+  border-radius: 13px;
+  padding: 16px;
+  overflow: hidden
+}
+
+.component-faculty-todays-classes,
+.component-faculty-class-list {
+  border-radius: 13px !important;
+  border: 0 !important
+}
+
+.portal-screen-block:has(.component-my-events-faculty),
+.portal-screen-block:has(.component-faculty-todays-classes),
+.portal-screen-block:has(.component-faculty-class-list) {
+  margin-bottom: 28px
+}
+
+.portal-screen-block:has(.component-rich-text .text > strong) .screen-component,
+.portal-screen-block:has(.component-rich-text .text > strong) .component-rich-text {
+  height: 100%
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul) {
+  background: #fff !important;
+  border: 1px solid #d6d3cf !important;
+  border-style: solid !important;
+  border-radius: 13px;
+  overflow: hidden;
+  min-height: 480px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul)::before {
+  content: "";
+  display: block;
+  height: 180px;
+  background: #b6cbcd center 30%/cover no-repeat
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(strong.vcd-teaching) .component-rich-text .text::before {
+  background-image: url("https://media.digistormhosting.com.au/cggs-au-act-853-website/content/images/SS_THUMB2.jpg?v=1721254627")
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(strong.vcd-teaching) .component-rich-text .text>strong {
+  background: #b6cbcd !important;
+  color: #0d5257 !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(strong.vcd-students) .component-rich-text .text::before {
+  background-image: url("https://media.digistormhosting.com.au/cggs-au-act-853-website/content/images/JS_THUMB.jpg?v=1721254577")
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(strong.vcd-students) .component-rich-text .text>strong {
+  background: #e6e3e0 !important;
+  color: #0d5257 !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(strong.vcd-me) .component-rich-text .text::before {
+  background-image: url("https://media.digistormhosting.com.au/cggs-au-act-853-website/content/images/Sunrise-Admin-Hub.jpg?v=1691549738")
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(strong.vcd-me) .component-rich-text .text>strong {
+  background: #6e979a !important;
+  color: #ffffff !important
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul)>strong {
+  display: block;
+  background: #0d5257;
+  padding: 14px 24px 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul) ul {
+  padding: 6px 24px 14px
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul) li {
+  border-bottom: 1px solid #d6d3cf
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul) li:last-child {
+  border-bottom: 0
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul) li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0 -12px;
+  padding: 13px 12px;
+  border-radius: 4px;
+  color: #414042;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background .15s, color .15s
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul) li a::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  flex: none;
+  background: #0d5257;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition: transform .15s
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul) li a:hover {
+  background: #dbe6e7;
+  color: #0d5257;
+  font-weight: 700
+}
+
+.portal-screen-block .component-rich-text .text:has(> strong):has(ul) li a:hover::after {
+  transform: translateX(3px)
+}
+
+body:has(.vcd-home2) .app-container {
+  background: transparent !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))),
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))),
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(:is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)),
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(:is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)),
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(:is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)) {
+  padding-top: 0 !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text {
+  background: #fff !important;
+  border-radius: 13px 13px 0 0;
+  margin: 0 !important;
+  padding: 24px 24px 10px !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text {
+  font-family: Roboto, Arial, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  color: #414042 !important;
+  padding-bottom: 12px !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text strong {
+  font-weight: 400
+}
+
+.component-my-events-faculty {
+  border-radius: 0 0 13px 13px !important;
+  padding: 0 24px 24px !important;
+  background: #fff
+}
+
+.component-my-events-faculty .day {
+  border-radius: 6px;
+  overflow: hidden
+}
+
+.component-faculty-todays-classes,
+.component-faculty-class-list {
+  border: 0 !important;
+  border-radius: 0 0 13px 13px !important;
+  padding: 0 24px 24px !important;
+  background: #fff !important;
+  height: 100%;
+  min-height: 260px
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-faculty-todays-classes) .screen-component,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-faculty-class-list) .screen-component {
+  height: 100%
+}
+
+.component-faculty-class-list,
+.component-faculty-todays-classes,
+.component-my-events-faculty {
+  display: flow-root
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text {
+  color: #0d5257 !important
+}
+
+body:has(.vcd-home2) .screen-toolbar {
+  display: none !important
+}
+
+.component-my-events-faculty .day {
+  border-radius: 0 !important
+}
+
+.component-my-events-faculty .days {
+  border-radius: 8px !important;
+  overflow: hidden !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text {
+  border-radius: 13px 13px 0 0 !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text {
+  border-radius: 13px !important;
+  overflow: hidden !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text::before {
+  border-radius: 13px 13px 0 0 !important
+}
+
+/* ---- s13 ---- */
+
+.component-my-events-faculty .day {
+  border-color: #d6d3cf !important;
+  background: #ffffff;
+}
+
+.component-my-events-faculty .day-header {
+  background: #f2f1f0;
+  color: #414042;
+  font-weight: 700;
+  letter-spacing: .02em;
+  border-bottom: 1px solid #d6d3cf;
+}
+
+.component-my-events-faculty .day.today .day-header {
+  background: #ecbcc5 !important;
+  color: #414042;
+}
+
+.component-my-events-faculty a.event-link {
+  display: block;
+  margin: 6px;
+  padding: 5px 7px;
+  border-radius: 4px;
+  background: #b6cbcd !important;
+  color: #414042 !important;
+  font-weight: 400 !important;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.component-my-events-faculty a.event-link:hover {
+  background: #6e979a !important;
+  color: #ffffff !important;
+}
+
+.component-my-events-faculty a.event-link .start-time {
+  font-weight: 700;
+}
+
+.component-faculty-todays-classes,
+.component-faculty-class-list {
+  border: 1px solid #d6d3cf;
+  background: #ffffff;
+  padding: 12px 16px;
+  min-height: 220px;
+  box-sizing: border-box;
+}
+
+.component-faculty-class-list .vx-page-tabs {
+  border-bottom: 1px solid #d6d3cf;
+  margin-bottom: 8px;
+}
+
+.component-faculty-class-list .vx-page-tabs__tab {
+  color: #414042;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 2px solid transparent !important;
+}
+
+.component-faculty-class-list .vx-page-tabs__tab--active {
+  color: #0d5257 !important;
+  font-weight: 700;
+  border-bottom: 2px solid #0d5257 !important;
+}
+
+.component-faculty-class-list .vx-list>li,
+.component-faculty-todays-classes li,
+.component-faculty-todays-classes tr {
+  background: #f2f1f0;
+  border: 0 !important;
+  border-radius: 4px;
+  margin: 6px 0;
+}
+
+.component-faculty-class-list .vx-list>li:hover,
+.component-faculty-todays-classes li:hover,
+.component-faculty-todays-classes tr:hover {
+  background: #b6cbcd;
+}
+
+.component-faculty-class-list a,
+.component-faculty-todays-classes a {
+  color: #414042;
+  text-decoration: none;
+}
+
+.component-faculty-todays-classes .vx-empty-state__icon i,
+.component-faculty-class-list .vx-empty-state__icon i {
+  color: #6e979a;
+}
+
+.component-faculty-todays-classes .vx-empty-state-read-only,
+.component-faculty-class-list .vx-empty-state-read-only {
+  color: #5d5c5f;
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text *,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text *,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text,
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-my-events-faculty, .component-faculty-todays-classes, .component-faculty-class-list))) .component-rich-text .text * {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 700 !important;
+  color: #0d5257 !important;
+  font-size: 22px !important;
+  line-height: 1.2 !important
+}
+
+body .vcd-f button {
+  font-weight: 400 !important
+}
+
+.ae-grid:has(.vcd-home2):has(.component-faculty-class-list .vx-page-tabs__tab--active:first-child):has(.component-faculty-class-list > .vx-list > .vx-empty-state-read-only)>.portal-screen-block:has(:is(.component-faculty-todays-classes, .component-faculty-class-list)),
+.ae-grid:has(.vcd-home2):has(.component-faculty-class-list .vx-page-tabs__tab--active:first-child):has(.component-faculty-class-list > .vx-list > .vx-empty-state-read-only)>.portal-screen-block:has(.component-rich-text):not(:has(ul, ol, table, .vcd-home2)):is(:has(+ .portal-screen-block :is(.component-faculty-todays-classes, .component-faculty-class-list)), :has(+ .portal-screen-block + .portal-screen-block :is(.component-faculty-todays-classes, .component-faculty-class-list))) {
+  display: none !important
+}
+
+.ae-grid:has(.vcd-home2):has(.component-photo-link)>.portal-screen-block .component-rich-text .text::before {
+  display: none !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-photo-link) {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-photo-link) .screen-component {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-photo-link) .component-photo-link {
+  border-radius: 13px 13px 0 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-photo-link) .photo-thumbnail {
+  height: 180px !important;
+  border-radius: 13px 13px 0 0 !important;
+  background-size: cover !important;
+  background-position: center !important
+}
+
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-photo-link) .photo-overlay {
+  display: none !important
+}
+
+.ae-grid:has(.vcd-home2):has(.component-photo-link)>.portal-screen-block:has(.component-rich-text .text > strong + ul) {
+  padding-top: 0 !important;
+  margin-top: 0 !important
+}
+
+.ae-grid:has(.vcd-home2):has(.component-photo-link)>.portal-screen-block:has(.component-rich-text .text > strong + ul) .component-rich-text .text {
+  border-radius: 0 0 13px 13px !important
+}
+
+@media (min-width:640px) {
+  .ae-grid:has(.vcd-home2)>.portal-screen-block {
+    order: 5
+  }
+
+  .ae-grid:has(.vcd-home2)>.portal-screen-block:has(.vcd-home2) {
+    order: 1
+  }
+
+  .ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-photo-link) {
+    order: 2
+  }
+
+  .ae-grid:has(.vcd-home2)>.portal-screen-block:has(.component-rich-text .text > strong + ul) {
+    order: 3
+  }
+}
+
+.ae-grid:has(.vcd-home2):has(.component-photo-link)>.portal-screen-block .component-rich-text .text:has(> strong + ul) {
+  min-height: 300px !important
+}

@@ -1,0 +1,36 @@
+/*
+ * CGGS Veracross portal styles: staff.css
+ * Staff theme layer (cards, rounded corners) for staff section and policy pages.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- s25 ---- */
+
+body:has(.vcd-t2) .app-container {
+  background: transparent !important
+}
+
+body:has(.vcd-t2) .screen-toolbar {
+  display: none !important
+}
+
+body:has(.vcd-t2) .ae-grid .component-rich-text .text:is(:has(> strong), :has(> ol), :has(> table)) {
+  border: 0 !important;
+  border-radius: 13px !important;
+  overflow: hidden !important
+}
+
+body:has(.vcd-t2) .ae-grid .component-rich-text .text>.js> :not(style):not(.vcd-note) {
+  border-radius: 13px;
+  overflow: hidden
+}
+
+body:has(.vcd-t2) .ae-grid .component-rich-text .text>.js .phil,
+body:has(.vcd-t2) .ae-grid .component-rich-text .text>.js .eap,
+body:has(.vcd-t2) .ae-grid .component-rich-text .text>.js .focus {
+  border-radius: 13px;
+  overflow: hidden
+}
+
+body:has(.vcd-t2) ul.chips li a {
+  background: #fff
+}

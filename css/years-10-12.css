@@ -1,0 +1,324 @@
+/*
+ * CGGS Veracross portal styles: years-10-12.css
+ * Years 10-12 year pages. Year colours are set on each page.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- y1012 ---- */
+
+body:has(.vcd-jsx) .app-container {
+  background: transparent !important
+}
+
+body:has(.vcd-jsx) .screen-toolbar {
+  display: none !important
+}
+
+body:has(.vcd-jsx) .portal-screen-block .screen-component,
+body:has(.vcd-jsx) .component-rich-text {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-jsx) .portal-screen-block {
+  margin-bottom: 20px
+}
+
+body:has(.vcd-jsx) .component-rich-text .text {
+  font-family: Roboto, Arial, sans-serif;
+  color: #414042;
+  font-size: 15px;
+  line-height: 1.65
+}
+
+body:has(.vcd-jsx) .vcd-note {
+  display: none
+}
+
+body:has(.vcd-jsx) .crumb {
+  font: 13px Roboto, sans-serif;
+  color: #7a7a7a;
+  margin: 4px 0 2px
+}
+
+body:has(.vcd-jsx) .crumb a {
+  color: #0D5257 !important
+}
+
+body:has(.vcd-jsx) .gh {
+  position: relative;
+  background: #0d5257;
+  border-radius: 13px;
+  min-height: 250px;
+  padding: 34px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden
+}
+
+body:has(.vcd-jsx) .gh h1 {
+  margin: 0;
+  font: 700 76px/1 'Playfair Display', Georgia, serif;
+  color: #fff
+}
+
+body:has(.vcd-jsx) .gh .bar {
+  width: 80px;
+  height: 5px;
+  border-radius: 3px;
+  margin-top: 18px;
+  background: var(--yc)
+}
+
+body:has(.vcd-jsx) .text.text:has(> .datesmark) {
+  background: #0d5257 !important;
+  border-top: 0 !important;
+  color: #fff !important;
+  padding: 26px 28px !important;
+  border-radius: 13px !important
+}
+
+body:has(.vcd-jsx) .text.text:has(> .datesmark)>strong:first-child {
+  font: 500 12px Roboto, sans-serif !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .7) !important;
+  margin: 0 0 8px !important
+}
+
+body:has(.vcd-jsx) .text.text:has(> .datesmark) ul.dl {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+body:has(.vcd-jsx) .text.text:has(> .datesmark) ul.dl li {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  font-size: 14.5px;
+  color: #fff
+}
+
+body:has(.vcd-jsx) .text.text:has(> .datesmark) ul.dl li b {
+  font: 700 15px 'Playfair Display', Georgia, serif;
+  color: #fff
+}
+
+body:has(.vcd-jsx) .text.text:has(> .datesmark) a {
+  color: #fff !important
+}
+
+body:has(.vcd-jsx) .text.text:has(> .datesmark) a.readbtn {
+  background: var(--yc) !important;
+  margin-top: 16px
+}
+
+body:has(.vcd-jsx) .portal-screen-block:has(.component-photo-link) .photo-overlay {
+  display: none !important
+}
+
+body:has(.vcd-jsx) .portal-screen-block:has(.component-photo-link) .component-photo-link {
+  border-radius: 13px;
+  overflow: hidden;
+  margin: 0 !important;
+  height: 100%
+}
+
+body:has(.vcd-jsx) .portal-screen-block:has(.component-photo-link) .photo-thumbnail {
+  height: 100% !important;
+  min-height: 300px;
+  border-radius: 13px !important;
+  background-size: cover !important;
+  background-position: center !important
+}
+
+body:has(.vcd-jsx) .portal-screen-block:has(.component-photo-link) .screen-component {
+  height: 100%
+}
+
+body:has(.vcd-jsx) .text>ul.ql:first-child {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsx) .text>ul.ql li {
+  list-style: none;
+  margin: 0
+}
+
+body:has(.vcd-jsx) .text>ul.ql a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+  min-height: 104px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 13px;
+  padding: 18px;
+  border-left: 6px solid var(--yc);
+  color: #0D5257 !important;
+  text-decoration: none;
+  font: 500 15.5px/1.35 Roboto, sans-serif
+}
+
+body:has(.vcd-jsx) .text>ul.ql a::before {
+  content: "Quick link";
+  font: 500 11px Roboto, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--yd)
+}
+
+body:has(.vcd-jsx) .text>ul.ql a::after {
+  content: "\203A";
+  font-size: 20px;
+  color: var(--yc);
+  align-self: flex-end;
+  margin-top: -30px
+}
+
+body:has(.vcd-jsx) .text>ul.ql a:hover {
+  background: var(--ys)
+}
+
+@media (max-width:820px) {
+  body:has(.vcd-jsx) .text>ul.ql:first-child {
+    grid-template-columns: 1fr 1fr
+  }
+}
+
+body:has(.vcd-jsx) .text:has(> strong:first-child) {
+  background: #fff !important;
+  border-radius: 13px !important;
+  border-top: 5px solid #0D5257 !important;
+  padding: 24px 28px !important
+}
+
+body:has(.vcd-jsx) .text:has(> strong:first-child)>strong:first-child {
+  display: block;
+  font: 700 22px/1.25 'Playfair Display', Georgia, serif;
+  color: #0D5257;
+  margin: 0 0 10px
+}
+
+body:has(.vcd-jsx) .text:has(> strong:first-child)>strong:not(:first-child) {
+  display: block;
+  font: 700 20px/1.25 'Playfair Display', Georgia, serif;
+  color: #0D5257;
+  margin: 22px 0 8px
+}
+
+body:has(.vcd-jsx) .text ul:not(.ql):not(.dl) {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+body:has(.vcd-jsx) .text ul:not(.ql):not(.dl) li {
+  list-style: none;
+  margin: 0;
+  border-bottom: 1px solid #ebe8e4
+}
+
+body:has(.vcd-jsx) .text ul:not(.ql):not(.dl) li a {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  color: #414042 !important;
+  text-decoration: none;
+  font-size: 14.5px
+}
+
+body:has(.vcd-jsx) .text ul:not(.ql):not(.dl) li a::after {
+  content: "\203A";
+  color: #0D5257;
+  font-size: 18px
+}
+
+body:has(.vcd-jsx) .text ul:not(.ql):not(.dl) li a:hover {
+  color: #0D5257 !important
+}
+
+body:has(.vcd-jsx) .text.text:has(> .featmark) {
+  border-top-color: var(--yc) !important
+}
+
+body:has(.vcd-jsx) .text.text:has(> .featmark)>strong:first-child {
+  font-size: 28px !important
+}
+
+body:has(.vcd-jsx) .text.text:has(> .featmark)>em:first-of-type {
+  display: block;
+  font-style: normal;
+  font: 500 12px Roboto, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--yd);
+  margin: -4px 0 10px
+}
+
+body:has(.vcd-jsx) .text.text:has(> .sigmark) {
+  border-top: 0 !important;
+  border-left: 6px solid var(--yc) !important;
+  padding: 26px 30px 26px 130px !important;
+  position: relative
+}
+
+body:has(.vcd-jsx) .text.text:has(> .sigmark)::before {
+  content: var(--yn);
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 700 56px/1 'Playfair Display', Georgia, serif;
+  color: var(--yc)
+}
+
+body:has(.vcd-jsx) .text.text:has(> .sigmark)>strong:first-child {
+  font-size: 24px !important;
+  margin-bottom: 4px !important
+}
+
+body:has(.vcd-jsx) .text.text:has(> .sigmark)>strong:first-child::before {
+  content: "Our Signature Program";
+  display: block;
+  font: 500 12px Roboto, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--yd);
+  margin-bottom: 6px
+}
+
+body:has(.vcd-jsx) .text a.readbtn {
+  display: inline-block;
+  margin: 14px 10px 0 0;
+  background: #0D5257;
+  color: #fff !important;
+  border-radius: 4px;
+  padding: 10px 18px;
+  font: 500 14px Roboto, sans-serif;
+  text-decoration: none
+}
+
+body:has(.vcd-jsx) .text a.readbtn.alt {
+  background: #fff;
+  color: #0D5257 !important;
+  border: 1.5px solid #0D5257
+}
