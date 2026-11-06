@@ -462,7 +462,7 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
 .ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark) {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline !important;
   column-gap: 28px;
   row-gap: 6px;
   padding: 16px 28px !important
