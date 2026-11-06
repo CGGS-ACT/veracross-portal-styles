@@ -1,0 +1,30 @@
+/*
+ * CGGS Veracross portal styles: pages/senior-school-handbook.css
+ * Parent Senior School Handbook photo rows.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- s48 ---- */
+
+body:has(.vcd-jsh) .portal-screen-block:has(.component-photo-link) .screen-component {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-jsh) .portal-screen-block:has(.component-photo-link) .photo-overlay {
+  display: none !important
+}
+
+body:has(.vcd-jsh) .portal-screen-block:has(.component-photo-link) .component-photo-link {
+  border-radius: 13px;
+  overflow: hidden;
+  margin: 0 !important
+}
+
+body:has(.vcd-jsh) .portal-screen-block:has(.component-photo-link) .photo-thumbnail {
+  height: 240px !important;
+  border-radius: 13px !important;
+  background-size: cover !important;
+  background-position: center !important
+}

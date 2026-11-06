@@ -1,0 +1,163 @@
+/*
+ * CGGS Veracross portal styles: handbook-lists.css
+ * Middle Years Programme and Year 10 handbooks: compact lists, read-more cards, subject grid.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+/* ---- s49 ---- */
+
+body:has(.vcd-jsh) .text:has(> div.more)>strong:first-child {
+  cursor: pointer;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0 !important;
+  user-select: none
+}
+
+body:has(.vcd-jsh) .text:has(> div.more)>strong:first-child::after {
+  content: "";
+  flex: none;
+  width: 11px;
+  height: 11px;
+  border-right: 2.5px solid #0D5257;
+  border-bottom: 2.5px solid #0D5257;
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform .2s;
+  margin-right: 6px
+}
+
+body:has(.vcd-jsh) .text.az-open:has(> div.more)>strong:first-child {
+  margin-bottom: 14px !important
+}
+
+body:has(.vcd-jsh) .text:has(> div.more):not(.az-open)>div.more {
+  display: none !important
+}
+
+body:has(.vcd-jsh) .text:has(> div.more):hover {
+  background: #fbfbfa !important
+}
+
+body:has(.vcd-jsh) .text div.more {
+  font-size: 14px;
+  line-height: 1.6
+}
+
+body:has(.vcd-jsh) .text div.more b.sh {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  color: #0D5257;
+  margin: 18px 0 8px
+}
+
+body:has(.vcd-jsh) .text div.more b.sh:first-child {
+  margin-top: 0
+}
+
+body:has(.vcd-jsh) .text div.more table {
+  margin: 6px 0 10px
+}
+
+body:has(.vcd-jsh) .text div.more table td:first-child {
+  width: 26%
+}
+
+body:has(.vcd-jsh) .text div.more td ul.list {
+  margin: 4px 0
+}
+
+/* ---- s50 ---- */
+
+body:has(.vcd-jsh) .text ul.list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 6px 8px;
+  margin: 6px 0 12px !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-jsh) .text ul.list>li {
+  border: 0 !important;
+  background: #f2f1f0;
+  border-radius: 6px;
+  padding: 7px 12px !important;
+  font-size: 13.5px;
+  line-height: 1.4;
+  margin: 0 !important;
+  list-style: none
+}
+
+body:has(.vcd-jsh) .text ul.list>li::before {
+  display: none !important
+}
+
+body:has(.vcd-jsh) .text td ul.list {
+  grid-template-columns: 1fr
+}
+
+body:has(.vcd-jsh) .text b.sub {
+  display: block;
+  margin: 10px 0 4px;
+  color: #0D5257
+}
+
+/* ---- s51 ---- */
+
+.ae-grid:has(.vcd-jsh)>.portal-screen-block:has(strong.eqh) {
+  display: flex !important;
+  flex-direction: column
+}
+
+.ae-grid:has(.vcd-jsh)>.portal-screen-block:has(strong.eqh)>.screen-component,
+.ae-grid:has(.vcd-jsh)>.portal-screen-block:has(strong.eqh) .component-rich-text {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column
+}
+
+.ae-grid:has(.vcd-jsh)>.portal-screen-block:has(strong.eqh) .component-rich-text>.text {
+  flex: 1 1 auto
+}
+
+/* ---- s52 ---- */
+
+body:has(.vcd-jsh) .text ul.sg {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none
+}
+
+body:has(.vcd-jsh) .text ul.sg>li {
+  list-style: none;
+  background: #f2f1f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0
+}
+
+body:has(.vcd-jsh) .text ul.sg>li>strong {
+  display: block;
+  color: #0D5257;
+  font-size: 15px;
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 4px
+}
+
+body:has(.vcd-jsh) .text ul.sg em {
+  font-style: normal;
+  color: #6e6d70;
+  float: right
+}
+
+@media (max-width:820px) {
+  body:has(.vcd-jsh) .text ul.sg {
+    grid-template-columns: 1fr
+  }
+}
