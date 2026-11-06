@@ -151,32 +151,63 @@ body:has(.vcd-stu) .portal-screen-block:has(.sechd):has(+ .portal-screen-block .
 }
 
 body:has(.vcd-stu) .component-my-events-student .days {
-  display: grid !important;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0;
+  border: 0 !important;
 }
 
+/* each day = one row: date on the left, events on the right */
 body:has(.vcd-stu) .component-my-events-student .day {
-  min-height: 110px !important;
-  border: 1px solid #ebe8e4 !important;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
+  display: grid !important;
+  grid-template-columns: 130px minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: baseline;
+  min-height: 0 !important;
+  width: auto !important;
+  border: 0 !important;
+  border-bottom: 1px solid #ebe8e4 !important;
+  border-radius: 0;
+  padding: 11px 0;
+  background: transparent !important;
 }
 
 body:has(.vcd-stu) .component-my-events-student .day-header {
-  background: #f2f1f0 !important;
+  grid-column: 1;
+  grid-row: 1 / span 20;
+  background: transparent !important;
   color: #0d5257;
   font: 500 12px Roboto, sans-serif;
   letter-spacing: .06em;
   text-transform: uppercase;
-  padding: 8px 10px;
+  padding: 2px 0 0;
   border: 0 !important;
 }
 
 body:has(.vcd-stu) .component-my-events-student .day.today .day-header {
-  background: #0d5257 !important;
-  color: #fff;
+  background: transparent !important;
+  color: #c23b63;
+}
+
+body:has(.vcd-stu) .component-my-events-student .day > :not(.day-header) {
+  grid-column: 2;
+  font-size: 15px;
+  color: #414042;
+  padding: 2px 0;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+/* hide days with nothing on; say so when the whole week is empty */
+body:has(.vcd-stu) .component-my-events-student .day:not(:has(> :not(.day-header))) {
+  display: none !important;
+}
+
+body:has(.vcd-stu) .component-my-events-student .days:not(:has(.day > :not(.day-header)))::after {
+  content: "Nothing on this week.";
+  color: #7a7a7a;
+  font-size: 15px;
+  padding: 4px 0 6px;
 }
 
 /* ---- messages card ---- */
@@ -414,6 +445,17 @@ body:has(.vcd-stu) .component-my-events-student {
   display: none !important
 }
 
+/* ---- tablets ---- */
+@media (max-width: 1000px) {
+  body:has(.vcd-stu) .text.text.text:has(> .helpmark) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body:has(.vcd-stu) .text.text.text:has(> .helpmark) > strong:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
 /* ---- phones ---- */
 @media (max-width: 760px) {
   body:has(.vcd-stu) .sh h1 {
@@ -424,11 +466,11 @@ body:has(.vcd-stu) .component-my-events-student {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  body:has(.vcd-stu) .component-my-events-student .days {
+  body:has(.vcd-stu) .component-my-events-student .day {
     grid-template-columns: 1fr;
   }
 
-  body:has(.vcd-stu) .text.text:has(> .helpmark) {
+  body:has(.vcd-stu) .text.text.text:has(> .helpmark) {
     grid-template-columns: 1fr;
   }
 }
