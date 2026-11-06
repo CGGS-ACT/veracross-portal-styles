@@ -107,6 +107,29 @@ body:has(.vcd-par) .screen-toolbar {
   box-sizing: border-box
 }
 
+/* Hero: CGGS crest watermark in the teal panel */
+.vcd-par .hero .t {
+  position: relative;
+  overflow: hidden
+}
+
+.vcd-par .hero .t::before {
+  content: "";
+  position: absolute;
+  right: -110px;
+  top: 58%;
+  width: 360px;
+  height: 175%;
+  transform: translateY(-50%) rotate(-10deg);
+  background: url("../../cggs-crest-white.png") center / contain no-repeat;
+  opacity: .12;
+  pointer-events: none
+}
+
+.vcd-par .hero .t > * {
+  position: relative
+}
+
 .vcd-par .hero .h1 {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 46px;
