@@ -1,0 +1,332 @@
+/*
+ * CGGS Veracross portal styles: pages/admissions-home.css
+ * Admission Portal home page (shared front door for every family).
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+
+/* ---- Page ---- */
+body:has(.vcd-adm) {
+  background: #e6e3e0 !important
+}
+
+body:has(.vcd-adm) .app-container {
+  background: transparent !important
+}
+
+body:has(.vcd-adm) .screen-toolbar {
+  display: none !important
+}
+
+.ae-grid:has(.vcd-adm) .portal-screen-block .screen-component {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important
+}
+
+/* ---- Cards (every rich text card below the banner) ---- */
+.ae-grid:has(.vcd-adm)>.portal-screen-block:not(:has(.vcd-adm)) .component-rich-text>.text {
+  background: #fff;
+  border-radius: 13px;
+  padding: 22px 26px 24px;
+  box-sizing: border-box;
+  font: 400 15px/1.55 Roboto, Arial, sans-serif;
+  color: #414042
+}
+
+.ae-grid:has(.vcd-adm)>.portal-screen-block:not(:has(.vcd-adm)) .component-rich-text>.text>strong:first-child {
+  display: block;
+  margin: 0 0 12px;
+  font: 700 26px/1.15 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-adm)>.portal-screen-block:not(:has(.vcd-adm)) .component-rich-text>.text ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.ae-grid:has(.vcd-adm) .component-rich-text>.text a {
+  color: #0d5257
+}
+
+/* Plain link lists (Come and visit): rows with a chevron */
+.ae-grid:has(.vcd-adm) .text:not(:has(> span[class$="mark"]))>ul>li {
+  border-bottom: 1px solid #ece9e6
+}
+
+.ae-grid:has(.vcd-adm) .text:not(:has(> span[class$="mark"]))>ul>li:last-child {
+  border-bottom: 0
+}
+
+.ae-grid:has(.vcd-adm) .text:not(:has(> span[class$="mark"]))>ul>li>a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0 -12px;
+  padding: 13px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #414042;
+  font-size: 15px
+}
+
+.ae-grid:has(.vcd-adm) .text:not(:has(> span[class$="mark"]))>ul>li>a::after {
+  content: "\203A";
+  color: #0d5257;
+  font-size: 20px;
+  line-height: 1
+}
+
+.ae-grid:has(.vcd-adm) .text:not(:has(> span[class$="mark"]))>ul>li>a:hover {
+  background: #dbe6e7;
+  color: #0d5257
+}
+
+/* ---- Banner: photo with crest and title over it ---- */
+.ae-grid:has(.vcd-adm)>.portal-screen-block:has(.vcd-adm) {
+  position: relative;
+  z-index: 3
+}
+
+.ae-grid:has(.vcd-adm)>.portal-screen-block:has(.vcd-adm) :is(.screen-component, .component-rich-text, .text, .adm) {
+  position: static !important;
+  overflow: visible !important;
+  background: transparent !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-adm) .adm .hero {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: calc(100% + 404px);
+  transform: translateY(-100%);
+  border-radius: 0 0 13px 13px;
+  overflow: hidden;
+  pointer-events: none
+}
+
+body:has(.vcd-adm) .adm .hero .in {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 30px 40px;
+  background: linear-gradient(0deg, rgba(13, 82, 87, .94), rgba(13, 82, 87, .55) 65%, rgba(13, 82, 87, 0));
+  color: #fff
+}
+
+body:has(.vcd-adm) .adm .hero .crest {
+  flex: none;
+  width: 96px;
+  height: 116px;
+  background: url("../../cggs-crest-white.png") center / contain no-repeat
+}
+
+body:has(.vcd-adm) .adm .hero .t {
+  flex: 1;
+  min-width: 0
+}
+
+body:has(.vcd-adm) .adm .hero h1 {
+  margin: 0;
+  font: 700 46px/1.05 'Playfair Display', Georgia, serif;
+  color: #fff
+}
+
+body:has(.vcd-adm) .adm .hero .sub {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #dbe6e7
+}
+
+body:has(.vcd-adm) .adm .hero a.web {
+  flex: none;
+  pointer-events: auto;
+  border: 1.5px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px
+}
+
+body:has(.vcd-adm) .adm .hero a.web:hover {
+  background: #fff;
+  color: #0d5257
+}
+
+/* ---- Photo Link blocks ---- */
+body:has(.vcd-adm) .component-photo-link,
+body:has(.vcd-adm) .component-photo-link .photo-thumbnail {
+  border-radius: 13px;
+  overflow: hidden
+}
+
+body:has(.vcd-adm) .component-photo-link .photo-overlay {
+  display: none !important
+}
+
+body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.vcd-adm)+.portal-screen-block:has(.component-photo-link) .photo-thumbnail {
+  background-position: center 40% !important
+}
+
+/* The My application photo sits flush against its panel */
+body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .appmark) {
+  padding-right: 0 !important
+}
+
+body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .appmark) :is(.component-photo-link, .photo-thumbnail) {
+  border-radius: 13px 0 0 13px;
+  height: 100% !important
+}
+
+body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .appmark) :is(.screen-component, .component-photo-link) {
+  height: 100%
+}
+
+/* ---- My application (span.appmark) ---- */
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .appmark) {
+  background: #0d5257 !important;
+  color: #fff !important;
+  border-radius: 0 13px 13px 0 !important;
+  padding: 34px 36px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  font-size: 16px !important;
+  font-weight: 300 !important
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .appmark)>strong:first-child {
+  color: #fff !important;
+  font-size: 36px !important;
+  margin: 0 !important
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .appmark) a {
+  align-self: flex-start;
+  background: #fff;
+  color: #0d5257 !important;
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .appmark) a:hover {
+  background: #dbe6e7
+}
+
+/* ---- How to apply (span.stepmark): numbered steps ---- */
+.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul {
+  counter-reset: st
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul>li {
+  counter-increment: st;
+  position: relative;
+  padding: 10px 0 10px 60px;
+  border-bottom: 1px solid #f0eeec;
+  font-size: 14px;
+  color: #5d5c5f
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul>li:last-child {
+  border-bottom: 0
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul>li::before {
+  content: counter(st, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font: 700 28px/1 'Playfair Display', Georgia, serif;
+  color: #b6cbcd
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul>li> :is(b, strong) {
+  display: block;
+  font-size: 15px;
+  color: #414042
+}
+
+/* ---- Enrolments news (span.newsmark): <li><em>date</em><b>title</b>text</li> ---- */
+.ae-grid:has(.vcd-adm) .text.text:has(> .newsmark)>ul>li {
+  padding: 12px 0;
+  border-top: 1px solid #f0eeec;
+  font-size: 14px
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .newsmark)>ul>li> :is(em, i) {
+  display: block;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #9e3a50;
+  margin-bottom: 3px
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .newsmark)>ul>li> :is(b, strong) {
+  display: block;
+  font-size: 16px;
+  color: #0d5257;
+  margin-bottom: 3px
+}
+
+/* ---- Talk to us (span.talkmark) ---- */
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark) {
+  background: #0d5257 !important;
+  color: #fff !important;
+  font-weight: 300 !important
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark)>strong:first-child {
+  color: #fff !important
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark) a {
+  color: #fff !important;
+  font-weight: 700
+}
+
+.ae-grid:has(.vcd-adm) .text>span[class$="mark"] {
+  display: none
+}
+
+/* ---- Smaller screens ---- */
+@media (max-width:820px) {
+  body:has(.vcd-adm) .adm .hero .in {
+    padding: 22px 22px;
+    gap: 16px
+  }
+
+  body:has(.vcd-adm) .adm .hero h1 {
+    font-size: 30px
+  }
+
+  body:has(.vcd-adm) .adm .hero .crest {
+    width: 64px;
+    height: 78px
+  }
+
+  body:has(.vcd-adm) .adm .hero a.web {
+    display: none
+  }
+}
+
+@media (max-width:640px) {
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .appmark) {
+    border-radius: 13px !important
+  }
+
+  body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .appmark) {
+    display: none !important
+  }
+}
