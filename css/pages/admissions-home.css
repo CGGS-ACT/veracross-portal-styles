@@ -30,7 +30,7 @@ body:has(.vcd-adm) .vcd-note {
 /* ---- Cards (every rich text card below the banner) ---- */
 .ae-grid:has(.vcd-adm) .component-rich-text>.text {
   background: #fff !important;
-  border-radius: 13px;
+  border-radius: 13px !important;
   padding: 22px 26px 24px !important;
   box-sizing: border-box;
   font: 400 15px/1.55 Roboto, Arial, sans-serif;
