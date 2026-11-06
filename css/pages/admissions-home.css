@@ -207,9 +207,12 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   border-radius: 0 13px 13px 0 !important;
   padding: 34px 36px !important;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 14px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 14px 32px;
   font-size: 16px !important;
   font-weight: 300 !important
 }
@@ -221,7 +224,7 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
 }
 
 .ae-grid:has(.vcd-adm) .text.text.text:has(> .appmark) a {
-  align-self: flex-start;
+  align-self: center;
   background: #fff;
   color: #0d5257 !important;
   text-decoration: none;
