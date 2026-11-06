@@ -591,3 +591,211 @@ body .vcd-f button {
 .ae-grid:has(.vcd-home2):has(.component-photo-link)>.portal-screen-block .component-rich-text .text:has(> strong + ul) {
   min-height: 300px !important
 }
+
+/* ---- Find a student (search box in the Students card, results list, quick card) ---- */
+.vcd-ssli {
+  border-bottom: 0 !important;
+  padding: 6px 0 8px
+}
+
+.vcd-ss {
+  position: relative;
+  display: flex;
+  align-items: center
+}
+
+.vcd-ss::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  background: #0d5257;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='6'/%3E%3Cpath d='M20 20l-4.5-4.5'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='6'/%3E%3Cpath d='M20 20l-4.5-4.5'/%3E%3C/svg%3E") center/contain no-repeat;
+  pointer-events: none
+}
+
+.vcd-ss input.vcd-ssin {
+  width: 100%;
+  box-sizing: border-box;
+  height: 42px;
+  margin: 0;
+  padding: 0 12px 0 36px;
+  border: 1.5px solid #0d5257;
+  border-radius: 4px;
+  background: #fff;
+  font: 400 15px Roboto, Arial, sans-serif;
+  color: #414042;
+  outline: 0;
+  box-shadow: none;
+  transition: box-shadow .15s
+}
+
+.vcd-ss input.vcd-ssin::placeholder {
+  color: #7a7a7a
+}
+
+.vcd-ss input.vcd-ssin:focus {
+  box-shadow: 0 0 0 3px #b6cbcd
+}
+
+.vcd-ssr {
+  position: fixed;
+  z-index: 10050;
+  background: #fff;
+  border: 1px solid #b6cbcd;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(13, 82, 87, .18);
+  overflow: hidden;
+  font-family: Roboto, Arial, sans-serif
+}
+
+.vcd-ssr[hidden] {
+  display: none
+}
+
+.vcd-ssr button.vcd-ssi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 10px 12px;
+  border: 0;
+  border-top: 1px solid #eef2f2;
+  border-radius: 0;
+  background: #fff;
+  color: #414042;
+  font: 400 14px Roboto, Arial, sans-serif;
+  text-align: left;
+  cursor: pointer
+}
+
+.vcd-ssr button.vcd-ssi:first-child {
+  border-top: 0
+}
+
+.vcd-ssr button.vcd-ssi:hover,
+.vcd-ssr button.vcd-ssi.on {
+  background: #dbe6e7;
+  color: #0d5257
+}
+
+.vcd-ssr button.vcd-ssi b {
+  font-weight: 700
+}
+
+.vcd-ssr .vcd-sstag {
+  flex: none;
+  font-size: 12px;
+  background: #e6e3e0;
+  color: #0d5257;
+  padding: 2px 7px;
+  border-radius: 4px
+}
+
+.vcd-ssr .vcd-ssmsg {
+  padding: 12px;
+  font-size: 14px;
+  color: #414042
+}
+
+.vcd-qcs {
+  position: fixed;
+  inset: 0;
+  z-index: 10060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(13, 82, 87, .45)
+}
+
+.vcd-qc {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border-top: 5px solid #0d5257;
+  border-radius: 13px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .22);
+  font-family: Roboto, Arial, sans-serif
+}
+
+.vcd-qc .vcd-qch {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 22px 16px
+}
+
+.vcd-qc .vcd-qcav {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0d5257;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 500
+}
+
+.vcd-qc .vcd-qcnm {
+  margin: 0;
+  font: 700 22px/1.15 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+.vcd-qc .vcd-qcyr {
+  margin: 3px 0 0;
+  font-size: 14px;
+  color: #414042
+}
+
+.vcd-qc .vcd-qcb {
+  display: block;
+  margin: 0 22px 22px;
+  padding: 11px 14px;
+  border-radius: 4px;
+  background: #0d5257;
+  color: #fff !important;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer
+}
+
+.vcd-qc .vcd-qcb:hover {
+  background: #0a4246
+}
+
+.vcd-qc .vcd-qcx {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #414042;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer
+}
+
+.vcd-qc .vcd-qcx:hover {
+  background: #e6e3e0
+}
+
+.vcd-qc .vcd-qcb:focus,
+.vcd-qc .vcd-qcx:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px #b6cbcd
+}
