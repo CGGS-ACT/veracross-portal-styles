@@ -474,17 +474,9 @@ body:has(.vcd-stu) .text.text.text:has(> .demotag) {
   padding: 22px 26px !important;
 }
 
+/* the demo marker stays in the page (it drives the auto-hide rules) but is not shown */
 body:has(.vcd-stu) .text .demotag {
-  position: absolute;
-  top: 16px;
-  right: 18px;
-  background: #ecbcc5;
-  color: #7a2638;
-  font: 700 11px Roboto, sans-serif;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 4px 8px;
-  border-radius: 4px;
+  display: none !important;
 }
 
 body:has(.vcd-stu) .text > ul.demo-tt {
@@ -519,9 +511,10 @@ body:has(.vcd-stu) .text > ul.demo-tt > li > small {
 
 body:has(.vcd-stu) .text > ul.demo-tt > li > :is(b, strong) {
   display: block;
-  font: 700 16px 'Playfair Display', Georgia, serif;
+  font: 700 15px/1.25 'Playfair Display', Georgia, serif;
   color: #0d5257;
   margin: 2px 0;
+  overflow-wrap: break-word;
 }
 
 body:has(.vcd-stu) .text > ul.demo-tt > li.brk {
@@ -580,7 +573,7 @@ body:has(.vcd-stu) .text > .demohd {
   margin: 0 0 14px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1280px) {
   body:has(.vcd-stu) .text > ul.demo-tt {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
