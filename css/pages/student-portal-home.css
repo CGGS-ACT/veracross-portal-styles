@@ -139,15 +139,19 @@ body:has(.vcd-stu) .text > .sechd {
 /* ---- native components as white cards ---- */
 body:has(.vcd-stu) .component-class-list-student,
 body:has(.vcd-stu) .component-my-events-student {
-  background: #fff;
+  background: #fff !important;
   border-radius: 13px;
   padding: 18px 22px;
   box-sizing: border-box;
 }
 
-body:has(.vcd-stu) .portal-screen-block:has(.component-class-list-student:empty),
-body:has(.vcd-stu) .portal-screen-block:has(.sechd):has(+ .portal-screen-block .component-class-list-student:empty) {
-  display: none !important;
+/* no classes yet (no timetable / staff viewing): show a friendly message instead of an empty box */
+body:has(.vcd-stu) .component-class-list-student:empty::before {
+  content: "Your classes for today will show here.";
+  display: block;
+  color: #7a7a7a;
+  font-size: 15px;
+  padding: 4px 0;
 }
 
 body:has(.vcd-stu) .component-my-events-student .days {
