@@ -130,7 +130,8 @@ body:has(.vcd-adm) .adm .hero .crest {
   flex: none;
   width: 96px;
   height: 116px;
-  background: url("../../cggs-crest-white.png") center / contain no-repeat
+  background: url("../../cggs-crest-colour.png") center / contain no-repeat;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, .35))
 }
 
 body:has(.vcd-adm) .adm .hero .t {
