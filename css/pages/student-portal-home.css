@@ -495,7 +495,7 @@ body:has(.vcd-stu) .text > ul.demo-tt > li {
   border: 1px solid #ebe8e4;
   border-top: 5px solid var(--c, #0d5257);
   border-radius: 10px;
-  padding: 12px 12px 14px;
+  padding: 12px 8px 14px;
   min-height: 118px;
   font-size: 12.5px;
   line-height: 1.45;
@@ -514,7 +514,7 @@ body:has(.vcd-stu) .text > ul.demo-tt > li > :is(b, strong) {
   font: 700 15px/1.25 'Playfair Display', Georgia, serif;
   color: #0d5257;
   margin: 2px 0;
-  overflow-wrap: break-word;
+  hyphens: manual;
 }
 
 body:has(.vcd-stu) .text > ul.demo-tt > li.brk {
@@ -573,7 +573,7 @@ body:has(.vcd-stu) .text > .demohd {
   margin: 0 0 14px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1500px) {
   body:has(.vcd-stu) .text > ul.demo-tt {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
