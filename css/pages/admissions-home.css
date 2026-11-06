@@ -394,25 +394,18 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   }
 }
 
-/* Joins: How to apply sits on its photo; the news photo sits on the news card */
-.ae-grid:has(.vcd-adm)>.portal-screen-block:has(.stepmark),
+/* Join: the news photo sits on the news card */
 .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .newsmark) {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important
 }
 
-.ae-grid:has(.vcd-adm)>.portal-screen-block:has(.stepmark)+.portal-screen-block:has(.component-photo-link),
 .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.newsmark) {
   padding-top: 0 !important
 }
 
 .ae-grid:has(.vcd-adm) .text.text:has(> .stepmark) {
-  border-radius: 13px 13px 0 0 !important;
   height: 100%
-}
-
-.ae-grid:has(.vcd-adm)>.portal-screen-block:has(.stepmark)+.portal-screen-block:has(.component-photo-link) :is(.component-photo-link, .photo-thumbnail) {
-  border-radius: 0 0 13px 13px !important
 }
 
 .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .newsmark) :is(.component-photo-link, .photo-thumbnail) {
@@ -423,7 +416,7 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   border-radius: 0 0 13px 13px !important
 }
 
-/* The How to apply photo stretches to keep both columns level */
+/* The photo under How to apply stretches to keep both columns level */
 .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.stepmark)+.portal-screen-block:has(.component-photo-link) :is(.screen-component, .component-photo-link, .photo-thumbnail) {
   height: 100% !important;
   min-height: 220px
