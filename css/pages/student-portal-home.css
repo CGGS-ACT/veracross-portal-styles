@@ -449,6 +449,179 @@ body:has(.vcd-stu) .component-my-events-student {
   display: none !important
 }
 
+
+/* ---- DEMO content (Sam, 6 Nov 2026): sample Today strip and This week list ----
+   Shown only while the real Veracross components are empty; they hide themselves
+   when real classes/events appear. Remove the demo blocks from the page at go-live. */
+body:has(.vcd-stu) .portal-screen-block:has(.component-class-list-student:empty):has(+ .portal-screen-block .demotag),
+body:has(.vcd-stu) .portal-screen-block:has(.component-class-list-student:not(:empty)) + .portal-screen-block:has(.demotag),
+body:has(.vcd-stu) .portal-screen-block:has(.component-my-events-student .day > :not(.day-header)) + .portal-screen-block:has(.demotag),
+body:has(.vcd-stu) .portal-screen-block:has(.component-my-events-student):not(:has(.day > :not(.day-header))):has(+ .portal-screen-block .demotag) {
+  display: none !important;
+}
+
+body:has(.vcd-stu) .text.text.text:has(> .demotag) {
+  position: relative;
+  background: #fff !important;
+  border-radius: 13px !important;
+  border: 0 !important;
+  border-top: 5px solid #0d5257 !important;
+  padding: 22px 26px !important;
+}
+
+body:has(.vcd-stu) .text .demotag {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: #ecbcc5;
+  color: #7a2638;
+  font: 700 11px Roboto, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+body:has(.vcd-stu) .text > ul.demo-tt {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body:has(.vcd-stu) .text > ul.demo-tt > li {
+  list-style: none;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #ebe8e4;
+  border-top: 5px solid var(--c, #0d5257);
+  border-radius: 10px;
+  padding: 12px 12px 14px;
+  min-height: 118px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  box-sizing: border-box;
+}
+
+body:has(.vcd-stu) .text > ul.demo-tt > li > small {
+  display: block;
+  font-size: 11.5px;
+  color: #7a7a7a;
+}
+
+body:has(.vcd-stu) .text > ul.demo-tt > li > :is(b, strong) {
+  display: block;
+  font: 700 16px 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin: 2px 0;
+}
+
+body:has(.vcd-stu) .text > ul.demo-tt > li.brk {
+  background: #f2f1f0;
+  border-color: #f2f1f0;
+  border-top-color: #d3cfcb;
+  color: #7a7a7a;
+}
+
+body:has(.vcd-stu) .text > ul.demo-tt > li.now {
+  box-shadow: 0 0 0 3px #0d5257;
+  border-color: transparent;
+}
+
+body:has(.vcd-stu) .text > ul.demo-tt > li.c1 { --c: #c23b63; }
+body:has(.vcd-stu) .text > ul.demo-tt > li.c2 { --c: #2f6fa8; }
+body:has(.vcd-stu) .text > ul.demo-tt > li.c3 { --c: #2e8b57; }
+body:has(.vcd-stu) .text > ul.demo-tt > li.c4 { --c: #c98a1b; }
+body:has(.vcd-stu) .text > ul.demo-tt > li.c5 { --c: #6e979a; }
+body:has(.vcd-stu) .text > ul.demo-tt > li.c6 { --c: #7a3e8f; }
+
+body:has(.vcd-stu) .text > ul.demo-wk {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body:has(.vcd-stu) .text > ul.demo-wk > li {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid #ebe8e4;
+  font-size: 15px;
+}
+
+body:has(.vcd-stu) .text > ul.demo-wk > li > small {
+  font: 500 12px Roboto, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #0d5257;
+}
+
+body:has(.vcd-stu) .text > ul.demo-wk > li > :is(b, strong) {
+  font-weight: 700;
+  color: #414042;
+}
+
+body:has(.vcd-stu) .text > .demohd {
+  display: block;
+  font: 700 24px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin: 0 0 14px;
+}
+
+@media (max-width: 1000px) {
+  body:has(.vcd-stu) .text > ul.demo-tt {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  body:has(.vcd-stu) .text > ul.demo-tt {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body:has(.vcd-stu) .text > ul.demo-wk > li {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---- Next up card (demo until the Veracross timetable is live) ---- */
+body:has(.vcd-stu) .text.text.text:has(> .nextmark) {
+  border-top-color: #c23b63 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  min-height: 230px;
+}
+
+body:has(.vcd-stu) .text > .nextmark {
+  font: 500 12px Roboto, sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #c23b63;
+}
+
+body:has(.vcd-stu) .text.text.text:has(> .nextmark) > :is(b, strong) {
+  font: 700 32px/1.1 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+}
+
+body:has(.vcd-stu) .text.text.text:has(> .nextmark) > small {
+  color: #7a7a7a;
+  font-size: 13px;
+}
+
+body:has(.vcd-stu) .ae-grid > .portal-screen-block:has(.nextmark) {
+  align-self: flex-end;
+}
+
 /* ---- tablets ---- */
 @media (max-width: 1000px) {
   body:has(.vcd-stu) .text.text.text:has(> .helpmark) {
