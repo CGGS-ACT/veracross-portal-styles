@@ -511,7 +511,8 @@
   font-size: 20px;
   font-weight: 700;
   color: #0d5257;
-  line-height: 1.25
+  line-height: 1.25;
+  text-align: center
 }
 
 .ae-grid:has(.vcd-area)>.portal-screen-block:nth-child(3) .component-rich-text .text>div a {
@@ -520,7 +521,7 @@
   background: #0d5257;
   color: #fff !important;
   padding: 11px 18px;
-  border-radius: 13px;
+  border-radius: 4px;
   font-family: Roboto, Arial, sans-serif;
   font-weight: 700;
   font-size: 15px;
