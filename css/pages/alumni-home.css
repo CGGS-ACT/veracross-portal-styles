@@ -128,20 +128,20 @@ body:has(.vcd-alm) .alm .hero {
   justify-content: center;
   padding: 0 56px;
   box-sizing: border-box;
-  background: linear-gradient(90deg, rgba(230, 227, 224, .97) 0, rgba(230, 227, 224, .9) 520px, rgba(230, 227, 224, 0) 820px);
+  background: linear-gradient(90deg, rgba(230, 227, 224, .97) 0, rgba(230, 227, 224, .88) 55%, rgba(230, 227, 224, 0) 85%);
   pointer-events: none
 }
 
 body:has(.vcd-alm) .alm .hero h1 {
-  max-width: 560px;
   margin: 0 0 26px;
-  font: 900 112px/.9 'Playfair Display', Georgia, serif;
+  white-space: nowrap;
+  font: 900 clamp(48px, 8.4vw, 112px)/.95 'Playfair Display', Georgia, serif;
   letter-spacing: -.02em;
   color: #0d5257
 }
 
 body:has(.vcd-alm) .alm .hero h1 em {
-  font-style: normal;
+  font-style: italic;
   color: #be1f41
 }
 
@@ -329,7 +329,7 @@ body:has(.vcd-alm) .component-photo-link .photo-overlay {
   }
 
   body:has(.vcd-alm) .alm .hero h1 {
-    font-size: 64px
+    font-size: clamp(40px, 9vw, 72px)
   }
 
   body:has(.vcd-alm) .alm .hero p {
