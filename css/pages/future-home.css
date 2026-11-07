@@ -479,3 +479,57 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
     grid-template-columns: repeat(2, 1fr)
   }
 }
+
+.ae-grid:has(.vcd-fut) a.i-phone { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='7' y='2' width='10' height='20' rx='2'/%3E%3Cpath d='M11 18h2'/%3E%3C/svg%3E") }
+
+/* Six tiles fit on one row on wide screens */
+@media (min-width:1100px) {
+  .ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul:has(> li:nth-child(6)) {
+    grid-template-columns: repeat(6, 1fr)
+  }
+}
+
+/* Countdown: the date is typed as plain text (YYYY-MM-DD); the script turns it into "N days to go" */
+.ae-grid:has(.vcd-fut) .text:has(> .herom) .vcd-cd:not(.on) {
+  display: none !important
+}
+
+/* Script block: holds page scripts, never shown */
+.ae-grid>.portal-screen-block:has(.vcd-js) {
+  display: none !important
+}
+
+/* CGGS App pop-up store buttons */
+.vcd-pm .vcd-app {
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font: 300 15px/1.55 Roboto, Arial, sans-serif;
+  color: #414042
+}
+
+.vcd-pm .vcd-app a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 18px;
+  border-radius: 4px;
+  background: #0d5257;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px
+}
+
+.vcd-pm .vcd-app a b {
+  font-size: 16px
+}
+
+.vcd-pm .vcd-app a:hover {
+  background: #414042
+}
+
+.vcd-pm.vcd-pm-sm .vcd-pm-c {
+  height: auto;
+  max-width: 440px
+}
