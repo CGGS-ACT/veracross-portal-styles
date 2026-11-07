@@ -467,3 +467,20 @@ body:has(.vcd-finfo) .fin .hero h1 em {
     grid-template-columns: 1fr
   }
 }
+
+/* Staff card: an optional photo fills the space below the names */
+.ae-grid:has(.vcd-finfo) .text.text:has(> .staffm) {
+  display: flex;
+  flex-direction: column
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm)>img {
+  display: block;
+  flex: 1 1 200px;
+  width: 100% !important;
+  min-height: 200px;
+  height: auto !important;
+  object-fit: cover;
+  margin: 16px 0 0 !important;
+  border-radius: 4px
+}
