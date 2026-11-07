@@ -32,7 +32,9 @@ body:has(.vcd-fut) .vx-portal-nav:not(:has(li)) {
 }
 
 body:has(.vcd-fut) nav.vx-nav {
-  height: auto !important
+  height: auto !important;
+  position: relative;
+  z-index: 1000
 }
 
 body:has(.vcd-fut) .portal-background {
