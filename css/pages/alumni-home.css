@@ -278,6 +278,19 @@ body:has(.vcd-alm) .component-photo-link .photo-overlay {
   font-size: 15px
 }
 
+.ae-grid:has(.vcd-alm) .text.text.text:has(> .touchm) {
+  align-items: center !important
+}
+
+.ae-grid:has(.vcd-alm) .text.text.text:has(> .touchm)>* {
+  line-height: 1 !important
+}
+
+.ae-grid:has(.vcd-alm) .text.text.text:has(> .touchm)>b {
+  position: relative;
+  top: -2px
+}
+
 .ae-grid:has(.vcd-alm) .text:has(> .touchm)>br {
   display: none
 }
