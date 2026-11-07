@@ -1,0 +1,337 @@
+/*
+ * CGGS Veracross portal styles: pages/alumni-home.css
+ * Alumni Portal home page: editorial "Forever possible." design.
+ * Own look (not the staff/parent card theme), CGGS brand colours and fonts.
+ * Edit here, release a new version, then click Update styles on the portal.
+ *
+ * Content blocks are rich text, each marked with an empty span so staff can edit freely:
+ *   coverm  cover story   <span class="coverm"></span><img src><em>kicker</em><b>headline</b>summary<br><a>Read</a>
+ *   reportm side story    same shape (The Grammar Report)
+ *   sharem  side story    same shape, no photo needed
+ *   diarym  diary         <span class="diarym"></span><em>Diary</em><ul><li><b>Mar</b>Event<br>Place</li></ul><a>Full calendar</a>
+ *   quotem  pull quote    <span class="quotem"></span>Quote text<em>Name, Class of year</em>
+ *   storym  story card    same shape as coverm
+ *   touchm  footer strip  <span class="touchm"></span><b>Keep in touch</b>text<a>link</a><a>link</a>
+ */
+
+/* ---- Page ---- */
+body:has(.vcd-alm) {
+  background: #e6e3e0 !important
+}
+
+body:has(.vcd-alm) .app-container {
+  background: transparent !important
+}
+
+body:has(.vcd-alm) .screen-toolbar,
+body:has(.vcd-alm) .vcd-note,
+.ae-grid:has(.vcd-alm) .text>span[class$="m"]:empty {
+  display: none !important
+}
+
+.ae-grid:has(.vcd-alm) .portal-screen-block .screen-component {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important
+}
+
+/* Every text block: no card, editorial type */
+.ae-grid:has(.vcd-alm) .component-rich-text>.text {
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  font: 300 15px/1.6 Roboto, Arial, sans-serif;
+  color: #414042
+}
+
+.ae-grid:has(.vcd-alm) .component-rich-text>.text a {
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-alm) .component-rich-text>.text ul,
+.ae-grid:has(.vcd-alm) .component-rich-text>.text li {
+  list-style: none !important;
+  margin: 0;
+  padding: 0
+}
+
+.ae-grid:has(.vcd-alm) .component-rich-text>.text li::marker {
+  content: none
+}
+
+/* ---- Masthead and banner (design block) ---- */
+.ae-grid:has(.vcd-alm)>.portal-screen-block:has(.vcd-alm) {
+  position: relative;
+  z-index: 3
+}
+
+.ae-grid:has(.vcd-alm)>.portal-screen-block:has(.vcd-alm) :is(.screen-component, .component-rich-text, .text, .alm) {
+  position: static !important;
+  overflow: visible !important;
+  background: transparent !important;
+  padding: 0 !important
+}
+
+body:has(.vcd-alm) .alm .mast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 4px 16px;
+  border-bottom: 1px solid #414042;
+  font: 400 12px Roboto, Arial, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #414042
+}
+
+body:has(.vcd-alm) .alm .mast b {
+  font: 900 24px 'Playfair Display', Georgia, serif;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #0d5257
+}
+
+body:has(.vcd-alm) .alm .mast a {
+  color: #0d5257 !important;
+  font-weight: 700;
+  text-decoration: none
+}
+
+/* The banner text sits over the photo block that follows */
+body:has(.vcd-alm) .alm .hero {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: calc(100% + 20px);
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 56px;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, rgba(230, 227, 224, .97) 0, rgba(230, 227, 224, .9) 34%, rgba(230, 227, 224, 0) 66%);
+  pointer-events: none
+}
+
+body:has(.vcd-alm) .alm .hero h1 {
+  margin: 0 0 26px;
+  font: 900 112px/.9 'Playfair Display', Georgia, serif;
+  letter-spacing: -.02em;
+  color: #0d5257
+}
+
+body:has(.vcd-alm) .alm .hero h1 em {
+  font-style: normal;
+  color: #be1f41
+}
+
+body:has(.vcd-alm) .alm .hero p {
+  margin: 0;
+  max-width: 520px;
+  font: 300 20px/1.45 Roboto, Arial, sans-serif;
+  color: #414042
+}
+
+/* ---- Photo blocks ---- */
+body:has(.vcd-alm) .component-photo-link,
+body:has(.vcd-alm) .component-photo-link .photo-thumbnail {
+  border-radius: 0;
+  overflow: hidden
+}
+
+body:has(.vcd-alm) .component-photo-link .photo-overlay {
+  display: none !important
+}
+
+/* ---- Stories (cover, side stories, story cards) ---- */
+.ae-grid:has(.vcd-alm) .text:is(:has(> .coverm), :has(> .reportm), :has(> .sharem), :has(> .storym))>img {
+  display: block;
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover;
+  margin: 0 0 4px !important
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .coverm)>img {
+  height: 400px !important
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .reportm)>img {
+  height: 190px !important
+}
+
+.ae-grid:has(.vcd-alm) .text:is(:has(> .coverm), :has(> .reportm), :has(> .sharem), :has(> .storym), :has(> .diarym))>em {
+  display: block;
+  margin: 12px 0 6px;
+  font: 700 11px Roboto, Arial, sans-serif;
+  font-style: normal;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #be1f41
+}
+
+.ae-grid:has(.vcd-alm) .text:is(:has(> .coverm), :has(> .reportm), :has(> .sharem), :has(> .storym))>b {
+  display: block;
+  margin-bottom: 8px;
+  font: 700 21px/1.15 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .coverm)>b {
+  font-size: 32px;
+  line-height: 1.1
+}
+
+.ae-grid:has(.vcd-alm) .text:is(:has(> .coverm), :has(> .reportm), :has(> .sharem), :has(> .storym), :has(> .diarym)) a {
+  display: inline-block;
+  margin-top: 10px;
+  font: 700 13px Roboto, Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #0d5257 !important;
+  border-bottom: 1.5px solid #0d5257
+}
+
+.ae-grid:has(.vcd-alm) .text:is(:has(> .coverm), :has(> .reportm), :has(> .sharem), :has(> .storym), :has(> .diarym)) a:hover {
+  color: #be1f41 !important;
+  border-color: #be1f41
+}
+
+/* ---- Diary ---- */
+.ae-grid:has(.vcd-alm) .text:has(> .diarym)>em {
+  margin-top: 0
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .diarym)>ul>li {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding: 13px 0;
+  border-top: 1px solid #c9c5c1;
+  font-size: 14px;
+  line-height: 1.4
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .diarym)>ul>li>b {
+  flex: none;
+  width: 58px;
+  font: 900 24px 'Playfair Display', Georgia, serif;
+  color: #be1f41
+}
+
+/* ---- Pull quote ---- */
+.ae-grid:has(.vcd-alm) .text:has(> .quotem) {
+  border-top: 3px double #414042 !important;
+  border-bottom: 3px double #414042 !important;
+  padding: 40px 8% !important;
+  text-align: center;
+  font: italic 400 36px/1.25 'Playfair Display', Georgia, serif !important;
+  color: #0d5257 !important
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .quotem)>em {
+  display: block;
+  margin-top: 16px;
+  font: 700 13px Roboto, Arial, sans-serif;
+  font-style: normal;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #414042
+}
+
+/* ---- Keep in touch strip ---- */
+.ae-grid:has(.vcd-alm) .text.text.text:has(> .touchm) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 32px;
+  padding: 22px 32px !important;
+  background: #0d5257 !important;
+  color: #fff !important;
+  font-size: 15px
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .touchm)>br {
+  display: none
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .touchm)>b {
+  font: 700 24px 'Playfair Display', Georgia, serif;
+  color: #fff
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .touchm) a {
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1.5px solid #fff
+}
+
+.ae-grid:has(.vcd-alm) .text:has(> .touchm)>a:first-of-type {
+  margin-left: auto
+}
+
+/* ---- Layout, 900px and wider ----
+   Row 3: cover story (left half), Grammar Report then Share (middle), Diary (right).
+   Then the quote, three stories and the Keep in touch strip run full width. */
+@media (min-width:900px) {
+  .ae-grid:has(.vcd-alm) {
+    display: grid !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 34px;
+    align-items: start
+  }
+
+  .ae-grid:has(.vcd-alm)>.portal-screen-block {
+    width: auto !important;
+    max-width: none !important;
+    float: none !important;
+    margin-bottom: 26px
+  }
+
+  .ae-grid:has(.vcd-alm)>.item-sm-12 { grid-column: 1 / 13 }
+  .ae-grid:has(.vcd-alm)>.item-sm-6 { grid-column: span 6 }
+  .ae-grid:has(.vcd-alm)>.item-sm-4 { grid-column: span 4 }
+  .ae-grid:has(.vcd-alm)>.item-sm-3 { grid-column: span 3 }
+
+  .ae-grid:has(.vcd-alm)>.portal-screen-block:has(.coverm) { grid-column: 1 / 7; grid-row: 3 / 5 }
+  .ae-grid:has(.vcd-alm)>.portal-screen-block:has(.reportm) { grid-column: 7 / 10; grid-row: 3 / 4 }
+  .ae-grid:has(.vcd-alm)>.portal-screen-block:has(.sharem) { grid-column: 7 / 10; grid-row: 4 / 5 }
+  .ae-grid:has(.vcd-alm)>.portal-screen-block:has(.diarym) { grid-column: 10 / 13; grid-row: 3 / 5 }
+}
+
+/* ---- Smaller screens ---- */
+@media (max-width:899px) {
+  body:has(.vcd-alm) .alm .hero {
+    padding: 0 26px;
+    background: linear-gradient(90deg, rgba(230, 227, 224, .95), rgba(230, 227, 224, .75))
+  }
+
+  body:has(.vcd-alm) .alm .hero h1 {
+    font-size: 64px
+  }
+
+  body:has(.vcd-alm) .alm .hero p {
+    font-size: 17px
+  }
+
+  body:has(.vcd-alm) .alm .mast span,
+  body:has(.vcd-alm) .alm .mast a {
+    display: none
+  }
+
+  .ae-grid:has(.vcd-alm)>.portal-screen-block {
+    margin-bottom: 26px
+  }
+
+  .ae-grid:has(.vcd-alm) .text:has(> .coverm)>img {
+    height: 240px !important
+  }
+
+  .ae-grid:has(.vcd-alm) .text:has(> .quotem) {
+    font-size: 26px !important
+  }
+}
