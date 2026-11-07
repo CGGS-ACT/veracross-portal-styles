@@ -348,7 +348,7 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
 }
 
 .ae-grid:has(.vcd-fut) .text:has(> .pnfm)>a {
-  align-self: flex-start;
+  align-self: flex-end;
   margin-top: 6px;
   background: #0d5257;
   color: #fff !important;
