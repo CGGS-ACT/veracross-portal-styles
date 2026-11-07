@@ -350,3 +350,65 @@ body:has(.vcd-finfo) .fin .hero h1 em {
     font-size: 34px
   }
 }
+
+/* ---- Editable banner text (finhero): its own rich text block placed after the banner photo,
+   pulled up over the photo. Staff edit the eyebrow (<em>) and title (<strong>, <i> for the pink word). ---- */
+.ae-grid:has(.vcd-finfo)>.portal-screen-block:has(.finhero) {
+  position: relative;
+  z-index: 3;
+  height: 340px;
+  margin-top: -362px !important;
+  margin-bottom: 22px;
+  pointer-events: none
+}
+
+.ae-grid:has(.vcd-finfo) .text.text.text:has(> .finhero) {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 34px 44px !important;
+  background: linear-gradient(90deg, rgba(13, 82, 87, .94), rgba(13, 82, 87, .55) 55%, rgba(13, 82, 87, 0) 80%) !important;
+  color: #fff !important
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .finhero)>em {
+  font: 700 12px Roboto, Arial, sans-serif;
+  font-style: normal;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #b6cbcd
+}
+
+.ae-grid:has(.vcd-finfo) .text.text:has(> .finhero)>strong {
+  display: block;
+  margin: 0 !important;
+  font: 900 52px/1.02 'Playfair Display', Georgia, serif !important;
+  color: #fff !important
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .finhero)>strong i {
+  font-style: italic;
+  color: #ecbcc5
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .finhero) a {
+  pointer-events: auto
+}
+
+@media (max-width:899px) {
+  .ae-grid:has(.vcd-finfo)>.portal-screen-block:has(.finhero) {
+    height: 260px;
+    margin-top: -282px !important
+  }
+
+  .ae-grid:has(.vcd-finfo) .text.text:has(> .finhero)>strong {
+    font-size: 34px !important
+  }
+}
+
+/* Script block: holds page scripts, never shown */
+.ae-grid>.portal-screen-block:has(.vcd-js) {
+  display: none !important
+}
