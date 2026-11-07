@@ -484,3 +484,15 @@ body:has(.vcd-finfo) .fin .hero h1 em {
   margin: 16px 0 0 !important;
   border-radius: 4px
 }
+
+/* A links card set to full width shows its list in two columns */
+@media (min-width:900px) {
+  .ae-grid:has(.vcd-finfo)>.item-sm-12 .text:has(> .linksm)>ul {
+    columns: 2;
+    column-gap: 56px
+  }
+
+  .ae-grid:has(.vcd-finfo)>.item-sm-12 .text:has(> .linksm)>ul>li {
+    break-inside: avoid
+  }
+}
