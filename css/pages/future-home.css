@@ -1,0 +1,458 @@
+/*
+ * CGGS Veracross portal styles: pages/future-home.css
+ * Future Parents portal home (families who have enrolled, before their child starts).
+ * Edit here, release a new version, then click Update styles on the portal.
+ *
+ * Blocks are rich text, each marked with an empty span so staff can edit freely:
+ *   herom  welcome      <span class="herom"></span><em>kicker</em><strong>Welcome to ... <i>School!</i></strong>text<span class="vcd-cd" data-date="YYYY-MM-DD"></span>
+ *   newsm  news         <strong>News for new families</strong><span class="newsm"></span><ul><li><img><em>tag</em><b>headline</b>summary</li></ul><a>All news</a>
+ *   datem  key dates    <strong>Key dates</strong><span class="datem"></span><ul><li><i>29</i><u>Jan</u><b>title</b>text</li></ul><a>All term dates</a>
+ *   tilem  quick links  <span class="tilem"></span><ul><li><a class="i-school">label</a></li></ul>
+ *   pnfm   P&F card     <span class="pnfm"></span><em>kicker</em><strong>title</strong>text<a>button</a>
+ *   askm   contacts     <span class="askm"></span><strong>title</strong><ul><li><b>ELC</b> email</li></ul>
+ */
+
+/* ---- Page ---- */
+body:has(.vcd-fut) {
+  background: #e6e3e0 !important
+}
+
+body:has(.vcd-fut) .app-container {
+  background: transparent !important
+}
+
+body:has(.vcd-fut) .screen-toolbar,
+body:has(.vcd-fut) .vcd-note,
+.ae-grid:has(.vcd-fut) .text>span[class$="m"]:empty {
+  display: none !important
+}
+
+body:has(.vcd-fut) .vx-portal-nav:not(:has(li)) {
+  display: none !important
+}
+
+body:has(.vcd-fut) nav.vx-nav {
+  height: auto !important
+}
+
+body:has(.vcd-fut) .portal-background {
+  display: none !important
+}
+
+.ae-grid:has(.vcd-fut) .portal-screen-block .screen-component {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important
+}
+
+/* Design block takes no space */
+.ae-grid:has(.vcd-fut)>.portal-screen-block:has(.vcd-fut) {
+  padding: 0 !important;
+  margin: 0 !important
+}
+
+.ae-grid:has(.vcd-fut)>.portal-screen-block:has(.vcd-fut) :is(.screen-component, .component-rich-text, .text) {
+  padding: 0 !important;
+  background: transparent !important;
+  min-height: 0 !important
+}
+
+/* ---- Cards ---- */
+.ae-grid:has(.vcd-fut) .component-rich-text>.text {
+  background: #fff !important;
+  border-radius: 13px !important;
+  padding: 24px 26px !important;
+  box-sizing: border-box;
+  height: 100%;
+  font: 400 15px/1.55 Roboto, Arial, sans-serif;
+  color: #414042
+}
+
+.ae-grid:has(.vcd-fut)>.portal-screen-block:has(.vcd-fut) .component-rich-text>.text {
+  height: auto
+}
+
+.ae-grid:has(.vcd-fut) .component-rich-text>.text a {
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-fut) .component-rich-text>.text>strong:first-child,
+.ae-grid:has(.vcd-fut) .component-rich-text>.text>span:first-child+strong {
+  display: block;
+  margin: 0 0 10px;
+  font: 700 26px/1.15 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-fut) .component-rich-text>.text ul,
+.ae-grid:has(.vcd-fut) .component-rich-text>.text li {
+  list-style: none !important;
+  margin: 0;
+  padding: 0
+}
+
+.ae-grid:has(.vcd-fut) .component-rich-text>.text li::marker {
+  content: none
+}
+
+body:has(.vcd-fut) .component-photo-link,
+body:has(.vcd-fut) .component-photo-link .photo-thumbnail {
+  border-radius: 13px;
+  overflow: hidden
+}
+
+body:has(.vcd-fut) .component-photo-link .photo-overlay {
+  display: none !important
+}
+
+/* ---- Welcome (teal, joined to the photo on its right) ---- */
+.ae-grid:has(.vcd-fut) .text.text.text:has(> .herom) {
+  background: #0d5257 !important;
+  color: #fff !important;
+  border-radius: 13px 0 0 13px !important;
+  padding: 44px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 300;
+  font-size: 17px
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .herom)>em {
+  font: 700 12px Roboto, Arial, sans-serif;
+  font-style: normal;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #b6cbcd
+}
+
+.ae-grid:has(.vcd-fut) .text.text:has(> .herom)>strong {
+  display: block;
+  margin: 0 !important;
+  font: 900 48px/1.05 'Playfair Display', Georgia, serif !important;
+  color: #fff !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .herom)>strong i {
+  font-style: italic;
+  color: #ecbcc5
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .herom) .vcd-cd {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, .1);
+  border-radius: 13px;
+  padding: 14px 20px;
+  text-align: center
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .herom) .vcd-cd:empty {
+  display: none
+}
+
+.ae-grid:has(.vcd-fut) .vcd-cd b {
+  display: block;
+  font: 900 44px/1 'Playfair Display', Georgia, serif
+}
+
+.ae-grid:has(.vcd-fut) .vcd-cd small {
+  font: 400 12px Roboto, Arial, sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #b6cbcd
+}
+
+.ae-grid:has(.vcd-fut)>.portal-screen-block:has(.herom)+.portal-screen-block:has(.component-photo-link) :is(.component-photo-link, .photo-thumbnail) {
+  border-radius: 0 13px 13px 0 !important
+}
+
+/* ---- News ---- */
+.ae-grid:has(.vcd-fut) .text:has(> .newsm)>ul>li {
+  position: relative;
+  min-height: 88px;
+  padding: 14px 0 14px 150px;
+  border-top: 1px solid #f0eeec;
+  font-size: 14px
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .newsm)>ul>li:first-child {
+  border-top: 0
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .newsm)>ul>li>img {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 130px !important;
+  height: 88px !important;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 0 !important
+}
+
+.ae-grid:has(.vcd-fut) .text:is(:has(> .newsm), :has(> .pnfm))>ul>li>em,
+.ae-grid:has(.vcd-fut) .text:has(> .pnfm)>em {
+  display: block;
+  margin-bottom: 3px;
+  font: 700 11px Roboto, Arial, sans-serif;
+  font-style: normal;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #be1f41
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .newsm)>ul>li>b {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 16px;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-fut) .text:is(:has(> .newsm), :has(> .datem))>a {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 700;
+  text-decoration: none
+}
+
+/* ---- Key dates ---- */
+.ae-grid:has(.vcd-fut) .text:has(> .datem)>ul>li {
+  position: relative;
+  min-height: 56px;
+  padding: 12px 0 12px 74px;
+  border-top: 1px solid #f0eeec
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .datem)>ul>li:first-child {
+  border-top: 0
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .datem)>ul>li>i,
+.ae-grid:has(.vcd-fut) .text:has(> .datem)>ul>li>u {
+  position: absolute;
+  left: 0;
+  width: 56px;
+  text-align: center;
+  background: #ecbcc5;
+  color: #5c1f2b;
+  text-decoration: none;
+  font-style: normal
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .datem)>ul>li>i {
+  top: 12px;
+  height: 34px;
+  padding-top: 6px;
+  border-radius: 4px 4px 0 0;
+  font: 900 22px/1 'Playfair Display', Georgia, serif
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .datem)>ul>li>u {
+  top: 46px;
+  height: 22px;
+  border-radius: 0 0 4px 4px;
+  font: 700 11px/18px Roboto, Arial, sans-serif;
+  text-transform: uppercase
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .datem)>ul>li>b {
+  display: block;
+  color: #0d5257;
+  font-size: 16px
+}
+
+/* ---- Quick-link tiles ---- */
+.ae-grid:has(.vcd-fut) .text.text.text:has(> .tilem) {
+  background: transparent !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+  min-height: 116px;
+  box-sizing: border-box;
+  padding: 18px 10px;
+  background: #fff;
+  border-radius: 13px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #0d5257 !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover {
+  background: #dbe6e7
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a::before {
+  content: "";
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #dbe6e7 var(--ic) center / 24px no-repeat
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover::before {
+  background-color: #fff
+}
+
+.ae-grid:has(.vcd-fut) a.i-school { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10l9-5 9 5-9 5z'/%3E%3Cpath d='M7 12v5c3 2 7 2 10 0v-5'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-user { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c1-4 4-6 8-6s7 2 8 6'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-bus { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='3' width='16' height='15' rx='2'/%3E%3Cpath d='M4 11h16M8 21v-3M16 21v-3'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-food { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3v8M5 3v5a2 2 0 004 0V3M7 11v10M17 3c-2 0-3 3-3 7h3v11'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-heart { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z'/%3E%3Cpath d='M12 9v4M10 11h4'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-shirt { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 3l4 3 4-3 5 3-2 5-3-1v11H7V10l-3 1-2-5z'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-star { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-fees { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='6' width='18' height='12' rx='2'/%3E%3Ccircle cx='12' cy='12' r='2.5'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-laptop { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='5' width='14' height='10' rx='1'/%3E%3Cpath d='M3 19h18'/%3E%3C/svg%3E") }
+.ae-grid:has(.vcd-fut) a.i-link { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d5257' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 14a4 4 0 006 0l3-3a4 4 0 00-6-6l-1 1M14 10a4 4 0 00-6 0l-3 3a4 4 0 006 6l1-1'/%3E%3C/svg%3E") }
+
+/* ---- Parents & Friends (photo on the left, card joined) ---- */
+.ae-grid:has(.vcd-fut) .text.text.text:has(> .pnfm) {
+  background: #b6cbcd !important;
+  color: #0d5257 !important;
+  border-radius: 0 13px 13px 0 !important;
+  padding: 32px 36px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .pnfm)>em {
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-fut) .text.text:has(> .pnfm)>strong {
+  margin: 0 !important;
+  font-size: 30px !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .pnfm)>a {
+  align-self: flex-start;
+  margin-top: 6px;
+  background: #0d5257;
+  color: #fff !important;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-decoration: none
+}
+
+.ae-grid:has(.vcd-fut)>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .pnfm) :is(.component-photo-link, .photo-thumbnail) {
+  border-radius: 13px 0 0 13px !important
+}
+
+/* ---- Contacts strip ---- */
+.ae-grid:has(.vcd-fut) .text.text.text:has(> .askm) {
+  background: #0d5257 !important;
+  color: #fff !important;
+  padding: 22px 28px !important;
+  font-weight: 300
+}
+
+.ae-grid:has(.vcd-fut) .text.text:has(> .askm)>strong {
+  color: #fff !important;
+  font-size: 24px !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .askm)>ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 34px
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .askm) b {
+  font-weight: 700
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .askm) a {
+  color: #fff !important
+}
+
+/* ---- Layout, 900px and wider ---- */
+@media (min-width:900px) {
+  .ae-grid:has(.vcd-fut) {
+    display: grid !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 22px;
+    align-items: stretch
+  }
+
+  .ae-grid:has(.vcd-fut)>.portal-screen-block {
+    width: auto !important;
+    max-width: none !important;
+    float: none !important;
+    margin-bottom: 22px
+  }
+
+  .ae-grid:has(.vcd-fut)>.item-sm-12 { grid-column: 1 / 13 }
+  .ae-grid:has(.vcd-fut)>.item-sm-7 { grid-column: span 7 }
+  .ae-grid:has(.vcd-fut)>.item-sm-5 { grid-column: span 5 }
+
+  /* Joined pairs: no gap between the welcome and its photo, or the P&F photo and card */
+  .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.herom) {
+    grid-column: 1 / 8;
+    padding-right: 0 !important
+  }
+
+  .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.herom)+.portal-screen-block {
+    grid-column: 8 / 13;
+    margin-left: -22px;
+    padding-left: 0 !important
+  }
+
+  .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .pnfm) {
+    grid-column: 1 / 6;
+    padding-right: 0 !important
+  }
+
+  .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.pnfm) {
+    grid-column: 6 / 13;
+    margin-left: -22px;
+    padding-left: 0 !important
+  }
+
+  /* Photos fill their row */
+  .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.component-photo-link) :is(.screen-component, .component-photo-link, .photo-thumbnail) {
+    height: 100% !important;
+    min-height: 240px
+  }
+}
+
+/* ---- Smaller screens ---- */
+@media (max-width:899px) {
+  .ae-grid:has(.vcd-fut) .text.text.text:has(> .herom),
+  .ae-grid:has(.vcd-fut) .text.text.text:has(> .pnfm) {
+    border-radius: 13px !important;
+    padding: 28px !important
+  }
+
+  .ae-grid:has(.vcd-fut) .text.text:has(> .herom)>strong {
+    font-size: 34px !important
+  }
+
+  .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.herom)+.portal-screen-block,
+  .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .pnfm) {
+    display: none !important
+  }
+
+  .ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul {
+    grid-template-columns: repeat(2, 1fr)
+  }
+}
