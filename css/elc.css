@@ -2835,3 +2835,10 @@ body:has(.vcd-elc) .portal-screen-block:has(.vcd-elc)+.portal-screen-block:has(.
     display: none !important
   }
 }
+
+/* Faces turn a little towards the way the family walks (Sam, 7 Nov 2026) */
+body:has(.vcd-elc) .elc .hero .walk:not(.lie) .rd-head .rd-eyes,
+body:has(.vcd-elc) .elc .hero .walk:not(.lie) .rd-head>circle,
+body:has(.vcd-elc) .elc .hero .walk:not(.lie) .rd-head>path[d^="M17.8"] {
+  translate: 1.6px 0
+}
