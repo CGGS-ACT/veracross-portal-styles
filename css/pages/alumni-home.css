@@ -270,8 +270,9 @@ body:has(.vcd-alm) .component-photo-link .photo-overlay {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 8px 32px;
-  padding: 22px 32px !important;
+  gap: 8px 24px;
+  padding: 18px 30px !important;
+  border-radius: 13px !important;
   background: #0d5257 !important;
   color: #fff !important;
   font-size: 15px
@@ -288,6 +289,8 @@ body:has(.vcd-alm) .component-photo-link .photo-overlay {
 
 .ae-grid:has(.vcd-alm) .text:has(> .touchm) a {
   color: #fff !important;
+  font-size: 14px;
+  white-space: nowrap;
   font-weight: 700;
   text-decoration: none;
   border-bottom: 1.5px solid #fff
