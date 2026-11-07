@@ -296,11 +296,15 @@ body:has(.vcd-finfo) .fin .hero h1 em {
   border-top: 1px solid #f0eeec
 }
 
-.ae-grid:has(.vcd-finfo) .text:has(> .azm) details>div>p>strong:only-child {
-  display: block;
-  margin-top: 14px;
-  font: 700 17px 'Playfair Display', Georgia, serif;
-  color: #0d5257
+.ae-grid:has(.vcd-finfo) .text:has(> .azm) details>div strong,
+.ae-grid:has(.vcd-finfo) .text:has(> .azm) details>div b {
+  font: inherit;
+  font-weight: 700 !important;
+  color: #0d5257 !important
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .azm) details>div>p:has(> strong:first-child) {
+  margin-top: 14px
 }
 
 /* ---- Section heading block ---- */
