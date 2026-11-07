@@ -5,6 +5,7 @@
  */
 /* ---- k3 ---- */
 
+body:has(.vcd-jsy),
 body:has(.vcd-jsy) .portal-background,
 body:has(.vcd-jsy) .app-container {
   background: #fbfaf8 !important
