@@ -360,8 +360,8 @@ body:has(.vcd-finfo) .fin .hero h1 em {
 .ae-grid:has(.vcd-finfo)>.portal-screen-block:has(.finhero) {
   position: relative;
   z-index: 3;
-  height: 340px;
-  margin-top: -362px !important;
+  height: 348px;
+  margin-top: -370px !important;
   margin-bottom: 22px;
   pointer-events: none
 }
