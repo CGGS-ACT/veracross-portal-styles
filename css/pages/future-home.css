@@ -376,7 +376,14 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
 .ae-grid:has(.vcd-fut) .text:has(> .askm)>ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 34px
+  gap: 8px 48px;
+  margin: 0 !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .askm)>ul>li {
+  margin: 0 !important;
+  white-space: nowrap
 }
 
 .ae-grid:has(.vcd-fut) .text:has(> .askm) b {
@@ -384,7 +391,12 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
 }
 
 .ae-grid:has(.vcd-fut) .text:has(> .askm) a {
-  color: #fff !important
+  color: #fff !important;
+  text-decoration: none !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .askm) a:hover {
+  text-decoration: underline !important
 }
 
 /* ---- Layout, 900px and wider ---- */
