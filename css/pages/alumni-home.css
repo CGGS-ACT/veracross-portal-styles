@@ -122,7 +122,7 @@ body:has(.vcd-alm) .alm .hero {
   left: 4px;
   right: 4px;
   top: calc(100% + 30px);
-  height: 460px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
