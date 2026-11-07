@@ -379,7 +379,8 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
   columns: auto !important;
   max-width: none !important;
   width: auto !important;
-  gap: 8px 36px;
+  justify-content: center;
+  gap: 8px 32px;
   font-size: 15px;
   margin: 0 !important;
   padding: 0 !important
