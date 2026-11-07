@@ -163,6 +163,11 @@ body:has(.vcd-alm) .component-photo-link .photo-overlay {
   display: none !important
 }
 
+/* Banner photo: show the bottom of the picture (the lawn) */
+.ae-grid:has(.vcd-alm)>.portal-screen-block:has(.vcd-alm)+.portal-screen-block .photo-thumbnail {
+  background-position: center 100% !important
+}
+
 /* ---- Stories (cover, side stories, story cards) ---- */
 .ae-grid:has(.vcd-alm) .text:is(:has(> .coverm), :has(> .reportm), :has(> .sharem), :has(> .storym))>img {
   display: block;
