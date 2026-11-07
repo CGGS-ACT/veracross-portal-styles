@@ -339,8 +339,10 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
 }
 
 .ae-grid:has(.vcd-fut) .text.text:has(> .pnfm)>strong {
+  display: block;
   margin: 0 !important;
-  font-size: 30px !important
+  font: 700 30px/1.1 'Playfair Display', Georgia, serif !important;
+  color: #0d5257 !important
 }
 
 .ae-grid:has(.vcd-fut) .text:has(> .pnfm)>a {
