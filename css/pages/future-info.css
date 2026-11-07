@@ -413,7 +413,7 @@ body:has(.vcd-finfo) .fin .hero h1 em {
 }
 
 /* Script block: holds page scripts, never shown */
-.ae-grid>.portal-screen-block:has(.vcd-js) {
+.ae-grid>.portal-screen-block.portal-screen-block:has(> .screen-component > .component-rich-text > .text > .vcd-js) {
   display: none !important
 }
 
