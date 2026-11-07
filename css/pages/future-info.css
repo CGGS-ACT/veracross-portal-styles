@@ -412,3 +412,54 @@ body:has(.vcd-finfo) .fin .hero h1 em {
 .ae-grid>.portal-screen-block:has(.vcd-js) {
   display: none !important
 }
+
+/* ---- Staff list as compact name cards (staffm): role small above, name bold ---- */
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) table,
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) tbody {
+  display: block;
+  width: 100% !important
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) tbody {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 10px
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) tr {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  padding: 10px 14px;
+  background: #f2f1f0;
+  border-radius: 4px
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) td {
+  display: block;
+  padding: 0 !important;
+  border: 0 !important;
+  text-align: left !important
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) td,
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) td * {
+  font-size: 12.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.35;
+  color: #5d5c5f !important
+}
+
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) td:last-child,
+.ae-grid:has(.vcd-finfo) .text:has(> .staffm) td:last-child * {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #0d5257 !important;
+  margin-bottom: 2px
+}
+
+@media (max-width:599px) {
+  .ae-grid:has(.vcd-finfo) .text:has(> .staffm) tbody {
+    grid-template-columns: 1fr
+  }
+}
