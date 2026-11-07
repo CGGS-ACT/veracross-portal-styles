@@ -23,6 +23,20 @@ body:has(.vcd-alm) .app-container {
   background: transparent !important
 }
 
+/* Veracross header: keep the top bar, drop the empty menu band and teal backdrop.
+   If menu items are added to the Alumni Portal later, the band comes back. */
+body:has(.vcd-alm) nav.vx-nav {
+  height: auto !important
+}
+
+body:has(.vcd-alm) .vx-portal-nav:not(:has(li)) {
+  display: none !important
+}
+
+body:has(.vcd-alm) .portal-background {
+  display: none !important
+}
+
 body:has(.vcd-alm) .screen-toolbar,
 body:has(.vcd-alm) .vcd-note,
 .ae-grid:has(.vcd-alm) .text>span[class$="m"]:empty {
@@ -94,9 +108,12 @@ body:has(.vcd-alm) .alm .mast b {
 }
 
 body:has(.vcd-alm) .alm .mast a {
-  color: #0d5257 !important;
-  font-weight: 700;
+  color: #414042 !important;
   text-decoration: none
+}
+
+body:has(.vcd-alm) .alm .mast a:hover {
+  color: #be1f41 !important
 }
 
 /* The banner text sits over the photo block that follows */
@@ -104,7 +121,7 @@ body:has(.vcd-alm) .alm .hero {
   position: absolute;
   left: 4px;
   right: 4px;
-  top: calc(100% + 20px);
+  top: calc(100% + 30px);
   height: 460px;
   display: flex;
   flex-direction: column;
