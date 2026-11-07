@@ -88,8 +88,8 @@ body:has(.vcd-alm) .vcd-note,
 }
 
 body:has(.vcd-alm) .alm .mast {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 16px;
   padding: 6px 4px 16px;
@@ -98,6 +98,16 @@ body:has(.vcd-alm) .alm .mast {
   letter-spacing: .14em;
   text-transform: uppercase;
   color: #414042
+}
+
+/* Title sits in the middle, under the Alumni Portal tab */
+body:has(.vcd-alm) .alm .mast>span:first-child {
+  justify-self: start
+}
+
+body:has(.vcd-alm) .alm .mast>.nv {
+  justify-self: end;
+  text-align: right
 }
 
 body:has(.vcd-alm) .alm .mast b {
