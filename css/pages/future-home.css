@@ -375,17 +375,20 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
 
 .ae-grid:has(.vcd-fut) .text:has(> .askm)>ul {
   display: flex !important;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   columns: auto !important;
   max-width: none !important;
   width: auto !important;
-  gap: 8px 48px;
+  gap: 8px 36px;
+  font-size: 15px;
   margin: 0 !important;
   padding: 0 !important
 }
 
 .ae-grid:has(.vcd-fut) .text:has(> .askm)>ul>li {
   margin: 0 !important;
+  padding: 0 !important;
+  font-size: 15px !important;
   white-space: nowrap
 }
 
@@ -449,13 +452,6 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
   .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.component-photo-link) :is(.screen-component, .component-photo-link, .photo-thumbnail) {
     height: 100% !important;
     min-height: 240px
-  }
-}
-
-/* Contacts wrap only when the screen is too narrow */
-@media (max-width:1180px) {
-  .ae-grid:has(.vcd-fut) .text:has(> .askm)>ul {
-    flex-wrap: wrap
   }
 }
 
