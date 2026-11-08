@@ -1,0 +1,21 @@
+/*
+ * CGGS Veracross portal styles: parent-square.css
+ * Parent Portal only: square corners everywhere (Sam, 9 Nov 2026). Circles (icons, dots, sun/moon) stay round.
+ * Scoped to the Parent Portal by its nav link, so synced copies on other portals keep their rounded corners.
+ * Currently also inlined on every Parent page as <style class="vcd-page vcd-square"> until a release links this file.
+ */
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid,
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid *,
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid *::before,
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid *::after {
+  border-radius: 0 !important
+}
+
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid :is(.elc .hero .sun, .elc .hero .moon, .elc .hero .hill, .hero .stars span, .text ul.dates > li > strong, .chn, .ci),
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid .text > ul.tiles a::before,
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid .text > ul > li::after,
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid .text > .ch::before,
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid:has(.vcd-hub) .text li a::before,
+body:has(a.vx-nav-center__portal[href="/cggs_act/parent"]):has(.vcd-jsr) .ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid.ae-grid .text::before {
+  border-radius: 50% !important
+}
