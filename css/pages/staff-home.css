@@ -799,3 +799,8 @@ body .vcd-f button {
   outline: 0;
   box-shadow: 0 0 0 3px #b6cbcd
 }
+
+/* Heading is its own editable block (Sam, 9 Nov 2026) */
+.ae-grid:has(.vcd-home2)>.portal-screen-block:has(.vcd-h1) {
+  order: 1
+}
