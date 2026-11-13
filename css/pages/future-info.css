@@ -401,6 +401,12 @@ body:has(.vcd-finfo) .fin .hero h1 em {
   pointer-events: auto
 }
 
+/* Edit Screen: the banner title and eyebrow can be clicked to edit them (Sam, 13 Nov 2026) */
+.admin-interface .ae-grid:has(.vcd-finfo) .text:has(> .finhero)>:is(em, strong) {
+  pointer-events: auto;
+  cursor: pointer
+}
+
 @media (max-width:899px) {
   .ae-grid:has(.vcd-finfo)>.portal-screen-block:has(.finhero) {
     height: 260px;
