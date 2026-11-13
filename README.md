@@ -4,7 +4,7 @@ The styling for the designed pages on the CGGS Veracross Staff, Parent and Stude
 (portals.veracross.au/cggs_act). Pages load these files through jsDelivr, pinned to a release,
 with an integrity check, so a page only changes when someone moves it to a new release.
 
-**CSS only.** No scripts, no data, no personal information. The repo is public so jsDelivr can serve it.
+**Styles, plus a few page scripts in `tools/`.** No secrets and no personal information in the repo. The repo is public so jsDelivr can serve it.
 
 ## Files
 
@@ -23,6 +23,14 @@ with an integrity check, so a page only changes when someone moves it to a new r
 | `css/departments.css` | Staff section pages (Junior School/ELC, Senior School, Pastoral Care, Tours, PL, HR) |
 | `css/pages/*.css` | One-off pages (staff home, parent home, info pages, policy hero photos) |
 
+Scripts in `tools/` (loaded by small `img` tags in a page's design block, or run as bookmarklets):
+
+| File | What it does |
+|---|---|
+| `tools/cggs-portal-tools.js` | CGGS Portal Tools for portal admins (sync pages, update styles, policy links) |
+| `tools/boarding-house-scene.js` | The Boarding House day and night scene |
+| `tools/portal-analytics.js` | Portal visit tracking: page views, time on page, clicks and card openings, sent to the Ask Emily bot (13 Nov 2026) |
+
 Each page's design block in Veracross keeps only: the `<link>` tags to these files, a few
 page-specific lines (year colours, hero photo), the breadcrumb and the title.
 
@@ -40,4 +48,4 @@ Pages never follow `main` directly, so a mistake on `main` doesn't reach the por
 - Scope every rule to its page type (e.g. `body:has(.vcd-jsr)`) so one page's styles can't leak into another.
 - Keep the CGGS colours: teal `#0D5257`, charcoal `#414042`, stone `#e6e3e0`, pale green `#b6cbcd`, pink `#ecbcc5`.
 - Plain CSS, one declaration per line, a comment at the top of each section.
-- Never add JavaScript here.
+- No JavaScript in the CSS files; scripts go in `tools/` and hold no secrets or personal information.
