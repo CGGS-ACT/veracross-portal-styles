@@ -24,8 +24,19 @@ var pv=rid();
 var uid=C.user_id!=null?String(C.user_id):'';
 var page=String(C.screen_name||location.pathname.split('/').filter(Boolean).pop()||'home');
 function vw(){var w=window.innerWidth||document.documentElement.clientWidth||0;return w<600?'phone':w<1024?'tablet':'desktop'}
+/* device and browser (added 16 Nov 2026): device type is phone, tablet or desktop (a laptop reports the same as a desktop) */
+var DEV=(function(){
+ var ua=navigator.userAgent||'',uad=navigator.userAgentData||null,tp=navigator.maxTouchPoints||0;
+ var sw=(window.screen&&Math.min(screen.width,screen.height))||0;
+ var os=/iPhone|iPod/.test(ua)?'iOS':/iPad/.test(ua)||(/Macintosh/.test(ua)&&tp>1)?'iPadOS':/Android/.test(ua)?'Android':/CrOS/.test(ua)?'ChromeOS':/Windows/.test(ua)?'Windows':/Mac OS X|Macintosh/.test(ua)?'macOS':/Linux/.test(ua)?'Linux':'Other';
+ if(uad&&uad.platform){var pf=uad.platform;if(/Windows/i.test(pf))os='Windows';else if(/mac/i.test(pf)&&os!=='iPadOS')os='macOS';else if(/Android/i.test(pf))os='Android';else if(/Chrome OS|ChromeOS/i.test(pf))os='ChromeOS'}
+ var br=/EdgA?\/|Edg\//.test(ua)?'Edge':/OPR\/|Opera/.test(ua)?'Opera':/SamsungBrowser/.test(ua)?'Samsung Internet':/Firefox\/|FxiOS/.test(ua)?'Firefox':/CriOS|Chrome\//.test(ua)?'Chrome':/Safari\//.test(ua)?'Safari':'Other';
+ if(/Teams\//.test(ua))br='Teams';
+ var mobile=uad&&typeof uad.mobile==='boolean'?uad.mobile:/Mobi|iPhone|iPod/.test(ua);
+ var dt=os==='iPadOS'?'tablet':mobile||os==='iOS'?'phone':os==='Android'?(sw&&sw>=600?'tablet':'phone'):tp>1&&sw&&sw<600?'phone':'desktop';
+ return {dt:dt,br:br,os:os,sw:sw}})();
 var who={name:'',role:ROLE[C.portal_name]||C.portal_name,src:'none'};
-var state=window.__cggsPA={v:1,sid:sid,pv:pv,who:who,info:function(){return{sid:sid,pv:pv,portal:C.portal_name,page:page,user_id:uid,name:who.name,role:who.role,name_from:who.src}}};
+var state=window.__cggsPA={v:1,sid:sid,pv:pv,who:who,info:function(){return{sid:sid,pv:pv,portal:C.portal_name,page:page,user_id:uid,name:who.name,role:who.role,name_from:who.src,device:DEV}}};
 
 /* ---------- name lookup: Portals.config, then the page header, then the profile page; cached per session ---------- */
 function okName(t){t=squash(t);return t.length>=2&&t.length<=80&&/[A-Za-z]/.test(t)&&!BAD.test(t)&&!/[<>{}@]/.test(t)?t:''}
@@ -60,7 +71,7 @@ function lookup(){
 /* ---------- sending: events wait (at most 3 s) for the name, then go straight out ---------- */
 var ready=false,queue=[];
 function send(e,extra){
- var o={client:C.client,e:e,portal:C.portal_name,page:page,uid:uid,name:who.name,role:who.role,sid:sid,pv:pv,ts:Date.now(),vw:vw()};
+ var o={client:C.client,e:e,portal:C.portal_name,page:page,uid:uid,name:who.name,role:who.role,sid:sid,pv:pv,ts:Date.now(),vw:vw(),dt:DEV.dt,br:DEV.br,os:DEV.os};
  for(var k in extra)if(Object.prototype.hasOwnProperty.call(extra,k))o[k]=extra[k];
  if(!ready){queue.push(o);return}
  beacon(o)}
@@ -74,7 +85,7 @@ Promise.race([lookup(),new Promise(function(r){setTimeout(r,3000)})]).then(go,go
 
 /* ---------- view ---------- */
 function refPath(){var r=document.referrer;if(!r)return '';try{var u=new URL(r);return u.host===location.host?u.pathname:u.host}catch(e){return ''}}
-send('view',{title:cut(document.title,150),path:location.pathname,ref:refPath()});
+send('view',{title:cut(document.title,150),path:location.pathname,ref:refPath(),sw:DEV.sw});
 
 /* ---------- time: seconds actively visible, on hide, on leave, and every 30 s ---------- */
 var acc=0,since=document.visibilityState==='visible'?Date.now():0;
