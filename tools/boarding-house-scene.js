@@ -289,7 +289,7 @@ var BHU=location.href.split('#')[0];var t=document.createElement('template');t.i
     shuffle(W).forEach(function(w,i){at(23100+i*180,function(){w.classList.remove('on','wave');});});
     at(16400,function(){talkAt(pick(['Look, the Southern Cross!','Make a wish!','So many stars!','Is that a satellite?','I can see Orion!','Shooting star!','Which one’s Mars?','The moon’s so bright','Is that the Milky Way?','I wish on that one','Do you think there’s life up there?','Five more minutes?','It’s freezing out here!','Canberra skies are the best','That’s Alpha Centauri, I think']),'.bh-sk');});
     at(18200,function(){if(Math.random()<0.7) talkAt(pick(['Look, the Southern Cross!','Make a wish!','So many stars!','Is that a satellite?','I can see Orion!','Shooting star!','Which one’s Mars?','The moon’s so bright','Is that the Milky Way?','I wish on that one','Do you think there’s life up there?','Five more minutes?','It’s freezing out here!','Canberra skies are the best','That’s Alpha Centauri, I think']),'.bh-sk');});
-    if(!exOut) vanVisit(19000);
+    if(!exOut&&!exBack) vanVisit(19000);
     at(24800,function(){box.classList.remove('stars');});
     at(25600,function(){box.classList.remove('van');});
     at(26200,function(){box.classList.remove('night');});
