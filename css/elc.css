@@ -2769,6 +2769,12 @@ body:has(.vcd-elc) .portal-screen-block:not(:has(.component-photo-link))+.portal
   border-radius: 95px 24px 24px 24px !important
 }
 
+/* Photo row: last (4th) photo slopes on the top right, mirroring the first */
+body:has(.vcd-elc) .portal-screen-block:has(.component-photo-link)+.portal-screen-block:has(.component-photo-link)+.portal-screen-block:has(.component-photo-link)+.portal-screen-block:has(.component-photo-link) .photo-thumbnail,
+body:has(.vcd-elc) .portal-screen-block:has(.component-photo-link)+.portal-screen-block:has(.component-photo-link)+.portal-screen-block:has(.component-photo-link)+.portal-screen-block:has(.component-photo-link) .component-photo-link {
+  border-radius: 24px 95px 24px 24px !important
+}
+
 @media (max-width:639px) {
   body:has(.vcd-elc) .portal-screen-block:has(.component-photo-link) {
     flex: 0 0 50% !important;
