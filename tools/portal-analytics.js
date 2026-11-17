@@ -18,7 +18,11 @@
    Loaded once per page by an img.vcd-pajs tag in the page's design block, e.g.
      <img class="vcd-pajs" src="x" alt="" style="display:none" onerror="if(!window.__cggsPA){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/CGGS-ACT/veracross-portal-styles@VERSION/tools/portal-analytics.js';document.head.appendChild(s)}">
    No secrets here: this repo is public. Events go as text/plain JSON with navigator.sendBeacon (no CORS preflight).
-   In the browser console, window.__cggsPA.info() shows the session, page view and where the name came from. */
+   In the browser console, window.__cggsPA.info() shows the session, page view and where the name came from.
+   Tests and manual checks (17 Nov 2026): set window.__cggsPAtest before this script loads. Every event then carries
+   test:1 and NEVER goes to the live collector: it goes to window.__cggsPAtest.endpoint if that is a local URL (e.g.
+   http://127.0.0.1:8099/api/portal/track), otherwise nowhere; either way it is kept in window.__cggsPA.sent. The
+   collector also drops any event with test set, so a test can't reach the live dashboard even with an old copy. */
 (function(){
 /* ---------- entry source: pure functions (tools/test/portal-analytics.test.js tests them) ---------- */
 var SRC=(function(){
@@ -71,6 +75,8 @@ var SRC=(function(){
  return {detect:detect,strip:strip,inApp:inApp,slug:slug}})();
 window.__cggsPAsrc=SRC;
 var ENDPOINT='https://ask-emily-cggs-fyg9cubjd2dnc2bz.australiaeast-01.azurewebsites.net/api/portal/track';
+var TEST=window.__cggsPAtest||null,SENT=[];
+var TEST_URL=TEST&&typeof TEST.endpoint==='string'&&/^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?\//.test(TEST.endpoint)?TEST.endpoint:'';
 if(window.__cggsPA&&window.__cggsPA.v)return;
 window.__cggsPA={v:1};
 var inFrame=true;try{inFrame=window.self!==window.top}catch(e){}
@@ -107,7 +113,7 @@ var entry=(function(){
  if(d.link||!st||!st.src){st={src:d.src,why:d.why};ss('cggsPA.src',JSON.stringify(st))}
  return st})();
 var who={name:'',role:ROLE[C.portal_name]||C.portal_name,src:'none'};
-var state=window.__cggsPA={v:1,sid:sid,pv:pv,who:who,info:function(){return{sid:sid,pv:pv,portal:C.portal_name,page:page,user_id:uid,name:who.name,role:who.role,name_from:who.src,device:DEV,source:entry.src,source_why:entry.why,ua:navigator.userAgent,app_marker:SRC.inApp(navigator.userAgent,navigator.maxTouchPoints)}}};
+var state=window.__cggsPA={v:1,sid:sid,pv:pv,who:who,test:!!TEST,sent:SENT,info:function(){return{sid:sid,pv:pv,portal:C.portal_name,page:page,user_id:uid,name:who.name,role:who.role,name_from:who.src,device:DEV,source:entry.src,source_why:entry.why,ua:navigator.userAgent,app_marker:SRC.inApp(navigator.userAgent,navigator.maxTouchPoints)}}};
 
 /* ---------- name lookup: Portals.config, then the page header, then the profile page; cached per session ---------- */
 function okName(t){t=squash(t);return t.length>=2&&t.length<=80&&/[A-Za-z]/.test(t)&&!BAD.test(t)&&!/[<>{}@]/.test(t)?t:''}
@@ -148,9 +154,11 @@ function send(e,extra){
  beacon(o)}
 function beacon(o){
  o.name=who.name;o.role=who.role;
+ var url=ENDPOINT;
+ if(TEST){o.test=1;SENT.push(o);if(!TEST_URL)return;url=TEST_URL}
  var body=JSON.stringify(o);
- try{if(navigator.sendBeacon&&navigator.sendBeacon(ENDPOINT,new Blob([body],{type:'text/plain'})))return}catch(e){}
- try{fetch(ENDPOINT,{method:'POST',body:body,mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain'}})}catch(e){}}
+ try{if(navigator.sendBeacon&&navigator.sendBeacon(url,new Blob([body],{type:'text/plain'})))return}catch(e){}
+ try{fetch(url,{method:'POST',body:body,mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain'}})}catch(e){}}
 function go(){if(ready)return;ready=true;var q=queue;queue=[];q.forEach(beacon)}
 Promise.race([lookup(),new Promise(function(r){setTimeout(r,3000)})]).then(go,go);
 

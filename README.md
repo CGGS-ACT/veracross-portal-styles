@@ -32,8 +32,15 @@ Scripts in `tools/` (loaded by small `img` tags in a page's design block, or run
 | `tools/portal-analytics.js` | Portal visit tracking: page views, time on page, clicks, card openings and how each visit arrived (email or news link, the school app, Agora, direct), sent to the Ask Emily bot and kept 5 years (13 and 17 Nov 2026) |
 | `tools/portal-links.py` | Adds `?src=email` (or news, app, sms) to every portal link in a pasted email or news item |
 
-Tests: `node --test tools/test/portal-analytics.test.js` (entry-source rules, `?src=` stripping) and
+Tests: `node --test tools/test/portal-analytics.test.js` (entry-source rules, `?src=` stripping, test mode),
+`node tools/test/portal-analytics.browser.js` (real Chromium, local collector only) and
 `python3 tools/test/test_portal_links.py`.
+
+**Tests must never reach the live dashboard.** Before loading `portal-analytics.js` anywhere but a real visit, set
+`window.__cggsPAtest = { endpoint: 'https://localhost/api/portal/track' }` (or `true` to send nothing). Events are
+then marked `test: 1`, go only to a localhost endpoint (any other endpoint is ignored) and are kept in
+`window.__cggsPA.sent`; the collector also drops any event with `test` set. Start from
+`tools/test/portal-analytics.browser.js` for browser checks: it also aborts every non-local request.
 
 ## Tracking how people arrive (`?src=`)
 
