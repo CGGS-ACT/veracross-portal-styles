@@ -29,7 +29,29 @@ Scripts in `tools/` (loaded by small `img` tags in a page's design block, or run
 |---|---|
 | `tools/cggs-portal-tools.js` | CGGS Portal Tools for portal admins (sync pages, update styles, policy links) |
 | `tools/boarding-house-scene.js` | The Boarding House day and night scene |
-| `tools/portal-analytics.js` | Portal visit tracking: page views, time on page, clicks and card openings, sent to the Ask Emily bot (13 Nov 2026) |
+| `tools/portal-analytics.js` | Portal visit tracking: page views, time on page, clicks, card openings and how each visit arrived (email or news link, the school app, Agora, direct), sent to the Ask Emily bot and kept 5 years (13 and 17 Nov 2026) |
+| `tools/portal-links.py` | Adds `?src=email` (or news, app, sms) to every portal link in a pasted email or news item |
+
+Tests: `node --test tools/test/portal-analytics.test.js` (entry-source rules, `?src=` stripping) and
+`python3 tools/test/test_portal_links.py`.
+
+## Tracking how people arrive (`?src=`)
+
+Email and news links are only told apart from typing the address when the link says where it came from (desktop
+Outlook sends no referrer). Add `src` to portal links; the script records it and then removes it from the address
+bar, so it isn't bookmarked or shared.
+
+| Where the link is | Link format |
+|---|---|
+| Composer emails | `https://portals.veracross.au/cggs_act/parent?src=email` |
+| News items | `https://portals.veracross.au/cggs_act/parent?src=news` |
+| The school app's portal links | `https://portals.veracross.au/cggs_act/parent?src=app` |
+| SMS | `https://portals.veracross.au/cggs_act/parent?src=sms` |
+
+Use the same `?src=` on any portal page link (e.g. `…/cggs_act/faculty/…?src=email`); if the link already has a `?`,
+add `&src=email` instead. To do a whole email at once:
+
+    python3 tools/portal-links.py email < email.html > email-tracked.html
 
 Each page's design block in Veracross keeps only: the `<link>` tags to these files, a few
 page-specific lines (year colours, hero photo), the breadcrumb and the title.
