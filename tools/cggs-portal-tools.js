@@ -273,7 +273,7 @@ if(window.__vptLib){var cb=window.__vptLib;window.__vptLib=null;if(here&&/\/edit
  var pol=here&&isPolicyPage(here[2]);
  /* Policy pages: no Sync. Policies are added, changed and removed in the Policy Manager, which updates every portal */
  cb({here:here,others:others,otherNames:otherNames,canSync:pol?false:canSync,name:NAME,build:build});
- if(here&&here[2]==='cygnus-schedule'&&!/\/edit\/?$/.test(location.pathname))ttButton(here[1],here[2]);
+ if(here&&here[2]==='cygnus-schedule')ttButton(here[1],here[2]);
  if(pol&&!document.querySelector('.vcd-pmbtn')){var ob=document.querySelector('.vcd-syncbtn');if(ob)ob.remove();var mb=document.createElement('a');mb.className='vcd-pmbtn';mb.href='/cggs_act/faculty/pages/policy-manager';if(here[1]!='faculty')mb.target='_blank';mb.textContent='Add or change a policy: Policy Manager';mb.title='Policies are managed in one place. The Policy Manager updates every portal.';mb.style.cssText='position:fixed;right:20px;bottom:20px;z-index:9999;background:#0d5257;color:#fff;border-radius:4px;padding:12px 18px;font:500 14px Roboto,Arial,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18);text-decoration:none';document.body.appendChild(mb)}
  return}
 var box=document.createElement('div');box.id='vpt';
