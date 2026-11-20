@@ -217,7 +217,7 @@ if(window.__vptLib){var cb=window.__vptLib;window.__vptLib=null;if(here&&/\/edit
  if(pol&&!document.querySelector('.vcd-pmbtn')){var ob=document.querySelector('.vcd-syncbtn');if(ob)ob.remove();var mb=document.createElement('a');mb.className='vcd-pmbtn';mb.href='/cggs_act/faculty/pages/policy-manager';if(here[1]!='faculty')mb.target='_blank';mb.textContent='Add or change a policy: Policy Manager';mb.title='Policies are managed in one place. The Policy Manager updates every portal.';mb.style.cssText='position:fixed;right:20px;bottom:20px;z-index:9999;background:#0d5257;color:#fff;border-radius:4px;padding:12px 18px;font:500 14px Roboto,Arial,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18);text-decoration:none';document.body.appendChild(mb)}
  return}
 /* Cygnus Schedule import (Sam, 20 Nov 2026): paste the master spreadsheet rows, check them, rebuild the day cards and publish. Only the day cards change; everything else on the page stays. */
-var TT={DAYS:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],SLOTS:['Before school','Morning','Lunchtime','After school'],AREAS:['Sport','Music','Dance','Clubs','Academic','Debating','Drama'],COLS:['Campus','Day','Time of day','Time','Activity','Details','Venue','Years','Weeks','Area']};
+var TT={DAYS:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],SLOTS:['Before school','Morning','Lunchtime','After school'],AREAS:['Sport','Music','Dance','Clubs','Academic','Debating','Drama'],COLS:['Campus','Day','Time of day','Time','Activity','Details','Venue','Years','Weeks','Area','Contact']};
 function ttEsc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function ttMins(t){t=String(t||'');var m=/^~?(\d{1,2})[.:](\d{2})\s*([ap]m)?/i.exec(t);if(!m)return 9999;var h=+m[1];var suf=m[3]||((/([ap]m)\s*$/i.exec(t)||[])[1]||'am');if(/pm/i.test(suf)&&h<12)h+=12;return h*60+ +m[2]}
 function ttSort(a,b){return ttMins(a.Time)-ttMins(b.Time)||String(a.Activity).localeCompare(String(b.Activity))}
@@ -227,7 +227,7 @@ function ttCap(v){v=ttFix(v);var l=v.toLowerCase();return l?l.charAt(0).toUpperC
 function ttParse(text){
  var lines=text.replace(/\r/g,'').split('\n').filter(function(l){return l.trim()});var rows=[],errs=[],warn=[];if(!lines.length)return{rows:rows,errs:['Nothing pasted.'],warn:warn};
  var head=lines[0].split('\t').map(ttFix),idx={};head.forEach(function(h,i){idx[h.toLowerCase()]=i});
- var miss=TT.COLS.filter(function(c){return !(c.toLowerCase() in idx)&&c!=='Details'});if(miss.length)return{rows:rows,errs:['The first row must be the column headings. Missing: '+miss.join(', ')+'. Copy the whole Timetable sheet, including row 1.'],warn:warn};
+ var miss=TT.COLS.filter(function(c){return !(c.toLowerCase() in idx)&&c!=='Details'&&c!=='Contact'});if(miss.length)return{rows:rows,errs:['The first row must be the column headings. Missing: '+miss.join(', ')+'. Copy the whole Timetable sheet, including row 1.'],warn:warn};
  lines.slice(1).forEach(function(l,n){var c=l.split('\t');var o={};TT.COLS.forEach(function(k){var i=idx[k.toLowerCase()];o[k]=i==null?'':ttFix(c[i])});if(!o.Activity&&!o.Day&&!o.Time)return;var row='Row '+(n+2)+' ('+(o.Activity||'no activity')+')';
   o.Campus=ttCap(o.Campus);if(['Junior','Senior','Both'].indexOf(o.Campus)<0)errs.push(row+': Campus "'+o.Campus+'" should be Junior or Senior.');
   var d=ttCap(o.Day);if(d==='Tbc'||d==='')d='TBC';o.Day=d;if(TT.DAYS.indexOf(d)<0&&d!=='TBC')errs.push(row+': Day "'+o.Day+'" should be Monday to Saturday or TBC.');
@@ -235,12 +235,13 @@ function ttParse(text){
   var s=TT.SLOTS.filter(function(x){return x.toLowerCase()===o['Time of day'].toLowerCase()})[0];if(!s)warn.push(row+': Time of day "'+o['Time of day']+'" isn\'t one of the list, so it goes under After school.');else o['Time of day']=s;
   if(!o.Activity)errs.push(row+': no Activity name.');if(!o.Time)warn.push(row+': no Time.');else if(ttMins(o.Time)===9999)warn.push(row+': Time "'+o.Time+'" doesn\'t start with a time like 3.30, so it sorts last.');
   rows.push(o)});
- return{rows:rows,errs:errs,warn:warn}}
+ return{rows:rows,errs:errs,warn:warn,contact:'contact' in idx}}
 function ttMerge(rows){var norm=function(s){return String(s).toLowerCase().replace(/[^a-z0-9]/g,'')};var map={},order=[];rows.forEach(function(r){var k=r.Day+'|'+norm(r.Time)+'|'+norm(r.Activity)+'|'+norm(r.Years);if(map[k]){if(map[k].Campus!==r.Campus)map[k].Campus='Both'}else{map[k]=JSON.parse(JSON.stringify(r));order.push(k)}});return order.map(function(k){return map[k]})}
-function ttBlocks(rows,camp){var out=[];TT.DAYS.concat(['TBC']).forEach(function(day){var dr=rows.filter(function(r){return r.Day===day});if(!dr.length)return;
- var h='<strong>'+(day==='TBC'?'Day to be confirmed':day)+'</strong><span class="ttday"></span><table><tbody><tr><td><i>Time</i></td><td><i>Activity</i></td><td><i>Venue</i></td><td><i>Years</i></td><td><i>Weeks</i></td>'+(camp?'<td><i>Campus</i></td>':'')+'<td><i>Area</i></td></tr>';
- TT.SLOTS.forEach(function(slot){var sr=dr.filter(function(r){return ttSlot(r)===slot}).sort(ttSort);if(!sr.length)return;if(day!=='TBC')h+='<tr><td><b>'+slot+'</b></td><td></td><td></td><td></td><td></td><td></td>'+(camp?'<td></td>':'')+'</tr>';
-  sr.forEach(function(r){h+='<tr><td>'+ttEsc(r.Time)+'</td><td>'+ttEsc(r.Activity)+(r.Details?'<i>'+ttEsc(r.Details)+'</i>':'')+'</td><td>'+ttEsc(r.Venue)+'</td><td>'+ttEsc(r.Years)+'</td><td>'+ttEsc(r.Weeks)+'</td>'+(camp?'<td>'+ttEsc(r.Campus)+'</td>':'')+'<td>'+ttEsc(r.Area)+'</td></tr>'})});
+function ttContact(v){if(!v)return '';return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'<a href="mailto:'+ttEsc(v)+'">'+ttEsc(v)+'</a>':ttEsc(v)}
+function ttBlocks(rows,camp,con){var out=[];TT.DAYS.concat(['TBC']).forEach(function(day){var dr=rows.filter(function(r){return r.Day===day});if(!dr.length)return;
+ var h='<strong>'+(day==='TBC'?'Day to be confirmed':day)+'</strong><span class="ttday"></span><table><tbody><tr><td><i>Time</i></td><td><i>Activity</i></td><td><i>Venue</i></td><td><i>Years</i></td><td><i>Weeks</i></td>'+(camp?'<td><i>Campus</i></td>':'')+(con?'<td><i>Contact</i></td>':'')+'<td><i>Area</i></td></tr>';
+ TT.SLOTS.forEach(function(slot){var sr=dr.filter(function(r){return ttSlot(r)===slot}).sort(ttSort);if(!sr.length)return;if(day!=='TBC')h+='<tr><td><b>'+slot+'</b></td><td></td><td></td><td></td><td></td><td></td>'+(camp?'<td></td>':'')+(con?'<td></td>':'')+'</tr>';
+  sr.forEach(function(r){h+='<tr><td>'+ttEsc(r.Time)+'</td><td>'+ttEsc(r.Activity)+(r.Details?'<i>'+ttEsc(r.Details)+'</i>':'')+'</td><td>'+ttEsc(r.Venue)+'</td><td>'+ttEsc(r.Years)+'</td><td>'+ttEsc(r.Weeks)+'</td>'+(camp?'<td>'+ttEsc(r.Campus)+'</td>':'')+(con?'<td>'+ttContact(r.Contact)+'</td>':'')+'<td>'+ttEsc(r.Area)+'</td></tr>'})});
  out.push({day:day,n:dr.length,html:h+'</tbody></table>'})});return out}
 function ttIsDay(c){var t=c.configuration&&c.configuration.content&&c.configuration.content.text;return typeof t==='string'&&/<span class="ttday"><\/span>/.test(t)}
 async function ttPublish(P,page,blocks,say){
@@ -262,7 +263,7 @@ function ttImportUI(root,P,page){
  ta.oninput=function(){pub.style.display='none';blocks=null};
  root.querySelector('.tt-chk').onclick=function(){var p=ttParse(ta.value);var h='';pub.style.display='none';blocks=null;
   if(p.errs.length){h+='<div class="bad"><b>Fix these in the spreadsheet first:</b></div><ul class="bad">'+p.errs.map(function(e){return '<li>'+ttEsc(e)+'</li>'}).join('')+'</ul>'}
-  if(!p.errs.length){var rows=ttMerge(p.rows);var both=p.rows.length-rows.length;blocks=ttBlocks(rows,true);
+  if(!p.errs.length){var rows=ttMerge(p.rows);var both=p.rows.length-rows.length;blocks=ttBlocks(rows,true,p.contact);
    var jn=rows.filter(function(r){return r.Campus==='Junior'}).length,sn=rows.filter(function(r){return r.Campus==='Senior'}).length,bn=rows.filter(function(r){return r.Campus==='Both'}).length;
    h+='<div class="ok"><b>'+rows.length+' activities ready</b> ('+jn+' Junior, '+sn+' Senior, '+bn+' both'+(both?'; '+both+' rows were the same activity on both campuses and were joined':'')+').</div><table>'+blocks.map(function(b){return '<tr><td>'+(b.day==='TBC'?'Day to be confirmed':b.day)+'</td><td>'+b.n+'</td></tr>'}).join('')+'</table>';
    pub.style.display=''}

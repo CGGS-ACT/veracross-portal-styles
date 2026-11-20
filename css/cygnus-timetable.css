@@ -545,3 +545,19 @@ body:has(.vcd-tt) .text:has(> .ttinfo:first-child) {
   border-top: 5px solid #0D5257 !important;
   padding: 24px 28px !important
 }
+
+/* Contact column: after Campus, before Area */
+body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(7):not(:last-child) {
+  font-size: 13px;
+  overflow-wrap: anywhere
+}
+
+@media (max-width: 700px) {
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(7):not(:last-child) {
+    display: block
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(7):not(:last-child):not(:empty)::before {
+    content: "Contact: "
+  }
+}
