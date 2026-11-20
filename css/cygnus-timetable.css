@@ -1,6 +1,6 @@
 /*
  * CGGS Veracross portal styles: cygnus-timetable.css
- * Cygnus Timetable pages (list by day, and week grid). Used with core.css and cygnus.css.
+ * Cygnus Schedule pages (list by day, and week grid). Used with core.css and cygnus.css.
  * Staff edit plain tables. The small script at the end of the page adds the fold-up days,
  * the Show filter, Jump to and Back to top. Without the script the tables still read fine.
  * Edit here, release a new version, then click Update styles on the portal.
@@ -210,7 +210,7 @@ body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(4) {
   white-space: nowrap
 }
 
-body:has(.vcd-tt) .text:has(> .ttday) tr:not(.tt-slot) td:nth-child(4):not(:empty)::before {
+body:has(.vcd-tt) .text:has(> .ttday) tr:not(.tt-slot):not(:first-child) td:nth-child(4):not(:empty)::before {
   content: "Yr "
 }
 
@@ -452,4 +452,47 @@ body:has(.vcd-tt) .tt-tools .tt-xrow button.tt-all {
 body:has(.vcd-tt) .tt-tools .tt-xrow button.tt-all:hover {
   box-shadow: none;
   color: #414042
+}
+
+/* column headers: first row of each day table, cells in italics (Time, Activity, Venue, Years, Weeks, [Campus], Area) */
+body:has(.vcd-tt) .text:has(> .ttday) tbody>tr:first-child td {
+  border-top: 0;
+  padding: 6px 8px 4px;
+  font: 700 11.5px Roboto, Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6e979a
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) tbody>tr:first-child td :is(i, em) {
+  font-style: normal;
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) tbody>tr:first-child+tr td {
+  padding-top: 10px
+}
+
+/* All School: Campus column sits before Area */
+body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(6):not(:last-child) {
+  width: 84px;
+  font-size: 13px
+}
+
+@media (max-width: 700px) {
+  body:has(.vcd-tt) .text:has(> .ttday) tbody>tr:first-child {
+    display: none
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(6):not(:last-child) {
+    display: inline
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(6):not(:last-child)::before {
+    content: " \00B7  "
+  }
 }
