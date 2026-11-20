@@ -1,0 +1,431 @@
+/*
+ * CGGS Veracross portal styles: cygnus-timetable.css
+ * Cygnus Timetable pages (list by day, and week grid). Used with core.css and cygnus.css.
+ * Staff edit plain tables. The small script at the end of the page adds the fold-up days,
+ * the Show filter, Jump to and Back to top. Without the script the tables still read fine.
+ * Edit here, release a new version, then click Update styles on the portal.
+ */
+
+/* ---- shared ---- */
+
+body:has(.vcd-tt) .ae-grid>.portal-screen-block:has(.vcd-js) {
+  display: none !important
+}
+
+body:has(.vcd-tt) .text table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 15px/1.45 Roboto, Arial, sans-serif;
+  color: #414042
+}
+
+body:has(.vcd-tt) .text table td {
+  border: 0;
+  border-top: 1px solid #ecebe8;
+  padding: 10px 8px;
+  vertical-align: baseline;
+  text-align: left;
+  background: transparent
+}
+
+body:has(.vcd-tt) .tt-pill,
+body:has(.vcd-tt) .tt-tools button,
+body:has(.vcd-tt) .tt-tools a {
+  display: inline-block;
+  border-radius: 4px;
+  font: 400 13px/1.2 Roboto, Arial, sans-serif;
+  white-space: nowrap
+}
+
+body:has(.vcd-tt) .tt-pill {
+  padding: 4px 9px;
+  background: #e6e3e0;
+  color: #414042
+}
+
+/* area colours: rows, chips and filter buttons */
+body:has(.vcd-tt) [data-area="Sport"] .tt-pill,
+body:has(.vcd-tt) li[data-area="Sport"],
+body:has(.vcd-tt) .tt-bar button[data-a="Sport"] {
+  background: #ecbcc5;
+  color: #6e0f24
+}
+
+body:has(.vcd-tt) [data-area="Music"] .tt-pill,
+body:has(.vcd-tt) li[data-area="Music"],
+body:has(.vcd-tt) .tt-bar button[data-a="Music"] {
+  background: #b6cbcd;
+  color: #0d5257
+}
+
+body:has(.vcd-tt) [data-area="Dance"] .tt-pill,
+body:has(.vcd-tt) li[data-area="Dance"],
+body:has(.vcd-tt) .tt-bar button[data-a="Dance"] {
+  background: #fbeff2;
+  color: #7a1029;
+  box-shadow: inset 0 0 0 1px #d8798d
+}
+
+body:has(.vcd-tt) [data-area="Clubs"] .tt-pill,
+body:has(.vcd-tt) li[data-area="Clubs"],
+body:has(.vcd-tt) .tt-bar button[data-a="Clubs"] {
+  background: #0d5257;
+  color: #fff
+}
+
+body:has(.vcd-tt) [data-area="Academic"] .tt-pill,
+body:has(.vcd-tt) li[data-area="Academic"],
+body:has(.vcd-tt) .tt-bar button[data-a="Academic"] {
+  background: #fff;
+  color: #0d5257;
+  box-shadow: inset 0 0 0 1px #0d5257
+}
+
+body:has(.vcd-tt) [data-area="Debating"] .tt-pill,
+body:has(.vcd-tt) li[data-area="Debating"],
+body:has(.vcd-tt) .tt-bar button[data-a="Debating"] {
+  background: #e6e3e0;
+  color: #414042
+}
+
+body:has(.vcd-tt) [data-area="Drama"] .tt-pill,
+body:has(.vcd-tt) li[data-area="Drama"],
+body:has(.vcd-tt) .tt-bar button[data-a="Drama"] {
+  background: #ffe680;
+  color: #414042
+}
+
+/* ---- tools bar (added by the script) ---- */
+
+body:has(.vcd-tt) .tt-tools {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 0 4px;
+  margin: 0 0 20px
+}
+
+body:has(.vcd-tt) .tt-tools>div {
+  background: #fff;
+  border-radius: 13px;
+  padding: 14px 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center
+}
+
+body:has(.vcd-tt) .tt-tools>div+div {
+  margin-top: 10px
+}
+
+body:has(.vcd-tt) .tt-tools span {
+  font: 500 14px Roboto, Arial, sans-serif;
+  color: #0d5257;
+  margin-right: 6px
+}
+
+body:has(.vcd-tt) .tt-tools button {
+  border: 0;
+  padding: 9px 14px;
+  min-height: 38px;
+  cursor: pointer;
+  background: #fff;
+  color: #0d5257;
+  box-shadow: inset 0 0 0 1px #b6cbcd
+}
+
+body:has(.vcd-tt) .tt-tools a {
+  padding: 9px 14px;
+  background: #fff;
+  color: #0d5257 !important;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 1px #b6cbcd
+}
+
+body:has(.vcd-tt) .tt-tools a:hover,
+body:has(.vcd-tt) .tt-tools button:hover {
+  box-shadow: inset 0 0 0 1px #0d5257
+}
+
+body:has(.vcd-tt) .tt-bar button[data-a="All"].on {
+  background: #0d5257;
+  color: #fff
+}
+
+body:has(.vcd-tt) .tt-bar.some button:not(.on):not([data-a="All"]) {
+  opacity: .4
+}
+
+body:has(.vcd-tt) .tt-bar button.on:not([data-a="All"]) {
+  outline: 3px solid #0d5257;
+  outline-offset: 1px
+}
+
+body:has(.vcd-tt) .tt-hide {
+  display: none !important
+}
+
+/* ---- list page: one card per day ---- */
+
+body:has(.vcd-tt) .text.text.text:has(> .ttday) {
+  background: #fff !important;
+  border-radius: 13px !important;
+  border-top: 5px solid #0d5257 !important;
+  padding: 14px 28px 16px !important
+}
+
+body:has(.vcd-tt) .text:has(> .ttday)>strong:first-child {
+  display: block;
+  font: 700 22px/1.3 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin: 4px 0 4px
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) td:first-child {
+  width: 120px;
+  font-weight: 500;
+  color: #0d5257;
+  white-space: nowrap
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(2) {
+  font-weight: 500
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(2) i {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #6b6a6c;
+  margin-top: 2px
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(3) {
+  width: 210px
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(4) {
+  width: 90px;
+  white-space: nowrap
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) tr:not(.tt-slot) td:nth-child(4):not(:empty)::before {
+  content: "Yr "
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(5) {
+  width: 110px;
+  font-size: 13px;
+  color: #6b6a6c
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) td:last-child {
+  width: 92px
+}
+
+/* time-of-day rows: first cell in bold */
+body:has(.vcd-tt) .text:has(> .ttday) tr:has(> td:first-child > :is(b, strong)) td {
+  border-top: 0;
+  padding: 18px 8px 4px
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) tr:has(> td:first-child > :is(b, strong)) td:first-child {
+  font: 700 16px Roboto, Arial, sans-serif;
+  color: #0d5257
+}
+
+/* day header button and fold-up (script) */
+body:has(.vcd-tt) .tt-dayhd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px
+}
+
+body:has(.vcd-tt) .tt-head {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: 0;
+  padding: 6px 0;
+  min-height: 44px;
+  cursor: pointer;
+  text-align: left;
+  font: 700 22px/1.3 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+body:has(.vcd-tt) .tt-head::before {
+  content: "\203A";
+  display: inline-block;
+  width: 14px;
+  font: 400 28px/1 Roboto, Arial, sans-serif;
+  transition: transform .2s
+}
+
+body:has(.vcd-tt) .tt-open .tt-head::before {
+  transform: rotate(90deg)
+}
+
+body:has(.vcd-tt) .tt-n {
+  font: 400 14px Roboto, Arial, sans-serif;
+  color: #6b6a6c
+}
+
+body:has(.vcd-tt) .tt-top {
+  display: none;
+  font: 500 14px Roboto, Arial, sans-serif;
+  color: #0d5257 !important;
+  text-decoration: none;
+  white-space: nowrap
+}
+
+body:has(.vcd-tt) .tt-top::after {
+  content: " \2191"
+}
+
+body:has(.vcd-tt) .tt-open .tt-top {
+  display: inline
+}
+
+body.tt-js:has(.vcd-tt) .text:has(> .ttday):not(.tt-open) table {
+  display: none
+}
+
+/* ---- week grid page: one table, days across ---- */
+
+body:has(.vcd-tt) .text.text.text:has(> .ttgrid) {
+  background: #fff !important;
+  border-radius: 13px !important;
+  border-top: 5px solid #0d5257 !important;
+  padding: 20px 22px !important;
+  overflow-x: auto
+}
+
+body:has(.vcd-tt) .text:has(> .ttgrid)>strong:first-child {
+  display: block;
+  font: 700 24px/1.3 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin: 0 0 10px
+}
+
+body:has(.vcd-tt) .text:has(> .ttgrid) table {
+  table-layout: fixed;
+  min-width: 900px
+}
+
+body:has(.vcd-tt) .text:has(> .ttgrid) td {
+  vertical-align: top;
+  padding: 10px 3px
+}
+
+body:has(.vcd-tt) .text:has(> .ttgrid) td:first-child {
+  width: 104px;
+  font: 700 15px/1.4 Roboto, Arial, sans-serif;
+  color: #0d5257
+}
+
+body:has(.vcd-tt) .text:has(> .ttgrid) tr:first-child td {
+  border-top: 0;
+  font: 700 12px Roboto, Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #0d5257;
+  padding-bottom: 6px
+}
+
+body:has(.vcd-tt) .text:has(> .ttgrid) ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+body:has(.vcd-tt) .text:has(> .ttgrid) li {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: #f2f1f0;
+  font-size: 11.5px;
+  line-height: 1.35
+}
+
+body:has(.vcd-tt) .text:has(> .ttgrid) li> :is(b, strong) {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 1px
+}
+
+body.tt-js:has(.vcd-tt) .text:has(> .ttgrid) li[data-area]>i:last-child {
+  display: none
+}
+
+/* ---- info card ---- */
+
+body:has(.vcd-tt) .text:has(> .ttinfo) .pp {
+  display: block;
+  margin: 0 0 8px
+}
+
+/* ---- phones ---- */
+
+@media (max-width: 700px) {
+  body:has(.vcd-tt) .text:has(> .ttday) table,
+  body:has(.vcd-tt) .text:has(> .ttday) tbody,
+  body:has(.vcd-tt) .text:has(> .ttday) tr,
+  body:has(.vcd-tt) .text:has(> .ttday) td {
+    display: block;
+    width: auto !important
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) tr {
+    border-top: 1px solid #ecebe8;
+    padding: 9px 0
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td {
+    border: 0;
+    padding: 0
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) tr:not(:has(> td:first-child > :is(b, strong))) td:first-child,
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(3),
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(4),
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(5) {
+    display: inline;
+    font-size: 13px;
+    font-weight: 400
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(2) {
+    font-size: 15px;
+    margin-bottom: 2px
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(3)::before,
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(5)::before {
+    content: " \00B7  "
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td:last-child {
+    margin-top: 4px
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) tr:has(> td:first-child > :is(b, strong)) {
+    border-top: 0;
+    padding-top: 14px
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) tr:has(> td:first-child > :is(b, strong)) td:not(:first-child) {
+    display: none
+  }
+
+  body:has(.vcd-tt) .text.text.text:has(> .ttday) {
+    padding: 12px 18px 14px !important
+  }
+}
