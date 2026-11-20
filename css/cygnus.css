@@ -330,3 +330,14 @@ body:has(.vcd-cyg) .text ul.dots.cols2 li {
     columns: 1
   }
 }
+
+/* divider after the Cygnus Schedule button in the pillar buttons row */
+body:has(.vcd-cyg) .text>ul.pills li.pipe {
+  width: 1px;
+  align-self: stretch;
+  margin: 4px 6px;
+  background: #b6cbcd;
+  font-size: 0;
+  color: transparent;
+  overflow: hidden
+}
