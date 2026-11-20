@@ -568,3 +568,33 @@ body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-contact a {
     margin-top: 4px
   }
 }
+
+/* mobile tidy (Sam, 20 Nov): time / activity / venue · Yr · Wk · campus / area pill + contact */
+@media (max-width: 700px) {
+  body:has(.vcd-tt) .text:has(> .ttday) tr:not(:has(> td:first-child > :is(b, strong))) td:first-child {
+    display: block
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(3)::before {
+    content: none
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(3):empty + td:nth-child(4)::before {
+    content: "Yr "
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) tr:not(.tt-slot):not(:first-child) td:nth-child(3):not(:empty) + td:nth-child(4):not(:empty)::before {
+    content: " \00B7  Yr "
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-area {
+    display: inline-block;
+    margin-top: 6px
+  }
+
+  body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-contact {
+    display: inline-block;
+    margin: 6px 0 0 10px;
+    font-size: 13px
+  }
+}
