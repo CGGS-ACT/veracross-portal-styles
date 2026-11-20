@@ -537,3 +537,11 @@ body:has(.vcd-tt) .tt-day.some button:not(.on) {
     flex-basis: 100%
   }
 }
+
+/* info card without a heading: keep the white card */
+body:has(.vcd-tt) .text:has(> .ttinfo:first-child) {
+  background: #fff !important;
+  border-radius: 13px !important;
+  border-top: 5px solid #0D5257 !important;
+  padding: 24px 28px !important
+}
