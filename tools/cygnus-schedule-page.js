@@ -25,8 +25,8 @@ if(grid)q('li',grid).forEach(function(li){var i=li.querySelector(':scope > i:las
 var used=A.filter(function(a){return rows.some(function(e){return e.getAttribute('data-area')===a})});
 var hasCampus=rows.some(function(e){return e.hasAttribute('data-campus')});
 var tools=el('div','tt-tools'),card=el('div','tt-card'),groups=[];tools.appendChild(card);
-function group(label,key,opts,multi){var g=el('div','tt-bar tt-'+key);g.appendChild(el('span','',label));
-['All'].concat(opts).forEach(function(o){var b=el('button','',o==='Day to be confirmed'?'Day TBC':o);b.type='button';b.setAttribute('data-a',o);b.__v=o;
+function group(label,key,opts,multi){var g=el('div','tt-bar tt-'+key);g.setAttribute('aria-label',label);
+['All'].concat(opts).forEach(function(o){var b=el('button','',o==='Day to be confirmed'?'Day TBC':key==='school'&&o!=='All'?o+' School':o);b.type='button';b.setAttribute('data-a',o);b.__v=o;
 b.onclick=function(){if(!multi){F[key]=o}else if(o==='All'){F[key]=[]}else{var i=F[key].indexOf(o);if(i===-1)F[key].push(o);else F[key].splice(i,1)}
 if(key==='day')days.forEach(function(t){t.classList.toggle('tt-open',F.day.indexOf(t.__day)!==-1)});apply()};g.appendChild(b)});
 g.__key=key;g.__multi=multi;groups.push(g);card.appendChild(g)}
