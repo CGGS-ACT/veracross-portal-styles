@@ -231,7 +231,7 @@ function ttParse(text){
   rows.push(o)});
  return{rows:rows,errs:errs,warn:warn,contact:'contact' in idx}}
 function ttMerge(rows){var norm=function(s){return String(s).toLowerCase().replace(/[^a-z0-9]/g,'')};var map={},order=[];rows.forEach(function(r){var k=r.Day+'|'+norm(r.Time)+'|'+norm(r.Activity)+'|'+norm(r.Years);if(map[k]){if(map[k].Campus!==r.Campus)map[k].Campus='Both'}else{map[k]=JSON.parse(JSON.stringify(r));order.push(k)}});return order.map(function(k){return map[k]})}
-function ttContact(v){if(!v)return '';return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'<a href="mailto:'+ttEsc(v.toLowerCase())+'">'+ttEsc(v.toLowerCase())+'</a>':ttEsc(v)}
+function ttContact(v){if(!v)return '';return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'<a href="mailto:'+ttEsc(v.toLowerCase())+'">'+ttEsc(v.split('@')[0].split(/[._]/).map(function(w){return w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()}).join(' '))+'</a>':ttEsc(v)}
 function ttBlocks(rows,camp,con){var out=[];TT.DAYS.concat(['TBC']).forEach(function(day){var dr=rows.filter(function(r){return r.Day===day});if(!dr.length)return;
  var h='<strong>'+(day==='TBC'?'Day to be confirmed':day)+'</strong><span class="ttday"></span><table><tbody><tr><td><i>Time</i></td><td><i>Activity</i></td><td><i>Venue</i></td><td><i>Years</i></td><td><i>Weeks</i></td>'+(camp?'<td><i>Campus</i></td>':'')+'<td><i>Area</i></td>'+(con?'<td><i>Contact</i></td>':'')+'</tr>';
  TT.SLOTS.forEach(function(slot){var sr=dr.filter(function(r){return ttSlot(r)===slot}).sort(ttSort);if(!sr.length)return;if(day!=='TBC')h+='<tr><td><b>'+slot+'</b></td><td></td><td></td><td></td><td></td><td></td>'+(camp?'<td></td>':'')+(con?'<td></td>':'')+'</tr>';

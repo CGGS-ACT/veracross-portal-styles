@@ -552,9 +552,9 @@ body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-area {
 }
 
 body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-contact {
-  width: 170px;
+  width: 100px;
   font-size: 13px;
-  overflow-wrap: break-word
+  white-space: nowrap
 }
 
 body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-contact a {
