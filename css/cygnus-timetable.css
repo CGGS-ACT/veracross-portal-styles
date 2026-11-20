@@ -549,7 +549,9 @@ body:has(.vcd-tt) .text:has(> .ttinfo:first-child) {
 /* Contact column: after Campus, before Area */
 body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(7):not(:last-child) {
   font-size: 13px;
-  overflow-wrap: anywhere
+  width: 190px;
+  min-width: 190px;
+  overflow-wrap: break-word
 }
 
 @media (max-width: 700px) {
