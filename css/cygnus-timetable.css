@@ -429,3 +429,27 @@ body:has(.vcd-tt) .text:has(> .ttinfo) .pp {
     padding: 12px 18px 14px !important
   }
 }
+
+/* Expand all / Collapse all: plain text link on the right, under the Show filter */
+body:has(.vcd-tt) .tt-tools>div.tt-xrow {
+  background: transparent;
+  padding: 0 4px;
+  margin-top: 6px;
+  justify-content: flex-end
+}
+
+body:has(.vcd-tt) .tt-tools .tt-xrow button.tt-all {
+  background: transparent;
+  box-shadow: none;
+  padding: 4px 0;
+  min-height: 0;
+  font: 500 14px Roboto, Arial, sans-serif;
+  color: #0d5257;
+  text-decoration: underline;
+  text-underline-offset: 3px
+}
+
+body:has(.vcd-tt) .tt-tools .tt-xrow button.tt-all:hover {
+  box-shadow: none;
+  color: #414042
+}
