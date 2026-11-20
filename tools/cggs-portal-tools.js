@@ -237,11 +237,11 @@ function ttParse(text){
   rows.push(o)});
  return{rows:rows,errs:errs,warn:warn,contact:'contact' in idx}}
 function ttMerge(rows){var norm=function(s){return String(s).toLowerCase().replace(/[^a-z0-9]/g,'')};var map={},order=[];rows.forEach(function(r){var k=r.Day+'|'+norm(r.Time)+'|'+norm(r.Activity)+'|'+norm(r.Years);if(map[k]){if(map[k].Campus!==r.Campus)map[k].Campus='Both'}else{map[k]=JSON.parse(JSON.stringify(r));order.push(k)}});return order.map(function(k){return map[k]})}
-function ttContact(v){if(!v)return '';return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'<a href="mailto:'+ttEsc(v)+'">'+ttEsc(v)+'</a>':ttEsc(v)}
+function ttContact(v){if(!v)return '';return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'<a href="mailto:'+ttEsc(v.toLowerCase())+'">'+ttEsc(v.toLowerCase())+'</a>':ttEsc(v)}
 function ttBlocks(rows,camp,con){var out=[];TT.DAYS.concat(['TBC']).forEach(function(day){var dr=rows.filter(function(r){return r.Day===day});if(!dr.length)return;
- var h='<strong>'+(day==='TBC'?'Day to be confirmed':day)+'</strong><span class="ttday"></span><table><tbody><tr><td><i>Time</i></td><td><i>Activity</i></td><td><i>Venue</i></td><td><i>Years</i></td><td><i>Weeks</i></td>'+(camp?'<td><i>Campus</i></td>':'')+(con?'<td><i>Contact</i></td>':'')+'<td><i>Area</i></td></tr>';
+ var h='<strong>'+(day==='TBC'?'Day to be confirmed':day)+'</strong><span class="ttday"></span><table><tbody><tr><td><i>Time</i></td><td><i>Activity</i></td><td><i>Venue</i></td><td><i>Years</i></td><td><i>Weeks</i></td>'+(camp?'<td><i>Campus</i></td>':'')+'<td><i>Area</i></td>'+(con?'<td><i>Contact</i></td>':'')+'</tr>';
  TT.SLOTS.forEach(function(slot){var sr=dr.filter(function(r){return ttSlot(r)===slot}).sort(ttSort);if(!sr.length)return;if(day!=='TBC')h+='<tr><td><b>'+slot+'</b></td><td></td><td></td><td></td><td></td><td></td>'+(camp?'<td></td>':'')+(con?'<td></td>':'')+'</tr>';
-  sr.forEach(function(r){h+='<tr><td>'+ttEsc(r.Time)+'</td><td>'+ttEsc(r.Activity)+(r.Details?'<i>'+ttEsc(r.Details)+'</i>':'')+'</td><td>'+ttEsc(r.Venue)+'</td><td>'+ttEsc(r.Years)+'</td><td>'+ttEsc(r.Weeks)+'</td>'+(camp?'<td>'+ttEsc(r.Campus)+'</td>':'')+(con?'<td>'+ttContact(r.Contact)+'</td>':'')+'<td>'+ttEsc(r.Area)+'</td></tr>'})});
+  sr.forEach(function(r){h+='<tr><td>'+ttEsc(r.Time)+'</td><td>'+ttEsc(r.Activity)+(r.Details?'<i>'+ttEsc(r.Details)+'</i>':'')+'</td><td>'+ttEsc(r.Venue)+'</td><td>'+ttEsc(r.Years)+'</td><td>'+ttEsc(r.Weeks)+'</td>'+(camp?'<td>'+ttEsc(r.Campus)+'</td>':'')+'<td>'+ttEsc(r.Area)+'</td>'+(con?'<td>'+ttContact(r.Contact)+'</td>':'')+'</tr>'})});
  out.push({day:day,n:dr.length,html:h+'</tbody></table>'})});return out}
 function ttIsDay(c){var t=c.configuration&&c.configuration.content&&c.configuration.content.text;return typeof t==='string'&&/<span class="ttday"><\/span>/.test(t)}
 async function ttPublish(P,page,blocks,say){

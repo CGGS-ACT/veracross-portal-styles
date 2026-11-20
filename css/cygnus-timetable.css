@@ -546,20 +546,25 @@ body:has(.vcd-tt) .text:has(> .ttinfo:first-child) {
   padding: 24px 28px !important
 }
 
-/* Contact column: after Campus, before Area */
-body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(7):not(:last-child) {
+/* Contact column (last) and Area column, tagged by the page script from the header row */
+body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-area {
+  width: 92px
+}
+
+body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-contact {
+  width: 170px;
   font-size: 13px;
-  width: 190px;
-  min-width: 190px;
   overflow-wrap: break-word
 }
 
-@media (max-width: 700px) {
-  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(7):not(:last-child) {
-    display: block
-  }
+body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-contact a {
+  color: #0d5257
+}
 
-  body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(7):not(:last-child):not(:empty)::before {
-    content: "Contact: "
+@media (max-width: 700px) {
+  body:has(.vcd-tt) .text:has(> .ttday) td.tt-c-contact {
+    display: block;
+    width: auto;
+    margin-top: 4px
   }
 }
