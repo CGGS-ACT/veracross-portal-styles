@@ -12,7 +12,7 @@ days.forEach(function(t){
 var ci=-1,ai=-1,ki=-1;
 q('tr',t).forEach(function(tr,ri){var c=tr.cells;if(!c.length)return;
 if(ri===0){for(var k=0;k<c.length;k++){var hx=c[k].textContent.trim();if(hx==='Campus')ci=k;if(hx==='Area')ai=k;if(hx==='Contact')ki=k}return}
-if(ci!==-1&&c[ci])c[ci].classList.add('tt-c-campus');if(ki!==-1&&c[ki])c[ki].classList.add('tt-c-contact');
+if(ci!==-1&&c[ci])c[ci].classList.add('tt-c-campus');if(ki!==-1&&c[ki]){c[ki].classList.add('tt-c-contact');q('a[href^="mailto:"]',c[ki]).forEach(function(l){if(l.textContent.indexOf('@')!==-1)l.textContent=l.textContent.split('@')[0].split(/[._]/).map(function(w){return w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()}).join(' ')})}
 var last=c[ai!==-1&&c[ai]?ai:c.length-1],a=last.textContent.trim();last.classList.add('tt-c-area');
 if(A.indexOf(a)!==-1){tr.setAttribute('data-area',a);last.innerHTML='';last.appendChild(el('span','tt-pill',a));
 if(ci!==-1)tr.setAttribute('data-campus',c[ci].textContent.trim());rows.push(tr)}
