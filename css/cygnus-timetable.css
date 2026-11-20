@@ -496,3 +496,44 @@ body:has(.vcd-tt) .text:has(> .ttday) td:nth-child(6):not(:last-child) {
     content: " \00B7  "
   }
 }
+
+/* single Cygnus Schedule page: School / Day / What filter rows inside one white card */
+body:has(.vcd-tt) .tt-tools>div.tt-card {
+  display: block;
+  padding: 10px 22px
+}
+
+body:has(.vcd-tt) .tt-card>.tt-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0
+}
+
+body:has(.vcd-tt) .tt-card>.tt-bar+.tt-bar {
+  border-top: 1px solid #e6e3e0
+}
+
+body:has(.vcd-tt) .tt-card>.tt-bar>span {
+  flex: 0 0 64px;
+  margin-right: 0
+}
+
+body:has(.vcd-tt) .tt-school button.on:not([data-a="All"]),
+body:has(.vcd-tt) .tt-day button.on:not([data-a="All"]) {
+  background: #0d5257;
+  color: #fff;
+  outline: 0
+}
+
+body:has(.vcd-tt) .tt-school.some button:not(.on),
+body:has(.vcd-tt) .tt-day.some button:not(.on) {
+  opacity: 1
+}
+
+@media (max-width: 700px) {
+  body:has(.vcd-tt) .tt-card>.tt-bar>span {
+    flex-basis: 100%
+  }
+}
