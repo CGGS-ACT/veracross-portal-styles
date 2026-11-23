@@ -575,3 +575,24 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
   height: 36px;
   background-size: 20px
 }
+
+/* P&F banner: thinner (Sam, 23 Nov 2026) */
+.ae-grid:has(.vcd-fut) .text.text.text:has(> .pnfm) {
+  padding: 20px 32px !important;
+  gap: 6px
+}
+
+.ae-grid:has(.vcd-fut) .text.text:has(> .pnfm)>strong {
+  font-size: 26px !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .pnfm)>a {
+  margin-top: 0;
+  padding: 9px 18px
+}
+
+@media (min-width:900px) {
+  .ae-grid:has(.vcd-fut)>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .pnfm) :is(.screen-component, .component-photo-link, .photo-thumbnail) {
+    min-height: 160px !important
+  }
+}
