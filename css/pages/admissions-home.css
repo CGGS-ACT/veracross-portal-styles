@@ -239,12 +239,12 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   background: #dbe6e7
 }
 
-/* ---- How to apply (span.stepmark): numbered steps ---- */
-.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul {
+/* ---- Numbered list (span.dlmark = Downloads; span.stepmark = old How to apply) ---- */
+.ae-grid:has(.vcd-adm) .text.text:has(> :is(.stepmark, .dlmark))>ul {
   counter-reset: st
 }
 
-.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul>li {
+.ae-grid:has(.vcd-adm) .text.text:has(> :is(.stepmark, .dlmark))>ul>li {
   counter-increment: st;
   position: relative;
   padding: 10px 0 10px 60px;
@@ -253,11 +253,11 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   color: #5d5c5f
 }
 
-.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul>li:last-child {
+.ae-grid:has(.vcd-adm) .text.text:has(> :is(.stepmark, .dlmark))>ul>li:last-child {
   border-bottom: 0
 }
 
-.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul>li::before {
+.ae-grid:has(.vcd-adm) .text.text:has(> :is(.stepmark, .dlmark))>ul>li::before {
   content: counter(st, decimal-leading-zero);
   position: absolute;
   left: 0;
@@ -266,7 +266,7 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   color: #b6cbcd
 }
 
-.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark)>ul>li> :is(b, strong) {
+.ae-grid:has(.vcd-adm) .text.text:has(> :is(.stepmark, .dlmark))>ul>li> :is(b, strong) {
   display: block;
   font-size: 15px;
   color: #414042
@@ -373,29 +373,34 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   .ae-grid:has(.vcd-adm)>.item-sm-4 { grid-column: span 4 }
   .ae-grid:has(.vcd-adm)>.item-sm-3 { grid-column: span 3 }
 
-  .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.stepmark) {
-    grid-column: 1 / 7;
-    grid-row: 4 / 6
+  .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.tlmark) {
+    grid-column: 1 / 13;
+    grid-row: 4 / 5
   }
 
-  .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.stepmark)+.portal-screen-block:has(.component-photo-link) {
+  .ae-grid:has(.vcd-adm)>.portal-screen-block:has(:is(.stepmark, .dlmark)) {
     grid-column: 1 / 7;
-    grid-row: 6 / 7
+    grid-row: 5 / 7
+  }
+
+  .ae-grid:has(.vcd-adm)>.portal-screen-block:has(:is(.stepmark, .dlmark))+.portal-screen-block:has(.component-photo-link) {
+    grid-column: 1 / 7;
+    grid-row: 7 / 8
   }
 
   .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.component-photo-link):has(+ .portal-screen-block .newsmark) {
     grid-column: 7 / 13;
-    grid-row: 4 / 5
+    grid-row: 5 / 6
   }
 
   .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.newsmark) {
     grid-column: 7 / 13;
-    grid-row: 5 / 7
+    grid-row: 6 / 8
   }
 
   .ae-grid:has(.vcd-adm)>.portal-screen-block:has(.talkmark) {
     grid-column: 1 / 13;
-    grid-row: 7 / 8
+    grid-row: 8 / 9
   }
 }
 
@@ -409,7 +414,7 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
   padding-top: 0 !important
 }
 
-.ae-grid:has(.vcd-adm) .text.text:has(> .stepmark) {
+.ae-grid:has(.vcd-adm) .text.text:has(> :is(.stepmark, .dlmark)) {
   height: 100%
 }
 
@@ -422,7 +427,7 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
 }
 
 /* The photo under How to apply stretches to keep both columns level */
-.ae-grid:has(.vcd-adm)>.portal-screen-block:has(.stepmark)+.portal-screen-block:has(.component-photo-link) :is(.screen-component, .component-photo-link, .photo-thumbnail) {
+.ae-grid:has(.vcd-adm)>.portal-screen-block:has(:is(.stepmark, .dlmark))+.portal-screen-block:has(.component-photo-link) :is(.screen-component, .component-photo-link, .photo-thumbnail) {
   height: 100% !important;
   min-height: 220px
 }
@@ -483,4 +488,152 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
 
 .ae-grid:has(.vcd-adm) .text.text.text:has(> .talkmark)>a:first-of-type {
   margin-left: auto
+}
+
+/* ---- Downloads (span.dlmark): <li><a href><b>File name</b>what it is</a></li>, numbered 01, 02 ... ---- */
+.ae-grid:has(.vcd-adm) .text.text:has(> .dlmark)>ul>li>a {
+  display: block;
+  color: #5d5c5f !important;
+  text-decoration: none !important
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .dlmark)>ul>li>a> :is(b, strong) {
+  display: block;
+  font-size: 15px;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .dlmark)>ul>li>a> :is(b, strong)::after {
+  content: " \203A"
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .dlmark)>ul>li>a:hover> :is(b, strong) {
+  text-decoration: underline
+}
+
+/* ---- How to apply timeline (span.tlmark): <li><b>Step</b>text</li>, like The school morning ---- */
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark) {
+  background: #fff !important;
+  border-radius: 13px !important;
+  border-top: 5px solid #0d5257 !important;
+  padding: 24px 28px 26px !important
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>strong:first-child {
+  display: block;
+  margin: 0 0 18px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: tl
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li {
+  counter-increment: tl;
+  flex: 1 1 0;
+  position: relative;
+  margin: 0;
+  padding: 26px 10px 0;
+  list-style: none;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #414042
+}
+
+/* the line between dots */
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #b6cbcd
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li:first-child::before { left: 50% }
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li:last-child::before { right: 50% }
+
+/* the dot */
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 50%;
+  margin-left: -9px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0d5257;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px #0d5257
+}
+
+/* italic text marks a step in pink, like the late dot */
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li:has(em, i)::after {
+  background: #ecbcc5;
+  box-shadow: 0 0 0 1px #c98a97
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li :is(em, i) { font-style: normal }
+
+/* big step number, then the step name */
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li> :is(b, strong):first-child::before {
+  content: counter(tl, decimal-leading-zero);
+  display: block;
+  margin-bottom: 4px;
+  font: 700 30px/1.1 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li> :is(b, strong):first-child {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: #414042
+}
+
+/* Phones and narrow tablets: the timeline runs down the page */
+@media (max-width:760px) {
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul { flex-direction: column }
+
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li {
+    text-align: left;
+    padding: 0 0 18px 34px
+  }
+
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li::before,
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li:first-child::before,
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li:last-child::before {
+    top: 0;
+    bottom: 0;
+    left: 7px;
+    right: auto;
+    width: 3px;
+    height: auto
+  }
+
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li:first-child::before { top: 8px }
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li:last-child::before { bottom: auto; height: 8px }
+
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li::after {
+    left: 0;
+    margin-left: 0;
+    top: 2px
+  }
+
+  .ae-grid:has(.vcd-adm) .text.text.text:has(> .tlmark)>ul>li> :is(b, strong):first-child::before {
+    display: inline;
+    margin-right: 8px;
+    font-size: 20px
+  }
 }
