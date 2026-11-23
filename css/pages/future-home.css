@@ -543,3 +543,22 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
     grid-template-columns: repeat(7, 1fr)
   }
 }
+
+/* Quick-link tiles (Sam, 23 Nov 2026): teal #266468 tiles, white labels, icons in one straight line */
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a {
+  justify-content: flex-start;
+  background: #266468;
+  color: #fff !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover {
+  background: #0d5257
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a::before {
+  flex: none
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover::before {
+  background-color: #dbe6e7
+}
