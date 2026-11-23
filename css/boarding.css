@@ -425,3 +425,10 @@ body:has(.vcd-bh) .text.text:has(> .loopmark) ul.lk {
     grid-template-columns: 1fr
   }
 }
+
+/* Key times: the grey detail sits on its own line under the event name (Sam, 23 Nov 2026) */
+body:has(.vcd-bh) .text.text:has(> .sidemark) ul.tm li i {
+  display: block;
+  margin-top: 2px;
+  line-height: 1.35
+}
