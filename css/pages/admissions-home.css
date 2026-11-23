@@ -637,3 +637,12 @@ body:has(.vcd-adm) .ae-grid>.portal-screen-block:has(.component-photo-link):has(
     font-size: 20px
   }
 }
+
+/* Downloads: no numbers (Sam, 23 Nov 2026) */
+.ae-grid:has(.vcd-adm) .text.text:has(> .dlmark)>ul>li {
+  padding-left: 0
+}
+
+.ae-grid:has(.vcd-adm) .text.text:has(> .dlmark)>ul>li::before {
+  content: none
+}
