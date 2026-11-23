@@ -647,3 +647,8 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
 .ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover::before {
   background-color: #fbe9ed
 }
+
+/* Hover: no pink; the circle stays white, only the icon and label turn red */
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover::before {
+  background-color: #fff
+}
