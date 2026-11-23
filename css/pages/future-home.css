@@ -628,3 +628,22 @@ body:has(.vcd-fut) .component-photo-link .photo-overlay {
 .ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover::before {
   background-color: #fbe9ed
 }
+
+/* Tiles moved under the welcome banner, pale green (Sam, 23 Nov 2026) */
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a {
+  background: #b6cbcd;
+  color: #0d5257 !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a::before {
+  background-color: #fff
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover {
+  background: #b6cbcd;
+  color: #be1f41 !important
+}
+
+.ae-grid:has(.vcd-fut) .text:has(> .tilem)>ul>li>a:hover::before {
+  background-color: #fbe9ed
+}
