@@ -698,3 +698,255 @@
     font-size: 38px
   }
 }
+
+/* ---- Apps & Services (vcd-apps) ---- */
+.ae-grid:has(.vcd-apps) .component-rich-text .text {
+  font: 300 15px/1.5 Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #414042
+}
+
+.ae-grid:has(.vcd-apps) .text ul,
+.ae-grid:has(.vcd-apps) .text li {
+  list-style: none !important;
+  margin: 0;
+  padding: 0
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .legendmark) {
+  background: #fff !important;
+  border-radius: 13px;
+  padding: 18px 24px !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  align-items: center
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .legendmark)>strong {
+  font: 700 12px Roboto, Arial, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .legendmark) ul {
+  display: contents
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .legendmark) li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .legendmark) li> :is(b, strong),
+.achip {
+  font: 700 11px Roboto, Arial, sans-serif;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #e6e3e0;
+  color: #414042;
+  border: 1px solid transparent;
+  white-space: nowrap
+}
+
+.achip.c-company-portal {
+  background: #0d5257;
+  color: #fff
+}
+
+.achip.c-web {
+  background: #b6cbcd;
+  color: #0d5257
+}
+
+.achip.c-computer-lab {
+  background: #ecbcc5
+}
+
+.achip.c-mobile {
+  background: #f2f1f0;
+  border-color: #d6d3cf
+}
+
+.achip.c-ask-ict {
+  background: #fff;
+  color: #be1f41;
+  border-color: #be1f41
+}
+
+.afil {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 6px
+}
+
+.afil button {
+  all: unset;
+  cursor: pointer;
+  background: #fff;
+  color: #0d5257;
+  border: 1px solid #0d5257;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font: 400 14px Roboto, Arial, sans-serif
+}
+
+.afil button.on,
+.afil button:hover {
+  background: #0d5257;
+  color: #fff
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark) {
+  background: transparent !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark)>strong {
+  display: block;
+  font: 700 26px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin: 10px 0 12px
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark)>ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark)>ul>li {
+  background: #fff;
+  border-radius: 13px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark)>ul>li> :is(b, strong) {
+  font: 700 17px Roboto, Arial, sans-serif;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark)>ul>li> :is(i, em) {
+  font-style: normal;
+  font-size: 12px;
+  color: #6d6d6d
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark)>ul>li>a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #0d5257;
+  text-decoration: none
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark)>ul>li>a::after {
+  content: ' \203A'
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .appsmark)>ul>li>a:hover {
+  text-decoration: underline
+}
+
+/* made by the script */
+.ae-grid:has(.vcd-apps) li.aj {
+  display: grid !important;
+  grid-template-columns: 42px 1fr;
+  gap: 8px 12px !important;
+  align-content: start
+}
+
+.ae-grid:has(.vcd-apps) li.aj> :is(b, strong) {
+  align-self: center
+}
+
+.ae-grid:has(.vcd-apps) li.aj>.adesc,
+.ae-grid:has(.vcd-apps) li.aj>.atags,
+.ae-grid:has(.vcd-apps) li.aj>.alinks {
+  grid-column: 1 / -1
+}
+
+.ae-grid:has(.vcd-apps) li.aj>.alinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: auto
+}
+
+.ae-grid:has(.vcd-apps) li.aj {
+  grid-template-rows: auto auto auto 1fr
+}
+
+.atags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px
+}
+
+.aico {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: contain
+}
+
+.aini {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #0d5257;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 15px Roboto, Arial, sans-serif
+}
+
+.ae-grid:has(.vcd-apps) .hide {
+  display: none !important
+}
+
+.anone {
+  background: #fff;
+  border-radius: 13px;
+  padding: 16px 20px;
+  color: #5d5c5f
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .helpmark) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 28px;
+  background: #b6cbcd !important;
+  border-radius: 13px;
+  padding: 24px 30px !important
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .helpmark)>strong {
+  flex: 1 1 100%;
+  font: 700 24px 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .helpmark)>div {
+  flex: 1 1 380px;
+  font-size: 14px
+}
+
+.ae-grid:has(.vcd-apps) .text:has(> .helpmark) ul a {
+  display: inline-block;
+  background: #0d5257;
+  color: #fff !important;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-weight: 700;
+  text-decoration: none
+}
