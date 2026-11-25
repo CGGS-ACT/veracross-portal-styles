@@ -1,0 +1,700 @@
+/*
+ * CGGS Veracross portal styles: help.css
+ * Help & How-to: the hub (vcd-help), guide pages (vcd-guide) and the Guide Manager (vcd-gman).
+ * The script tools/help-pages.js adds the topic tiles, search, NEW tags and screenshot pop-up.
+ * Edit here, release a new version, then point the pages at the release.
+ */
+
+/* ---- shared ---- */
+.vcd-note,
+.gnew,
+.helpjs {
+  display: none !important
+}
+
+.ae-grid:is(:has(.vcd-help), :has(.vcd-guide), :has(.vcd-gman)) .component-rich-text .text {
+  font: 300 16px/1.55 Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #414042
+}
+
+.ae-grid:is(:has(.vcd-help), :has(.vcd-guide), :has(.vcd-gman)) .text ul,
+.ae-grid:is(:has(.vcd-help), :has(.vcd-guide), :has(.vcd-gman)) .text li {
+  list-style: none !important;
+  margin: 0;
+  padding: 0
+}
+
+.ae-grid:is(:has(.vcd-help), :has(.vcd-guide), :has(.vcd-gman)) .text a {
+  color: #0d5257
+}
+
+/* Header (design block) */
+.hw {
+  color: #414042
+}
+
+.hw * {
+  box-sizing: border-box
+}
+
+.hw a {
+  text-decoration: none
+}
+
+.hw .pf {
+  font-family: 'Playfair Display', Georgia, serif
+}
+
+.hw .crumb {
+  font-size: 13px;
+  color: #5d5c5f;
+  margin: 4px 0 16px
+}
+
+.hw .crumb a {
+  color: #5d5c5f;
+  text-decoration: underline
+}
+
+.hw .hero {
+  background: #0d5257;
+  color: #fff;
+  border-radius: 13px;
+  padding: 44px 44px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 28px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 8px
+}
+
+.hw .hero h1 {
+  flex: 1 1 380px;
+  margin: 0;
+  font: 900 52px/1.05 'Playfair Display', Georgia, serif;
+  color: #fff;
+  max-width: 820px
+}
+
+.hw .sb {
+  flex: 1 1 400px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 13px;
+  color-scheme: light
+}
+
+.hw .sb svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  fill: none;
+  stroke: #0d5257;
+  stroke-width: 2
+}
+
+.hw .sb input {
+  border: 0;
+  outline: 0;
+  font: 400 16px Roboto, Arial, sans-serif;
+  flex: 1;
+  min-width: 0;
+  color: #414042;
+  background: transparent
+}
+
+.hw .res {
+  display: none;
+  background: #fff;
+  border-radius: 13px;
+  margin: 8px 0;
+  overflow: hidden;
+  border: 1px solid #0d5257
+}
+
+.hw .res.on {
+  display: block
+}
+
+.hw .res a {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid #e6e3e0;
+  color: #414042
+}
+
+.hw .res a:hover {
+  background: #dbe6e7;
+  color: #0d5257
+}
+
+.hw .res a em {
+  font-style: normal;
+  font-size: 12px;
+  color: #5d5c5f;
+  white-space: nowrap
+}
+
+.hw .res .none {
+  padding: 14px 18px;
+  color: #5d5c5f
+}
+
+/* ---- hub ---- */
+/* Help spaces: Agora Help / Veracross Help */
+.ae-grid:has(.vcd-help) .text:has(> .spacemark) {
+  background: transparent !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .spacemark)>strong {
+  display: none
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .spacemark) ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .spacemark) li a {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 13px;
+  padding: 20px 24px;
+  background: #0d5257;
+  color: #fff !important;
+  text-decoration: none;
+  font: 900 26px/1.15 'Playfair Display', Georgia, serif
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .spacemark) li:nth-child(2) a {
+  background: #414042
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .spacemark) li a::after {
+  content: ' \203A'
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .spacemark) li a :is(i, em) {
+  font: 700 12px/1 Roboto, Arial, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #b6cbcd;
+  font-style: normal;
+  display: block
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .spacemark) li a:hover {
+  filter: brightness(1.15)
+}
+
+/* Topics: without the script they show as plain lists */
+.ae-grid:has(.vcd-help) .text:has(> .topicmark) {
+  background: transparent !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .topicmark)>strong {
+  display: block;
+  font: 700 30px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin: 10px 0 14px
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .topicmark)>ul>li {
+  background: #fff;
+  border-radius: 13px;
+  padding: 18px 22px;
+  margin: 0 0 12px !important
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .topicmark)>ul>li> :is(b, strong) {
+  display: block;
+  font: 700 20px 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin-bottom: 6px
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .topicmark)>ul>li li {
+  padding: 3px 0
+}
+
+/* Topic tiles (made by the script) */
+.ae-grid:has(.vcd-help) .text.hj>ul {
+  display: none
+}
+
+.tgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px
+}
+
+.tgrid .cat {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 13px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 150px;
+  color: #414042;
+  transition: box-shadow .15s
+}
+
+.tgrid .cat:hover,
+.tgrid .cat:focus-visible {
+  box-shadow: 0 0 0 2px #0d5257
+}
+
+.tgrid .cat.act {
+  box-shadow: 0 0 0 2px #0d5257;
+  background: #f2f1f0
+}
+
+.tgrid .ci {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0d5257;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.tgrid .ci svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+.tgrid .tn {
+  font: 700 21px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+.tgrid .tc {
+  margin-top: auto;
+  font-size: 13px
+}
+
+.tgrid .tc b {
+  color: #0d5257
+}
+
+.tgrid .topen {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-radius: 13px;
+  padding: 20px 24px;
+  border-top: 5px solid #0d5257
+}
+
+.topen .toh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px
+}
+
+.topen .lbl {
+  font: 700 12px Roboto, Arial, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #0d5257
+}
+
+.topen .tclose {
+  all: unset;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 34px;
+  color: #414042
+}
+
+.topen .tclose:hover {
+  background: #e6e3e0
+}
+
+.topen ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0 24px
+}
+
+.topen li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 4px;
+  border-bottom: 1px solid #eceae7;
+  color: #414042 !important;
+  text-decoration: none;
+  font-weight: 400
+}
+
+.topen li a:hover {
+  color: #0d5257 !important;
+  background: #f2f1f0
+}
+
+.topen li a::after {
+  content: '\203A';
+  margin-left: auto;
+  color: #0d5257
+}
+
+.topen .empty {
+  color: #5d5c5f;
+  padding: 8px 0
+}
+
+.newt {
+  font: 700 11px Roboto, Arial, sans-serif;
+  letter-spacing: .03em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #ecbcc5;
+  color: #414042;
+  flex: none
+}
+
+/* Suggest a guide bar */
+.ae-grid:has(.vcd-help) .text:has(> .suggestmark) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  background: #f2f1f0 !important;
+  border-radius: 13px;
+  padding: 20px 26px !important
+}
+
+.ae-grid:has(.vcd-help) .text:has(> .suggestmark) ul a {
+  display: inline-block;
+  background: #fff;
+  color: #0d5257;
+  border: 1px solid #0d5257;
+  border-radius: 4px;
+  padding: 10px 18px;
+  font-weight: 700;
+  text-decoration: none
+}
+
+/* Still stuck band (hub and guides) */
+.ae-grid:is(:has(.vcd-help), :has(.vcd-guide)) .text:has(> .helpmark) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 28px;
+  background: #b6cbcd !important;
+  border-radius: 13px;
+  padding: 24px 30px !important
+}
+
+.ae-grid:is(:has(.vcd-help), :has(.vcd-guide)) .text:has(> .helpmark)>strong {
+  flex: 1 1 100%;
+  font: 700 24px 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+.ae-grid:is(:has(.vcd-help), :has(.vcd-guide)) .text:has(> .helpmark)>div {
+  flex: 1 1 380px;
+  font-size: 14px
+}
+
+.ae-grid:is(:has(.vcd-help), :has(.vcd-guide)) .text:has(> .helpmark) ul a {
+  display: inline-block;
+  background: #0d5257;
+  color: #fff !important;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-weight: 700;
+  text-decoration: none
+}
+
+/* ---- guide pages ---- */
+.ae-grid:has(.vcd-guide) {
+  counter-reset: step
+}
+
+/* About + Before you start */
+.ae-grid:has(.vcd-guide) .text:is(:has(> .aboutmark), :has(> .needmark)) {
+  background: #fff;
+  border-radius: 13px;
+  padding: 24px 26px !important
+}
+
+.ae-grid:has(.vcd-guide) .text:has(> .needmark) {
+  background: #f2f1f0 !important
+}
+
+.ae-grid:has(.vcd-guide) .text:is(:has(> .aboutmark), :has(> .needmark))>strong {
+  display: block;
+  font: 700 24px 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin-bottom: 10px
+}
+
+.ae-grid:has(.vcd-guide) .text:has(> .needmark) li {
+  padding: 4px 0 4px 26px;
+  position: relative;
+  font-size: 15px
+}
+
+.ae-grid:has(.vcd-guide) .text:has(> .needmark) li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 10px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #0d5257
+}
+
+/* Section heading */
+.ae-grid:has(.vcd-guide) .text:has(> .secmark) {
+  background: transparent !important;
+  padding: 8px 0 0 !important
+}
+
+.ae-grid:has(.vcd-guide) .text:has(> .secmark)>strong {
+  font: 700 32px/1.2 'Playfair Display', Georgia, serif;
+  color: #0d5257
+}
+
+/* Steps: text block + Photo Link block look like one card, half and half */
+.ae-grid:has(.vcd-guide)>.portal-screen-block:has(.stepmark),
+.ae-grid:has(.vcd-guide)>.portal-screen-block:has(.submark) {
+  background: #fff;
+  border-radius: 13px;
+  padding: 0 !important;
+  margin-bottom: 16px !important
+}
+
+.ae-grid:has(.vcd-guide)>.portal-screen-block:has(.submark) {
+  background: #f7f6f5;
+  border-left: 0
+}
+
+.ae-grid:has(.vcd-guide)>.portal-screen-block:has(.stepmark):has(+ .portal-screen-block .component-photo-link),
+.ae-grid:has(.vcd-guide)>.portal-screen-block:has(.submark):has(+ .portal-screen-block .component-photo-link) {
+  border-radius: 13px 0 0 13px
+}
+
+.ae-grid:has(.vcd-guide)>.portal-screen-block:is(:has(.stepmark), :has(.submark))+.portal-screen-block:has(.component-photo-link) {
+  background: #fff;
+  border-radius: 0 13px 13px 0;
+  padding: 20px 20px 20px 4px !important;
+  margin-bottom: 16px !important
+}
+
+.ae-grid:has(.vcd-guide)>.portal-screen-block:has(.submark)+.portal-screen-block:has(.component-photo-link) {
+  background: #f7f6f5
+}
+
+.ae-grid:has(.vcd-guide) .portal-screen-block:is(:has(.stepmark), :has(.submark)) .text {
+  background: transparent !important;
+  padding: 22px 24px 22px 26px !important
+}
+
+.ae-grid:has(.vcd-guide) .portal-screen-block:has(.stepmark) {
+  counter-increment: step;
+  counter-reset: sub
+}
+
+.ae-grid:has(.vcd-guide) .portal-screen-block:has(.submark) {
+  counter-increment: sub
+}
+
+.ae-grid:has(.vcd-guide) :is(.stepmark, .submark) {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0d5257;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  font: 700 18px/1 Roboto, Arial, sans-serif;
+  font-variant-numeric: lining-nums tabular-nums;
+  margin: 0 0 12px
+}
+
+.ae-grid:has(.vcd-guide) .stepmark::before {
+  content: counter(step)
+}
+
+.ae-grid:has(.vcd-guide) .submark {
+  width: auto;
+  min-width: 40px;
+  padding: 0 10px;
+  border-radius: 20px;
+  background: #6e979a;
+  font-size: 16px
+}
+
+.ae-grid:has(.vcd-guide) .submark::before {
+  content: counter(step) counter(sub, lower-alpha)
+}
+
+.ae-grid:has(.vcd-guide) .portal-screen-block:is(:has(.stepmark), :has(.submark)) .text>strong {
+  display: block;
+  font: 700 22px/1.25 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin: 0 0 6px
+}
+
+.ae-grid:has(.vcd-guide) .portal-screen-block:has(.submark) .text>strong {
+  font-size: 19px
+}
+
+.ae-grid:has(.vcd-guide) .portal-screen-block:is(:has(.stepmark), :has(.submark)) .text>div {
+  font-size: 17px
+}
+
+.ae-grid:has(.vcd-guide) .optmark::before {
+  content: 'Optional';
+  display: inline-block;
+  font: 700 11px Roboto, Arial, sans-serif;
+  letter-spacing: .03em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #ecbcc5;
+  color: #414042;
+  margin: 0 0 8px
+}
+
+.ae-grid:has(.vcd-guide) .text .tip {
+  margin-top: 14px;
+  background: #f2f1f0;
+  border-left: 4px solid #0d5257;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 15px
+}
+
+.ae-grid:has(.vcd-guide) .portal-screen-block:has(.submark) .text .tip {
+  background: #fff
+}
+
+/* Screenshots */
+.ae-grid:has(.vcd-guide) .component-photo-link .photo-overlay {
+  display: none !important
+}
+
+.ae-grid:has(.vcd-guide) .component-photo-link .photo-thumbnail {
+  border-radius: 8px;
+  border: 1px solid #d6d3cf;
+  background-color: #fff;
+  background-position: top center !important
+}
+
+.ae-grid:has(.vcd-guide) .component-photo-link {
+  position: relative
+}
+
+.zhint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(13, 82, 87, .92);
+  color: #fff;
+  font: 700 13px Roboto, Arial, sans-serif;
+  padding: 7px 11px;
+  border-radius: 4px;
+  pointer-events: none
+}
+
+.zhint svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+.zoomable {
+  cursor: zoom-in
+}
+
+.zov {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: rgba(20, 20, 20, .82);
+  cursor: zoom-out
+}
+
+.zov img {
+  max-width: min(1200px, 96vw);
+  max-height: 92vh;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .4)
+}
+
+.zov button {
+  all: unset;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  line-height: 1
+}
+
+@media (max-width:640px) {
+
+  .ae-grid:has(.vcd-guide)>.portal-screen-block:is(:has(.stepmark), :has(.submark)):has(+ .portal-screen-block .component-photo-link) {
+    border-radius: 13px 13px 0 0;
+    margin-bottom: 0 !important
+  }
+
+  .ae-grid:has(.vcd-guide)>.portal-screen-block:is(:has(.stepmark), :has(.submark))+.portal-screen-block:has(.component-photo-link) {
+    border-radius: 0 0 13px 13px;
+    padding: 0 20px 20px !important
+  }
+
+  .ae-grid:has(.vcd-help) .text:has(> .spacemark) ul {
+    grid-template-columns: 1fr
+  }
+
+  .hw .hero h1 {
+    font-size: 38px
+  }
+}
