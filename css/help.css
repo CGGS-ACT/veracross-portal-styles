@@ -752,28 +752,28 @@
 }
 
 .achip.c-company-portal {
-  background: #0d5257;
-  color: #fff
+  background: #0d5257 !important;
+  color: #fff !important
 }
 
 .achip.c-web {
-  background: #b6cbcd;
-  color: #0d5257
+  background: #b6cbcd !important;
+  color: #0d5257 !important
 }
 
 .achip.c-computer-lab {
-  background: #ecbcc5
+  background: #ecbcc5 !important
 }
 
 .achip.c-mobile {
-  background: #f2f1f0;
-  border-color: #d6d3cf
+  background: #f2f1f0 !important;
+  border-color: #d6d3cf !important
 }
 
 .achip.c-ask-ict {
-  background: #fff;
-  color: #be1f41;
-  border-color: #be1f41
+  background: #fff !important;
+  color: #be1f41 !important;
+  border-color: #be1f41 !important
 }
 
 .afil {
@@ -949,4 +949,19 @@
   padding: 12px 20px;
   font-weight: 700;
   text-decoration: none
+}
+
+.ae-grid:has(.vcd-apps) li.aj .alinks a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #0d5257;
+  text-decoration: none
+}
+
+.ae-grid:has(.vcd-apps) li.aj .alinks a::after {
+  content: ' \203A'
+}
+
+.ae-grid:has(.vcd-apps) li.aj .alinks a:hover {
+  text-decoration: underline
 }
