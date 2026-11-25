@@ -164,9 +164,7 @@
 }
 
 .ae-grid:has(.vcd-help) .text:has(> .spacemark) li a {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  display: block;
   border-radius: 13px;
   padding: 20px 24px;
   background: #0d5257;
@@ -189,7 +187,8 @@
   text-transform: uppercase;
   color: #b6cbcd;
   font-style: normal;
-  display: block
+  display: block;
+  margin-bottom: 8px
 }
 
 .ae-grid:has(.vcd-help) .text:has(> .spacemark) li a:hover {
