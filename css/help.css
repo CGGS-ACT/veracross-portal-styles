@@ -970,3 +970,301 @@
 .ae-grid:has(.vcd-apps) li.aj .alinks a:hover {
   text-decoration: underline
 }
+
+/* ---- Help spaces: Agora Help (vcd-space) ---- */
+.ae-grid:has(.vcd-space) .component-rich-text .text {
+  font: 300 15px/1.55 Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #414042
+}
+
+.ae-grid:has(.vcd-space) .text ul,
+.ae-grid:has(.vcd-space) .text li {
+  list-style: none !important;
+  margin: 0;
+  padding: 0
+}
+
+.ae-grid:has(.vcd-space) .text a {
+  color: #0d5257
+}
+
+/* section buttons (made by the script) */
+.snav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2px 0 4px
+}
+
+.snav button {
+  all: unset;
+  cursor: pointer;
+  background: #fff;
+  color: #0d5257;
+  border: 1px solid #0d5257;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font: 400 14px Roboto, Arial, sans-serif
+}
+
+.snav button:hover {
+  background: #0d5257;
+  color: #fff
+}
+
+/* pinned */
+.ae-grid:has(.vcd-space) .text:has(> .pinmark) {
+  background: transparent !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .pinmark)>strong {
+  display: none
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .pinmark) ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .pinmark) li {
+  background: #ecbcc5;
+  border-radius: 13px;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .pinmark) li::before {
+  content: 'Pinned';
+  font: 700 12px Roboto, Arial, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #414042
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .pinmark) li[data-until]::before {
+  content: 'Pinned until ' attr(data-until)
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .pinmark) li>a {
+  font: 700 20px/1.25 'Playfair Display', Georgia, serif;
+  color: #414042 !important;
+  text-decoration: none
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .pinmark) li>a:hover {
+  text-decoration: underline
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .pinmark) li> :is(i, em) {
+  font-style: normal;
+  font-size: 14px
+}
+
+.ae-grid:has(.vcd-space) .until,
+.ae-grid:has(.vcd-space) .pinold {
+  display: none !important
+}
+
+/* start here + activity cards */
+.ae-grid:has(.vcd-space) .text:is(:has(> .startmark), :has(> .actmark), :has(> .tipsmark)) {
+  background: #fff !important;
+  border-radius: 13px;
+  padding: 24px 26px !important
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .startmark) {
+  border-left: 6px solid #0d5257
+}
+
+.ae-grid:has(.vcd-space) .text:is(:has(> .startmark), :has(> .actmark), :has(> .tipsmark))>strong {
+  display: block;
+  font: 700 24px/1.25 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin-bottom: 8px
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .startmark)>strong::before {
+  content: 'Start here';
+  display: block;
+  font: 700 12px Roboto, Arial, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #6e979a;
+  margin-bottom: 4px
+}
+
+.ae-grid:has(.vcd-space) .text:is(:has(> .startmark), :has(> .actmark))>ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 14px
+}
+
+.ae-grid:has(.vcd-space) .text:is(:has(> .startmark), :has(> .actmark))>ul>li {
+  background: #f2f1f0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 14px
+}
+
+.ae-grid:has(.vcd-space) .text:is(:has(> .startmark), :has(> .actmark))>ul>li> :is(b, strong) {
+  display: block;
+  color: #0d5257;
+  font-size: 15px;
+  margin-bottom: 3px
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .tipsmark) li {
+  padding: 4px 0 4px 24px;
+  position: relative
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .tipsmark) li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 11px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #0d5257
+}
+
+/* guide groups */
+.ae-grid:has(.vcd-space) .text:has(> .grpmark) {
+  background: #fff !important;
+  border-radius: 13px;
+  padding: 20px 22px !important
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .grpmark)>strong {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 21px/1.25 'Playfair Display', Georgia, serif;
+  color: #0d5257;
+  margin-bottom: 8px
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .grpmark)>strong .gcount {
+  margin-left: auto;
+  font: 400 13px Roboto, Arial, sans-serif;
+  color: #6d6d6d
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .grpmark) li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 2px;
+  border-bottom: 1px solid #eceae7
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .grpmark) li:last-child {
+  border-bottom: 0
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .grpmark) li>a {
+  flex: 1;
+  color: #414042 !important;
+  text-decoration: none;
+  font-weight: 400
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .grpmark) li>a:hover {
+  color: #0d5257 !important;
+  text-decoration: underline
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .grpmark) li> :is(i, em) {
+  font-style: normal;
+  font-size: 12px;
+  color: #6d6d6d;
+  white-space: nowrap
+}
+
+.gty {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #dbe6e7;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.gty svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #0d5257;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+.ae-grid:has(.vcd-space) .hide {
+  display: none !important
+}
+
+/* suggest bar + eLearning band */
+.ae-grid:has(.vcd-space) .text:has(> .suggestmark) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  background: #f2f1f0 !important;
+  border-radius: 13px;
+  padding: 20px 26px !important
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .suggestmark) ul a {
+  display: inline-block;
+  background: #fff;
+  color: #0d5257;
+  border: 1px solid #0d5257;
+  border-radius: 4px;
+  padding: 10px 18px;
+  font-weight: 700;
+  text-decoration: none
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .elmark) {
+  background: transparent !important;
+  padding: 0 !important
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .elmark)>strong {
+  display: none
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .elmark) ul a {
+  display: block;
+  background: #0d5257;
+  color: #fff !important;
+  border-radius: 13px;
+  padding: 26px 30px;
+  text-align: center;
+  font: 700 26px 'Playfair Display', Georgia, serif;
+  text-decoration: none
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .elmark) ul a::after {
+  content: ' \203A'
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .elmark) ul a:hover {
+  background: #0a4044
+}
+
+.ae-grid:has(.vcd-space) .text:has(> .elmark)>div {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 8px
+}

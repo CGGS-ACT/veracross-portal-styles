@@ -102,6 +102,34 @@ function apps(){
   none.textContent=v?'No apps match “'+(inp.value.trim())+'”. Try another word, or log an ICT request below.':'';none.classList.toggle('hide',!!shown)}
  var host=secs[0];host.parentNode.insertBefore(none,host);
  if(inp){inp.oninput=apply;inp.onkeydown=function(e){if(e.key==='Escape'){inp.value='';apply()}}}}
-function start(){if(D.querySelector('.vcd-help'))hub();else if(D.querySelector('.vcd-guide'))guide();else if(D.querySelector('.vcd-apps'))apps()}
+
+/* ---------- Help spaces (Agora Help, Veracross Help): section buttons, type icons, counts, pinned dates, NEW, search ---------- */
+var TY={video:'<path d="M4 6h11v12H4z"/><path d="M15 10l5-3v10l-5-3"/>',pdf:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',steps:'<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h1M4 12h1M4 18h1"/>',link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
+function tyOf(s,h){s=(s||'').toLowerCase();if(/video|recording/.test(s))return 'video';if(/pdf|document|guide pdf/.test(s))return 'pdf';if(/steps|guide/.test(s))return 'steps';if(/^\/cggs_act\//.test(h||''))return 'steps';return 'link'}
+function space(){
+ var grps=q('.text').filter(function(t){return t.querySelector(':scope > .grpmark')});if(!grps.length){if(tries++<40)setTimeout(space,300);return}
+ var today=new Date();today.setHours(0,0,0,0);
+ /* pinned: hide after their date, show the date */
+ q('.text').filter(function(t){return t.querySelector(':scope > .pinmark')}).forEach(function(tx){var any=false;q(':scope > ul > li',tx).forEach(function(li){var u=li.querySelector('.until');if(u){var d=new Date(u.textContent.trim());if(!isNaN(d)){if(d<today){li.classList.add('pinold');return}li.setAttribute('data-until',d.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()])}}any=true});if(!any)tx.closest('.portal-screen-block').classList.add('hide')});
+ var all=[];
+ grps.forEach(function(tx){var lis=q(':scope > ul > li',tx);var h=tx.querySelector(':scope > strong');
+  lis.forEach(function(li){var a=li.querySelector('a');if(!a)return;var it=li.querySelector(':scope > i, :scope > em');var ty=tyOf(it&&it.textContent,a.getAttribute('href'));var s=D.createElement('span');s.className='gty';s.title=ty==='pdf'?'PDF guide':ty==='video'?'Video':ty==='steps'?'Step-by-step guide':'Link';s.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+TY[ty]+'</svg>';li.insertBefore(s,li.firstChild);
+   if(isNew(li)){var n=D.createElement('span');n.className='newt';n.textContent='NEW';a.after(n)}
+   all.push({li:li,tx:tx,s:(li.textContent+' '+(h?h.textContent:'')).toLowerCase()})});
+  if(h){var c=D.createElement('span');c.className='gcount';c.textContent=lis.length+' guide'+(lis.length==1?'':'s');h.appendChild(c)}});
+ /* section buttons */
+ var secs=q('.text').filter(function(t){return t.querySelector(':scope > .startmark, :scope > .grpmark, :scope > .actmark')});
+ var nav=D.createElement('div');nav.className='snav';
+ secs.forEach(function(tx){var st=tx.querySelector(':scope > .startmark');var h=tx.querySelector(':scope > strong');var name=st?'Start here':(h?h.childNodes[0].textContent.trim():'');if(!name)return;var b=D.createElement('button');b.type='button';b.textContent=name;b.onclick=function(){var y=tx.getBoundingClientRect().top+scrollY-90;sc(y)};nav.appendChild(b)});
+ var first=q('.ae-grid > .portal-screen-block').filter(function(b){return !b.querySelector('.vcd-note')&&!b.classList.contains('hide')})[0];
+ if(first&&nav.childNodes.length){var w=D.createElement('div');w.className='portal-screen-block snavb';w.style.cssText='flex:0 0 100%;max-width:100%;padding:4px;box-sizing:border-box';w.appendChild(nav);first.parentNode.insertBefore(w,first)}
+ /* search */
+ var inp=D.querySelector('.hw .sb input'),res=D.querySelector('.hw .res');
+ if(inp&&res){inp.oninput=function(){var v=inp.value.trim().toLowerCase();if(v.length<2){res.classList.remove('on');res.innerHTML='';return}var wds=v.split(/\s+/);
+   var m=all.filter(function(g){return wds.every(function(x){return g.s.indexOf(x)>-1})});
+   res.innerHTML=m.slice(0,30).map(function(g){var a=g.li.querySelector('a');var h=g.tx.querySelector(':scope > strong');return '<a href="'+esc(a.getAttribute('href'))+'"'+(a.getAttribute('target')?' target="_blank"':'')+'><span>'+esc(a.textContent)+'</span><em>'+esc(h?h.childNodes[0].textContent.trim():'')+'</em></a>'}).join('')||'<div class="none">No guides match “'+esc(inp.value.trim())+'”. Try another word, or suggest a guide below.</div>';res.classList.add('on')};
+  inp.onkeydown=function(e){if(e.key==='Escape'){inp.value='';inp.oninput()}}}
+}
+function start(){if(D.querySelector('.vcd-space'))space();else if(D.querySelector('.vcd-help'))hub();else if(D.querySelector('.vcd-guide'))guide();else if(D.querySelector('.vcd-apps'))apps()}
 if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',start);else start();
 })();
