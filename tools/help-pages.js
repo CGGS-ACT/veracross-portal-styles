@@ -7,7 +7,8 @@ function q(s,r){return [].slice.call((r||D).querySelectorAll(s))}
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
 function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
 function sc(to){var f=scrollY,d=to-f,n=performance.now();if(Math.abs(d)<2)return;function a(now){var p=Math.min(1,(now-n)/450);scrollTo(0,f+d*ease(p));if(p<1)requestAnimationFrame(a)}requestAnimationFrame(a)}
-function anim(el,open,done,h1){var s=el.style;var h0=open?0:el.offsetHeight;s.overflow='hidden';s.transition='none';if(h1==null){s.height='';h1=open?el.offsetHeight:0}s.height=h0+'px';void el.offsetHeight;s.transition='height .45s cubic-bezier(.65,0,.35,1)';s.height=h1+'px';setTimeout(function(){s.transition='';s.overflow='';if(open)s.height='';if(done)done()},470)}
+var AN=0;function anchorOff(on){var h=D.documentElement.style;if(on){AN++;h.overflowAnchor='none'}else if(--AN<=0){AN=0;h.overflowAnchor=''}}
+function anim(el,open,done,h1){var s=el.style;anchorOff(true);var h0=open?0:el.offsetHeight;s.overflow='hidden';s.transition='none';if(h1==null){s.height='';h1=open?el.offsetHeight:0}s.height=h0+'px';void el.offsetHeight;s.transition='height .45s cubic-bezier(.65,0,.35,1)';s.height=h1+'px';setTimeout(function(){s.transition='';s.overflow='';if(open)s.height='';anchorOff(false);if(done)done()},470)}
 var ICONS=[
  [/onboard|start|new staff/i,'<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/>'],
  [/microsoft|365|teams|outlook|onedrive/i,'<rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/>'],
