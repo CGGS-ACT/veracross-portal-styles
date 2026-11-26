@@ -6,8 +6,8 @@ var D=document,tries=0;
 function q(s,r){return [].slice.call((r||D).querySelectorAll(s))}
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
 function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
-function sc(to){var f=scrollY,d=to-f,n=Date.now();if(!d)return;(function a(){var p=Math.min(1,(Date.now()-n)/600);scrollTo(0,f+d*ease(p));if(p<1)setTimeout(a,16)})()}
-function anim(el,open,done){var s=el.style;var h0=open?0:el.offsetHeight;s.overflow='hidden';s.transition='none';s.height='';var h1=open?el.offsetHeight:0;s.height=h0+'px';void el.offsetHeight;s.transition='height .45s ease';s.height=h1+'px';setTimeout(function(){s.transition='';s.overflow='';if(open)s.height='';if(done)done()},470)}
+function sc(to){var f=scrollY,d=to-f,n=performance.now();if(Math.abs(d)<2)return;function a(now){var p=Math.min(1,(now-n)/450);scrollTo(0,f+d*ease(p));if(p<1)requestAnimationFrame(a)}requestAnimationFrame(a)}
+function anim(el,open,done,h1){var s=el.style;var h0=open?0:el.offsetHeight;s.overflow='hidden';s.transition='none';if(h1==null){s.height='';h1=open?el.offsetHeight:0}s.height=h0+'px';void el.offsetHeight;s.transition='height .45s cubic-bezier(.65,0,.35,1)';s.height=h1+'px';setTimeout(function(){s.transition='';s.overflow='';if(open)s.height='';if(done)done()},470)}
 var ICONS=[
  [/onboard|start|new staff/i,'<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/>'],
  [/microsoft|365|teams|outlook|onedrive/i,'<rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/>'],
@@ -34,8 +34,8 @@ function hub(){
   b.onclick=function(){toggle(t,b)};t.btn=b;grid.appendChild(b)});
  var open=null,busy=false;
  function panel(t){var p=D.createElement('div');p.className='topen';p.setAttribute('role','region');
-  p.innerHTML='<div class="toh"><span class="lbl">'+esc(t.name)+' · '+t.g.length+' guide'+(t.g.length==1?'':'s')+'</span><button type="button" class="tclose" aria-label="Close">✕</button></div>'+
-   (t.g.length?'<ul>'+t.g.map(function(g){return '<li><a href="'+esc(g.h)+'"'+(g.tg?' target="'+esc(g.tg)+'"':'')+'><span>'+esc(g.t)+'</span>'+(g.n?'<span class="newt">NEW</span>':'')+'</a></li>'}).join('')+'</ul>':'<div class="empty">No guides in this topic yet. They’re on the way.</div>');
+  p.innerHTML='<div class="toi"><div class="toh"><span class="lbl">'+esc(t.name)+' · '+t.g.length+' guide'+(t.g.length==1?'':'s')+'</span><button type="button" class="tclose" aria-label="Close">✕</button></div>'+
+   (t.g.length?'<ul>'+t.g.map(function(g){return '<li><a href="'+esc(g.h)+'"'+(g.tg?' target="'+esc(g.tg)+'"':'')+'><span>'+esc(g.t)+'</span>'+(g.n?'<span class="newt">NEW</span>':'')+'</a></li>'}).join('')+'</ul>':'<div class="empty">No guides in this topic yet. They’re on the way.</div>')+'</div>';
   p.querySelector('.tclose').onclick=function(){toggle(t,t.btn)};return p}
  function close(cb){if(!open){if(cb)cb();return}var o=open;open=null;o.t.btn.classList.remove('act');o.t.btn.setAttribute('aria-expanded','false');
   if(o.back!=null){sc(o.back)}else{var tp=o.t.btn.getBoundingClientRect().top;if(tp<80)sc(scrollY+tp-90)}
@@ -43,7 +43,8 @@ function hub(){
  function toggle(t,b){if(busy)return;busy=true;var was=open&&open.t===t;close(function(){if(was){busy=false;return}
   var tiles=q('.cat',grid),last=b;tiles.forEach(function(x){if(x.offsetTop===b.offsetTop)last=x});
   var p=panel(t);last.after(p);b.classList.add('act');b.setAttribute('aria-expanded','true');var y0=scrollY;open={t:t,p:p,back:null};
-  anim(p,true,function(){busy=false;var r=p.getBoundingClientRect(),br=b.getBoundingClientRect();var need=r.bottom-innerHeight+24;if(need>0){var by=Math.min(need,Math.max(br.top-90,0));if(by>0){open.back=y0;sc(scrollY+by)}}})})}
+  var h1=p.offsetHeight;var r=p.getBoundingClientRect(),br=b.getBoundingClientRect();var need=r.top+h1-innerHeight+24;var by=need>0?Math.min(need,Math.max(br.top-90,0)):0;
+  anim(p,true,function(){busy=false},h1);if(by>0){open.back=y0;sc(scrollY+by)}})}
  /* search */
  var inp=D.querySelector('.hw .sb input'),res=D.querySelector('.hw .res');
  if(inp&&res){var all=[];topics.forEach(function(t){t.g.forEach(function(g){all.push({t:g.t,h:g.h,tg:g.tg,topic:t.name})})});
