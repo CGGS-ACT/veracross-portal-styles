@@ -314,7 +314,7 @@ function gmBlocks(g,links){var B=[];function rt(h,w){B.push({html:h,w:w})}
  if(g.section)rt('<strong>'+gmEsc(g.section)+'</strong><span class="secmark"></span>','12');
  function step(s,mark){var h='<span class="'+mark+'"></span>'+(s.opt?'<span class="optmark"></span>':'')+'<strong>'+gmEsc(s.title)+'</strong>'+(s.text?'<div>'+gmText(s.text)+'</div>':'')+(s.tip?'<div class="tip"><b>Tip:</b> '+gmText(s.tip)+'</div>':'');rt(h,s.shot?'6':'12');if(s.shot)B.push({photo:s.shot,w:'6'})}
  g.steps.forEach(function(s){step(s,'stepmark');(s.subs||[]).forEach(function(u){step(u,'submark')})});
- rt('<strong>Still stuck? ICT Services can help</strong><span class="helpmark"></span><div>ICT Services, Level 1, A Block, Senior School &#183; ICT Helpdesk, Library Offices, Junior School<br>Ext. 500 for urgent matters</div><ul><li><a href="'+GM_ICT+'" target="_blank">Log a ticket</a></li></ul>'+GM_HELPJS,'12');
+ rt('<strong>Still stuck? ICT Services can help</strong><span class="helpmark"></span><div>ICT Services, Level 1, A Block, Senior School &#183; ICT Helpdesk, Library Offices, Junior School<br>Ext. 500 for urgent matters</div><ul><li><a href="'+GM_ICT+'" target="_blank">Log a ticket</a></li></ul>'+GM_HELPJS+(g.syncTag||''),'12');
  return B}
 /* Write blocks to a screen: pass 1 makes the components, pass 2 sets their settings (Veracross ignores settings on new components) */
 async function gmWrite(P,page,B){var d=await open(P,page);try{var w=d.w,fk=w.portal_screen_admin.get().screen.portal_screen_pk;
@@ -322,7 +322,7 @@ async function gmWrite(P,page,B){var d=await open(P,page);try{var w=d.w,fk=w.por
  d=await open(P,page);try{var w2=d.w;var cc=comps(w2);if(cc.length!==B.length)throw new Error('Expected '+B.length+' blocks, found '+cc.length);await gmSaveAll(w2,cc,function(c,cfg,i){var b=B[i];if(b.photo)return gmPhotoCfg(b.photo);cfg.content=cfg.content||{};cfg.content.text=b.html;return cfg})}finally{d.f.remove()}}
 async function gmStyleLinks(){var t=await (await fetch('/cggs_act/'+GM_P+'/pages/'+GM_HUB,{credentials:'same-origin'})).text();var h=pageTexts(t);return (h.match(/<link class="vcd-css"[^>]*>/g)||[]).filter(function(x){return /\/(core|staff)\.css/.test(x)}).join('')}
 async function gmBuild(g,say){
- say('Getting ready...');var d=await open(GM_P,'guide-manager');var up;try{up={FORKLIFT_UPLOAD_URL:d.w.FORKLIFT_UPLOAD_URL,FORKLIFT_AUTH_TOKEN:d.w.FORKLIFT_AUTH_TOKEN}}finally{d.f.remove()}
+ say('Getting ready...');var d=await open(GM_P,'guide-manager');var up;try{up={FORKLIFT_UPLOAD_URL:d.w.FORKLIFT_UPLOAD_URL,FORKLIFT_AUTH_TOKEN:d.w.FORKLIFT_AUTH_TOKEN};comps(d.w).forEach(function(c){var x=c.configuration&&c.configuration.content&&c.configuration.content.text;var m=typeof x=='string'&&x.match(/<img class="vcd-syncjs"[^>]*>/);if(m)g.syncTag=m[0]})}finally{d.f.remove()}
  if(!up.FORKLIFT_AUTH_TOKEN)throw new Error('Could not get the Veracross upload key');
  var shots=[];g.steps.forEach(function(s){if(s.file)shots.push(s);(s.subs||[]).forEach(function(u){if(u.file)shots.push(u)})});
  for(var i=0;i<shots.length;i++){say('Uploading screenshot '+(i+1)+' of '+shots.length+'...');shots[i].shot=await gmUpload(up,shots[i].file)}
@@ -397,8 +397,10 @@ function gmRender(root){
 
 if(window.__vptLib){var cb=window.__vptLib;if(here&&here[2]=='guide-manager'&&!/\/edit\/?$/.test(location.pathname)){var gmRoot=document.querySelector('.vcd-gmgr');if(gmRoot&&!gmRoot.getAttribute('data-on')){gmRoot.setAttribute('data-on','1');gmRender(gmRoot)}}window.__vptLib=null;if(here&&/\/edit\/?$/.test(location.pathname)&&window.portal_screen_admin)codeUI();if(here&&here[2]=='policy-manager'){var pmRoot=document.querySelector('.vcd-pmgr');if(pmRoot&&!pmRoot.getAttribute('data-on')){pmRoot.setAttribute('data-on','1');pmRender(pmRoot)}}
  var pol=here&&isPolicyPage(here[2]);
- /* Policy pages: no Sync. Policies are added, changed and removed in the Policy Manager, which updates every portal */
- cb({here:here,others:others,otherNames:otherNames,canSync:pol?false:canSync,name:NAME,build:build});
+ var hlp=here&&here[1]==='faculty'&&(/^(help-how-to|apps-services)$/.test(here[2])||!!document.querySelector('.vcd-guide'));
+ /* Policy pages: no Sync. Policies are added, changed and removed in the Policy Manager, which updates every portal. Help pages: no Sync, a Guide Manager button instead */
+ cb({here:here,others:others,otherNames:otherNames,canSync:(pol||hlp)?false:canSync,name:NAME,build:build});
+ if(hlp&&!document.querySelector('.vcd-gmbtn')){var ob2=document.querySelector('.vcd-syncbtn');if(ob2)ob2.remove();var gb=document.createElement('a');gb.className='vcd-gmbtn';gb.href='/cggs_act/faculty/pages/guide-manager';gb.textContent='Add or change a guide: Guide Manager';gb.title='Build a new how-to guide or take one off Help & How-to.';gb.style.cssText='position:fixed;right:20px;bottom:20px;z-index:9999;background:#0d5257;color:#fff;border-radius:4px;padding:12px 18px;font:500 14px Roboto,Arial,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18);text-decoration:none';document.body.appendChild(gb)}
  if(here&&here[2]==='cygnus-schedule')ttButton(here[1],here[2]);
  if(pol&&!document.querySelector('.vcd-pmbtn')){var ob=document.querySelector('.vcd-syncbtn');if(ob)ob.remove();var mb=document.createElement('a');mb.className='vcd-pmbtn';mb.href='/cggs_act/faculty/pages/policy-manager';if(here[1]!='faculty')mb.target='_blank';mb.textContent='Add or change a policy: Policy Manager';mb.title='Policies are managed in one place. The Policy Manager updates every portal.';mb.style.cssText='position:fixed;right:20px;bottom:20px;z-index:9999;background:#0d5257;color:#fff;border-radius:4px;padding:12px 18px;font:500 14px Roboto,Arial,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.18);text-decoration:none';document.body.appendChild(mb)}
  return}
