@@ -75,8 +75,8 @@ function guide(){
 }
 
 /* ---------- Apps & Services: icons, tag chips, filters, search ---------- */
-var ICO='https://cdn.jsdelivr.net/gh/CGGS-ACT/veracross-portal-styles@df1a058/img/apps/';
-var HAVE=' outlook teams onedrive sharepoint copilot clipchamp minecraft-education creative-cloud acrobat photoshop illustrator indesign premiere-pro booked synergetic sine canva-for-education autodesk-fusion sibelius-ultimate sketchup-pro verkada forticlient-vpn word excel powerpoint forms google-drive google-sheets google-slides agora ';
+var ICO='https://cdn.jsdelivr.net/gh/CGGS-ACT/veracross-portal-styles@e06498c/img/apps/';
+var HAVE=' outlook teams onedrive sharepoint copilot clipchamp minecraft-education creative-cloud acrobat photoshop illustrator indesign premiere-pro booked synergetic sine canva-for-education autodesk-fusion sibelius-ultimate sketchup-pro verkada forticlient-vpn word excel powerpoint forms google-drive google-sheets google-slides agora company-portal jotform edsmart papercut-mf windows-hello alii junior-school-library senior-school-library flexipurchase flexischools complispace employment-hero cggs-app sports-tracker seesaw efofex clipboard ';
 function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function chip(t){var s=D.createElement('span');s.className='achip c-'+slug(t);s.textContent=t.trim();return s}
 function apps(){
