@@ -281,7 +281,7 @@ function ttButton(P,page){if(document.querySelector('.vcd-ttimbtn'))return;var b
   pl.innerHTML='<style>#vpt-ttim button{all:unset;cursor:pointer;background:#0d5257;color:#fff;border-radius:4px;padding:8px 14px;font:500 13px Roboto,Arial,sans-serif;margin:6px 6px 0 0}#vpt-ttim button[disabled]{opacity:.5;cursor:wait}</style><div style="display:flex;align-items:center;margin-bottom:6px"><b style="font:700 18px Georgia,serif;color:#0d5257;flex:1">Import schedule</b><span title="Close" style="cursor:pointer;font-size:22px;color:#7a7a7a">&times;</span></div><div class="ttim-body"></div>';
   pl.querySelector('span[title]').onclick=function(){pl.remove()};document.body.appendChild(pl);ttImportUI(pl.querySelector('.ttim-body'),P,page)};document.body.appendChild(b)}
 /* ---------- Guide Manager (faculty/guide-manager): build how-to guides and add them to the Help & How-to hub ---------- */
-var GM_HUB='help-how-to',GM_P='faculty',GM_HELPCSS='@0f437b8';
+var GM_HUB='help-how-to',GM_P='faculty',GM_HELPCSS='@0c5bbc9';
 var GM_ICT='https://cggs-act.atlassian.net/servicedesk/customer/portal/2';
 var GM_HELPJS='<img class="vcd-helpjs" src="data:," alt="" style="display:none" onerror="(function(){if(window.top!==window||window.__helpjsL)return;window.__helpjsL=1;fetch(\'https://raw.githubusercontent.com/CGGS-ACT/veracross-portal-styles/main/tools/help-pages.js\',{cache:\'no-cache\'}).then(function(r){return r.text()}).then(function(c){var s=document.createElement(\'script\');s.textContent=c;document.body.appendChild(s)}).catch(function(){})})()">';
 function gmEsc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -414,7 +414,7 @@ function appIconButton(){if(document.querySelector('.vcd-aibtn'))return;var b=do
 
 if(window.__vptLib){var cb=window.__vptLib;if(here&&here[2]=='guide-manager'&&!/\/edit\/?$/.test(location.pathname)){var gmRoot=document.querySelector('.vcd-gmgr');if(gmRoot&&!gmRoot.getAttribute('data-on')){gmRoot.setAttribute('data-on','1');gmRender(gmRoot)}}window.__vptLib=null;if(here&&/\/edit\/?$/.test(location.pathname)&&window.portal_screen_admin)codeUI();if(here&&here[2]=='policy-manager'){var pmRoot=document.querySelector('.vcd-pmgr');if(pmRoot&&!pmRoot.getAttribute('data-on')){pmRoot.setAttribute('data-on','1');pmRender(pmRoot)}}
  var pol=here&&isPolicyPage(here[2]);
- var hlp=here&&here[1]==='faculty'&&(/^(help-how-to|apps-services)$/.test(here[2])||!!document.querySelector('.vcd-guide'));
+ var hlp=here&&here[1]==='faculty'&&(/^(help-how-to|apps-services|agora-help|veracross-help)$/.test(here[2])||!!document.querySelector('.vcd-guide'));
  /* Policy pages: no Sync. Policies are added, changed and removed in the Policy Manager, which updates every portal. Help pages: no Sync, a Guide Manager button instead */
  cb({here:here,others:others,otherNames:otherNames,canSync:(pol||hlp)?false:canSync,name:NAME,build:build});
  if(here&&here[1]==='faculty'&&here[2]==='apps-services'&&!/\/edit\/?$/.test(location.pathname))setTimeout(appIconButton,1500);
