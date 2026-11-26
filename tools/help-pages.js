@@ -100,8 +100,7 @@ function apps(){
    all.filter(function(a){return a.blk===blk}).forEach(function(a){var m=on&&w.every(function(x){return a.s.indexOf(x)>-1});a.li.classList.toggle('hide',!m);if(m)n++});
    blk.classList.toggle('hide',!n);shown+=n});
   none.textContent=v?'No apps match “'+(inp.value.trim())+'”. Try another word, or log an ICT request below.':'';none.classList.toggle('hide',!!shown)}
- names.forEach(function(n){var b=D.createElement('button');b.type='button';b.textContent=n;if(n==='All')b.className='on';b.onclick=function(){cur=n;q('button',bar).forEach(function(x){x.classList.toggle('on',x===b)});apply()};bar.appendChild(b)});
- var host=secs[0];host.parentNode.insertBefore(bar,host);bar.after(none);
+ var host=secs[0];host.parentNode.insertBefore(none,host);
  if(inp){inp.oninput=apply;inp.onkeydown=function(e){if(e.key==='Escape'){inp.value='';apply()}}}}
 function start(){if(D.querySelector('.vcd-help'))hub();else if(D.querySelector('.vcd-guide'))guide();else if(D.querySelector('.vcd-apps'))apps()}
 if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',start);else start();
